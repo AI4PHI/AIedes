@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "AIedes"
+version = "0.1.0"
+description = "A data-driven framework for estimating mosquito presence and abundance using neural networks."
+authors = [
+  { name = "Your Name", email = "your@email.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+  "numpy>=2.3",
+  "pandas==2.2.3",
+  "geopandas>=1.0.1",
+  "tqdm",
+  "jupyter",
+  "cartopy",
+  "seaborn",
+  "xarray",
+  "rasterio",
+  "netCDF4",  # netcdf4 package on pip is written like this
+  "contextily",
+]
+
+[project.urls]
+Homepage = "https://github.com/YOUR_USERNAME/AIedes"

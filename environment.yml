@@ -1,0 +1,27 @@
+# environment.yml
+name: aiedes-env
+channels:
+  - conda-forge
+channel_priority: strict
+dependencies:
+  - python=3.12
+  - pip
+  # core
+  - numpy=2.3.*
+  - pandas=2.2.3
+  - xarray
+  - tqdm
+  - seaborn
+  - netcdf4
+  - jupyter
+  # geospatial 
+  - shapely
+  - pyproj
+  - gdal
+  - libjpeg-turbo
+  - rasterio
+  - pyogrio
+  - geopandas
+  - cartopy
+  - contextily
+  - regionmask
