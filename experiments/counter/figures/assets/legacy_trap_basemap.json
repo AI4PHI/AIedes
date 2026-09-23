@@ -1,0 +1,10 @@
+{
+  "extent": [
+    0.0,
+    2504688.542848655,
+    3757032.814272984,
+    6261721.357121639
+  ],
+  "source": "experiments/counter/results/img/most_populated_traps_time_series.pdf, embedded basemap image 0; original CartoDB.Positron zoom 5 tile bounds",
+  "attribution": "(C) OpenStreetMap contributors (C) CARTO"
+}

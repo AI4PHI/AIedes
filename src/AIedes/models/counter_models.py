@@ -1,6 +1,38 @@
+import contextlib
+import io
+
+import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+
+
+def counter_candidate_model(candidate, input_dim):
+    """Build the revision's positive feed-forward network from explicit widths.
+
+    The legacy network halves its hidden width per layer (floor, never below 16),
+    so a candidate's explicit widths must agree with that rule.
+    """
+    widths = list(candidate["widths"])
+    expected = [max(widths[0] // (2 ** i), 16) for i in range(len(widths))]
+    if expected != widths:
+        raise ValueError(f"Architecture {widths} does not match the halving rule {expected}")
+    with contextlib.redirect_stdout(io.StringIO()):
+        model = PositiveFeedForwardAbundanceModel(
+            input_dim, widths[0], 1, len(widths), candidate["dropout"], device="cpu"
+        )
+        return ZINBPositiveFF(model) if candidate.get("loss") == "ZINB" else model
+
+
+def predict_counter_rates(model, x):
+    """Evaluation-mode weekly-rate prediction with explicit validity checks."""
+    model.eval()
+    with torch.no_grad():
+        prediction = model(torch.as_tensor(x, dtype=torch.float32)).view(-1).cpu().numpy()
+    if not np.isfinite(prediction).all() or (prediction < 0).any():
+        raise ValueError("Invalid model prediction")
+    return prediction
+
 
 class PositiveFeedForwardAbundanceModel(nn.Module):
     def __init__(self, input_dim, hidden_dim, output_dim, 

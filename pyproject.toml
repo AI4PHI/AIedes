@@ -22,6 +22,7 @@ dependencies = [
   "rasterio",
   "netCDF4",  # netcdf4 package on pip is written like this
   "contextily",
+  "pycountry",
 ]
 
 [project.urls]

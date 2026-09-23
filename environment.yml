@@ -12,6 +12,7 @@ dependencies:
   - xarray
   - tqdm
   - seaborn
+  - pycountry
   - netcdf4
   - jupyter
   # geospatial 

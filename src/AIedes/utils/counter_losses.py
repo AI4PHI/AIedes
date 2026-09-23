@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-def compute_bin_weights(targets, bins):
+def compute_bin_weights(targets, bins, empty_bins_zero=False):
     # targets: 1D numpy array or PyTorch tensor
     # bins: list or 1D array of bin edges
     # Output: weights, np.array, len = len(bins) + 1 (inverse freq)
@@ -11,6 +11,12 @@ def compute_bin_weights(targets, bins):
         targets = targets.cpu().numpy()
     class_labels = np.digitize(targets, bins, right=False)  # see np.digitize docs
     bincounts = np.bincount(class_labels, minlength=len(bins) + 1)
+    if empty_bins_zero:
+        weights = np.zeros(len(bincounts), dtype=float)
+        occupied = bincounts > 0
+        weights[occupied] = 1.0 / bincounts[occupied]
+        weights[occupied] /= weights[occupied].mean()
+        return weights
     # Avoid division by zero, assign zero weight to empty bins
     weights = 1.0 / (bincounts + 1e-8)
     weights = weights / np.mean(weights)
@@ -126,7 +132,7 @@ class NegativeBinomialLoss(nn.Module):
 
 
 class FrequencyWeightedLoss(nn.Module):
-    def __init__(self, bins, weights, device, log_loss=False):
+    def __init__(self, bins, weights, device, log_loss=False, right=False):
         """
         bins: List/tensor of bin edges. Should match np.digitize convention.
         weights: List/tensor of weights, length == len(bins) + 1.
@@ -140,12 +146,13 @@ class FrequencyWeightedLoss(nn.Module):
             f"weights must have length len(bins)+1 ({len(self.bins)+1}), got {len(self.weights)}"
         self.device = device
         self.log_loss = log_loss
+        self.right = right
 
     def forward(self, pred, target):
         target_flat = target.view(-1)
         pred_flat = pred.view(-1)
-        # This matches np.digitize(right=False)
-        bin_indices = torch.bucketize(target_flat, self.bins, right=False)
+        # right=True matches np.digitize(right=False); default preserves legacy behavior.
+        bin_indices = torch.bucketize(target_flat, self.bins, right=self.right)
         sample_weights = self.weights[bin_indices]
 
         if self.log_loss:
@@ -195,12 +202,14 @@ class ZINBLoss(nn.Module):
     Learns π(x) from the model and θ as a global trainable parameter.
     """
     def __init__(self, theta_init: float = 0.3, eps: float = 1e-8,
-                 learn_theta: bool = True, theta_min: float = 1e-3, theta_max: float = 1e3):
+                 learn_theta: bool = True, theta_min: float = 1e-3, theta_max: float = 1e3,
+                 zero_threshold: float = 0.5):
         super().__init__()
         self.eps = eps
         self.learn_theta = learn_theta
         self.theta_min = theta_min
         self.theta_max = theta_max
+        self.zero_threshold = zero_threshold
 
         if learn_theta:
             # raw param -> softplus -> clamp => θ > 0 and bounded
@@ -251,7 +260,7 @@ class ZINBLoss(nn.Module):
         log_pi   = -F.softplus(-logit_pi)   # log(sigmoid)
         log1m_pi = -F.softplus(logit_pi)    # log(1 - sigmoid)
 
-        is_zero      = (y <= 0.5)
+        is_zero      = (y <= self.zero_threshold)
         loglik_zero  = torch.logaddexp(log_pi, log1m_pi + log_nb0)
         loglik_pos   = log1m_pi + log_nb
         nll          = -torch.where(is_zero, loglik_zero, loglik_pos)
@@ -454,8 +463,6 @@ def get_criterion(loss_type, params, train_loader, device):
         raise ValueError(f"Unknown loss_type: {loss_type}")
     
     return criterion_class, criterion_params
-
-
 
 
 

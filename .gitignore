@@ -1,0 +1,24 @@
+# Python/build artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Logs
+*.log
+
+# Generated datasets
+experiments/counter/data/*.pkl
+
+# Experiment run outputs and model artifacts
+experiments/counter/results/*/
+!experiments/counter/results/img/
+!experiments/counter/results/img/**
+experiments/counter_v2/results/
+experiments/counter_v2/folder/
+experiments/counter/additional_results_not_for_commit/
+experiments/counter/**/__pycache__/
+experiments/counter/job_execution_*.log
+experiments/**/results/**/*.pkl
+experiments/**/results/**/*.pth
+experiments/**/results/**/*_loss.png
+experiments/**/results/**/job.log

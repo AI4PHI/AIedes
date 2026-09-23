@@ -1,0 +1,118 @@
+{
+  "code": {
+    "experiments/counter/figures/make_ablation.py": "96bc414839f4a5715b20f1191ada88cc8b353ecc176fe9f7b12bb266eff11c99",
+    "experiments/counter/figures/make_figures.py": "6b61326462fc8833388d3912b39e1a04dcf4c071b207e4f240db073669e9173a",
+    "experiments/counter/figures/make_scatter.py": "d2a3cfc0d0e76a1090b405a12c019aedf8be719e4f92e2657222668fe2408a53",
+    "experiments/counter/figures/make_tables.py": "7f673d1d7d123f019b39c51997409fd3c60591146d9a99532ac0697ccc644fda",
+    "experiments/counter/figures/make_timeseries.py": "5984ab817f636c4a62701db63898d9ac66314cab419c562379aa8ef7133ea8fa",
+    "experiments/counter/protocol.py": "422daf0c691c3b6b31e4550a797aba5fa642dd402d60734ebe23a8e39f7d2c32",
+    "experiments/counter/reporting.py": "e58a76305b4c103e68080d0ebca10df4386e85b46c6f21b08a7a8ba81bbc53a2",
+    "experiments/counter/run.py": "5dd1d37c3655bfc893e319a7d243301e3b4c43fda9ead01fd6d9f4b2ca2ac3fa",
+    "experiments/counter/run_experiment.sh": "a64d7225ee647d5b8cbe2c9a3a5c5ac56d0330ca93d5517633e7244ddd00f5a4",
+    "experiments/counter/tests/test_fixed_protocol.py": "38cff53a21cd9f605aebe1138938a9206dcbbb17623cebf78b7ed76a302dfe28",
+    "experiments/counter/tests/test_revision.py": "1c5110609c1ad552f510f1f1c1482b24d2484ab1d6f0c252a30facc462d8dfc9",
+    "src/AIedes/data_loader/counter_data_loader.py": "ae61cb437db91fec03e4ec23df54301113c495347d5716d80bff0ce66fd74687",
+    "src/AIedes/data_loader/counter_normalization_stats.py": "9814ee032e8b03a29c23d5e19278d5c6d97022158d059a6df2de313d9baf643c",
+    "src/AIedes/data_loader/counter_prepare.py": "568a3a0c07aa91ec8b6a7a94f87b00995d8e35aa568d6faa2899e1d997fe8b6f",
+    "src/AIedes/data_loader/counter_splits.py": "486ce73f899265f1f4d4cf9f205b67f7bec857fac7bf657943a72b61dd23684c",
+    "src/AIedes/evaluation/counter_audit.py": "e3fc7a97e27f95c5c0879d7739be48f5f007e9c9cd64354ea64aa901438dd8ad",
+    "src/AIedes/evaluation/counter_eval.py": "81bc92e3b446142143aeecfb9aad9903eea3486dd7df0a08eea99b57c2d4a020",
+    "src/AIedes/evaluation/counter_reconstruction.py": "f05f0bc091010be59e4e982f3124995c18c7340ce191a3cf908a36b52a7ddf51",
+    "src/AIedes/evaluation/counter_reporting.py": "939118b50028e5894797b267f4fe7858bf3c25f76c9f2a8ef1031bbc0c2f6e5b",
+    "src/AIedes/models/counter_models.py": "065b76c880ed8286cac2cfc37a6ae0d4357a8e5331471867ad6cf0053966da67",
+    "src/AIedes/train/counter_jobs.py": "2ecf30e19593e185cd7194ca50ce621a107e436b7343d14e48322cd10d88c142",
+    "src/AIedes/train/counter_train.py": "b1f5577bb4573add7c5ca41ca21bdca45281784f3e38fa236c34cf9ebdc1634b",
+    "src/AIedes/utils/counter_experiment.py": "d48aed099297cbc1cc062caebda1328dfc8f6c800444089662c4f48e571023cf",
+    "src/AIedes/utils/counter_losses.py": "bab781df664081f2a8914e85950b94dd2bf3a1acf8bf35b71b3a7c4980a258b5"
+  },
+  "config": {
+    "architectures": [
+      [
+        32
+      ],
+      [
+        64
+      ],
+      [
+        32,
+        16
+      ],
+      [
+        64,
+        32
+      ]
+    ],
+    "autonomous_lag_days": [
+      7,
+      14
+    ],
+    "autonomous_startup": "missing_flags_at_first_observation",
+    "batch_size": 64,
+    "bootstrap_samples": 1000,
+    "bootstrap_seed": 42,
+    "climate_alignment_evidence": "Consistent cache overlaps and legacy map convention; original extraction source unavailable",
+    "climate_endpoint": "end_date",
+    "deployment_choice": "full_data_five_seeds",
+    "dropouts": [
+      0.0,
+      0.2,
+      0.4
+    ],
+    "external_data": "/home/biazzin/git/AIedes/experiments/counter/data/eggs_y_norm_7days_vectorNet.pkl",
+    "final_seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "full_data": "/home/biazzin/git/AIedes/experiments/counter/data/eggs_y_norm.pkl",
+    "learning_rate": 0.001,
+    "log_interval": 50,
+    "loss_learning_rates": {
+      "WMSE": 0.0001,
+      "WMSLE": 0.001,
+      "ZINB": 0.0005
+    },
+    "max_epochs": 3000,
+    "min_delta": 0.0,
+    "patience": 200,
+    "plot_min_observations": 11,
+    "protocol": "fixed_80_20",
+    "scheduler_end_factor": 0.9,
+    "scheduler_horizon": 3000,
+    "schema_version": 2,
+    "screen_seed": 1,
+    "split_manifest": "/home/biazzin/git/AIedes/experiments/counter/data/balanced_seed42.json",
+    "weekly_data": "/home/biazzin/git/AIedes/experiments/counter/data/eggs_y_norm_7days.pkl",
+    "weight_bins": [
+      1.0
+    ],
+    "windows": [
+      30,
+      60,
+      90
+    ]
+  },
+  "environment": {
+    "packages": {
+      "jinja2": "3.1.6",
+      "matplotlib": "3.11.1",
+      "numpy": "2.3.5",
+      "pandas": "2.2.3",
+      "pycountry": "26.2.16",
+      "scikit-learn": "1.9.0",
+      "scipy": "1.18.0",
+      "torch": "2.6.0"
+    },
+    "python": "3.12.13"
+  },
+  "experiment_id": "b8109027c7955b5ce41b5c6ece91baa6fb4ffe640426f059f8f8a9bd488a707c",
+  "inputs": {
+    "external_data": "9c3cf34077790cf0547ce9cb697db185d30027863c8dbe9fd4d3b6b91424d542",
+    "full_data": "8d75bb6b12dd9355abe5dff15d9ec61d9cf8f46a36434d4d07d6d413da0b2cb4",
+    "split_manifest": "0a27eaf4ac9e273ac040237b0f8574081bf797fa7caf83a9674206119ebed845",
+    "weekly_data": "7b55357d50deb7ddb63017a6adcd937a65b826c55582e36f24517a0ef8e41811"
+  },
+  "smoke_only": false
+}

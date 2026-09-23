@@ -38,6 +38,41 @@ normalization_stats = {'d2m_max': {'mean': np.float64(286.61156059883706), 'std'
  'v10_min_monthly': {'mean': np.float64(-1.78819450102689), 'std': np.float64(0.9733566515781314)}}
 
 
+def fit_normalization_stats(df, row_indices, fields, field_windows=None, allow_constant=False):
+    """Fit z-score parameters using only the supplied training rows."""
+    subset = df.iloc[np.asarray(row_indices)]
+    fitted = {}
+    for field in fields:
+        if field not in subset:
+            raise ValueError(f"Cannot fit normalization: raw field '{field}' is missing.")
+        series = subset[field].dropna()
+        if series.empty:
+            if allow_constant:
+                fitted[field] = {"mean": 0., "std": 1., "n_values": 0}
+                continue
+            raise ValueError(f"Cannot fit normalization: '{field}' has no training values.")
+        sample = series.iloc[0]
+        if isinstance(sample, (np.ndarray, list, tuple)):
+            window = (field_windows or {}).get(field)
+            arrays = [np.asarray(value, dtype=float).ravel() for value in series]
+            if window and any(len(value) < window for value in arrays):
+                raise ValueError(f"Insufficient training history for '{field}'")
+            values = np.concatenate([value[-window:] if window else value for value in arrays])
+        else:
+            values = series.to_numpy(dtype=float)
+        values = values[np.isfinite(values)]
+        if values.size == 0:
+            raise ValueError(f"Cannot fit normalization: '{field}' has no finite training values.")
+        mean = float(values.mean())
+        std = float(values.std(ddof=0))
+        if std == 0 and allow_constant:
+            std = 1.0
+        if not np.isfinite(std) or std == 0:
+            raise ValueError(f"Cannot fit normalization: '{field}' has zero/invalid training SD.")
+        fitted[field] = {"mean": mean, "std": std, "n_values": int(values.size)}
+    return fitted
+
+
 def normalize_climate_data(
     df_: pd.DataFrame,
     field: str,

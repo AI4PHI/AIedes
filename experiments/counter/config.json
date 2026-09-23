@@ -1,0 +1,69 @@
+{
+  "schema_version": 2,
+  "weekly_data": "data/eggs_y_norm_7days.pkl",
+  "full_data": "data/eggs_y_norm.pkl",
+  "split_manifest": "data/balanced_seed42.json",
+  "windows": [
+    30,
+    60,
+    90
+  ],
+  "architectures": [
+    [
+      32
+    ],
+    [
+      64
+    ],
+    [
+      32,
+      16
+    ],
+    [
+      64,
+      32
+    ]
+  ],
+  "dropouts": [
+    0.0,
+    0.2,
+    0.4
+  ],
+  "screen_seed": 1,
+  "final_seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "max_epochs": 3000,
+  "patience": 200,
+  "min_delta": 0.0,
+  "batch_size": 64,
+  "learning_rate": 0.001,
+  "scheduler_horizon": 3000,
+  "scheduler_end_factor": 0.9,
+  "weight_bins": [
+    1.0
+  ],
+  "log_interval": 50,
+  "bootstrap_samples": 1000,
+  "bootstrap_seed": 42,
+  "plot_min_observations": 11,
+  "climate_endpoint": "end_date",
+  "climate_alignment_evidence": "Consistent cache overlaps and legacy map convention; original extraction source unavailable",
+  "autonomous_lag_days": [
+    7,
+    14
+  ],
+  "autonomous_startup": "missing_flags_at_first_observation",
+  "deployment_choice": "full_data_five_seeds",
+  "external_data": "data/eggs_y_norm_7days_vectorNet.pkl",
+  "protocol": "fixed_80_20",
+  "loss_learning_rates": {
+    "WMSE": 0.0001,
+    "WMSLE": 0.001,
+    "ZINB": 0.0005
+  }
+}

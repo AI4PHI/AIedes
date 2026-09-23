@@ -1,0 +1,33 @@
+{
+  "rows": 5129,
+  "traps": 387,
+  "counts": {
+    "p1_missing": 680,
+    "p2_missing": 1091,
+    "any_missing": 1276,
+    "both_missing": 495
+  },
+  "traps_with_any_missing": 387,
+  "traps_with_at_least_half_rows_missing_any_lag": 144,
+  "traps_with_every_row_missing_any_lag": 86,
+  "traps_with_every_row_missing_both_lags": 35,
+  "longer_traps_n_ge_10": 241,
+  "longer_traps_n_ge_10_with_at_least_half_rows_missing_any_lag": 32,
+  "any_missing_after_first_two_weekly_records": 575,
+  "both_missing_after_first_two_weekly_records": 136,
+  "rows_after_first_two_weekly_records": 4408,
+  "p1": {
+    "missing_before_recorded_history_window": 326,
+    "missing_despite_history_extending_to_window": 354,
+    "missing_with_any_earlier_record": 354,
+    "observed_lag_present_without_source_in_weekly_subset": 156,
+    "rows_without_weekly_source_for_observation_date_recursion": 836
+  },
+  "p2": {
+    "missing_before_recorded_history_window": 612,
+    "missing_despite_history_extending_to_window": 479,
+    "missing_with_any_earlier_record": 765,
+    "observed_lag_present_without_source_in_weekly_subset": 118,
+    "rows_without_weekly_source_for_observation_date_recursion": 1209
+  }
+}
