@@ -8,9 +8,12 @@ __pycache__/
 
 # Generated datasets
 experiments/counter/data/*.pkl
+# Local derived climate grids; regenerate from the documented CDS/ERA5-Land source.
+experiments/counter/data/*.nc
 
 # Experiment run outputs and model artifacts
 experiments/counter/results/*/
+experiments/counter_v2/
 !experiments/counter/results/img/
 !experiments/counter/results/img/**
 experiments/counter_v2/results/

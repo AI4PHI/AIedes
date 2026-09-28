@@ -136,10 +136,11 @@ changing the training provenance. The figures preserve the original Counter
 layouts and colors, including dropout columns, the selected WMSLE star, train/test
 scatter panels and the original twelve traps with their cached location basemap.
 Labels identify the revised ensembles; limits expand only as needed. The
-operational map model is the climate-only weekly 90-day temperature, dewpoint
-and precipitation configuration (`450f9e361ceb`, WMSLE), refit on all rows with
-five seeds and averaged for each grid cell. The observed-lag model
-(`8bec14a3ec4c`) remains the main hindcast reference.
+operational map model is the value-only autoregressive [64,32] candidate,
+trained with generated 7- and 14-day lag values and evaluated with five
+trap-disjoint folds and five seeds. The climate-only configuration
+(`450f9e361ceb`, WMSLE) remains the non-recursive comparator and fallback. The
+observed-lag model (`8bec14a3ec4c`) remains the main hindcast reference.
 
 | paper item | file | script | status |
 |---|---|---|---|
@@ -147,7 +148,7 @@ five seeds and averaged for each grid cell. The observed-lag model
 | Main Tab. 2 | top-five configurations | `make_tables.py` | implemented |
 | Main Fig. 6 | `R2_scatter_plot.pdf` | `make_scatter.py` | implemented |
 | Main Fig. 7 | `most_populated_traps_time_series.pdf` | `make_timeseries.py` | implemented; offline time-series panels |
-| Main Fig. 8 | `weekly_rates_map_climate_only.png` | `AIedes.projection.counter_projection` | implemented; execute projection pipeline |
+| Main Fig. 8 | `weekly_rates_map_autoregressive_all_folds.png` | `AIedes.projection.counter_autoregressive_projection` | implemented; execute projection pipeline |
 | SI Fig. | `nn_results_by_dropout_3loss.pdf` | `make_ablation.py` | implemented |
 | SI Fig. | `nn_results_by_dropout_3loss_acc.pdf` | `make_ablation.py` | implemented |
 | SI Tab. | best configuration per loss | `make_tables.py` | implemented |
@@ -234,15 +235,12 @@ counter/
     tests/
 ```
 
-## Open items
+## Completed deployment
 
-1. **Fig. 8 map**: run `python -m AIedes.projection.counter_projection` with the verified local
-   `data/europe_copernicus_data_2020.nc`. The script refits the climate-only
-   five-seed full-data ensemble, writes daily/weekly/monthly NetCDF outputs,
-   and creates the four-month paper map. The Copernicus presence/absence ZIP is
-   not required by the Counter map computation.
-2. Launch the implemented experiment using the commands in `README.md`. The full
-   scientific training run has not been started by the implementation checks.
+The autoregressive [64,32] ensemble was trained in 25 independent fold/seed jobs
+and projected over the European climate grid. The reproducible launch,
+aggregation, and projection commands are documented in `README.md`. The large
+model and map outputs remain Git-ignored artifacts.
 
 Completed on 2026-09-22: installed `pycountry`; the authoritative revised run is
 under `results/`. Earlier pilot outputs and exploratory recursive-training tests are

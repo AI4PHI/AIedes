@@ -646,7 +646,7 @@ def check_counter_batches(n_rows, batch_size):
 
 
 def fit_counter_candidate(frame, train_indices, validation_indices, candidate, config, seed, epochs=None,
-                          epoch_callback=None):
+                          epoch_callback=None, num_threads=1):
     """Fit one revision candidate with frequency-weighted WMSLE on given rows.
 
     Normalization and loss weights are fitted on the training rows only. With
@@ -657,7 +657,8 @@ def fit_counter_candidate(frame, train_indices, validation_indices, candidate, c
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
-    torch.set_num_threads(1)
+    if num_threads is not None:
+        torch.set_num_threads(int(num_threads))
     torch.use_deterministic_algorithms(True)
 
     statistics = fit_counter_preprocessing(frame, train_indices, candidate)

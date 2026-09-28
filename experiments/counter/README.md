@@ -122,17 +122,10 @@ The earlier pilot and exploratory diagnostics are preserved locally under
 `additional_results_not_for_commit/`, which is intentionally excluded from version
 control. New scientific results are written to `results/reports/RESULTS.md`.
 
-For the unfiltered autoregressive sensitivity map, use all five outer folds and
-all five training seeds (25 models total):
-
-```bash
-PYTHONPATH=../../src /home/biazzin/conda-envs/aiedes-env/bin/python -m AIedes.projection.counter_autoregressive_projection
-```
-
-Each model recursively feeds back its own predictions at 7 and 14 days. The
-ensemble is averaged only after the 25 independent trajectories are advanced;
-no validation-score filter or suitability/OOD mask is applied. Outputs are
-written under `results/europe_projection_autoregressive_all_folds/`.
+The autoregressive projection uses all five outer folds and all five training
+seeds (25 models total). Each model recursively feeds back its own predictions
+at 7 and 14 days; the ensemble is averaged only after the independent
+trajectories are advanced.
 
 ## Checks
 
@@ -143,3 +136,31 @@ written under `results/europe_projection_autoregressive_all_folds/`.
 
 The smoke run uses synthetic data, two epochs and two seeds, exercises every stage,
 and defaults to four workers. Its outputs are explicitly marked synthetic.
+
+## Autoregressive Europe projection
+
+The deployment extension trains the frozen value-only autoregressive [64,32]
+candidate on the five trap-blocked folds and five seeds. Each job uses one Torch
+thread; independent fold/seed jobs are the parallel boundary:
+
+```bash
+MAX_JOBS=159 ./run_autoregressive.sh
+```
+
+The completed jobs can be aggregated reproducibly with:
+
+```bash
+PYTHONPATH=../../src /home/biazzin/conda-envs/aiedes-env/bin/python \
+  report_autoregressive.py
+```
+
+The Europe map uses all 25 completed fold/seed packages and keeps dates
+sequential within each grid-cell trajectory. Latitude bands are independent:
+
+```bash
+PYTHONPATH=../../src /home/biazzin/conda-envs/aiedes-env/bin/python \
+  -m AIedes.projection.counter_autoregressive_projection \
+  --jobs-root results/autoregressive_jobs --architecture 64_32 \
+  --output results/europe_projection_autoregressive_64_32 \
+  --spatial-workers 159 --threads 1
+```
