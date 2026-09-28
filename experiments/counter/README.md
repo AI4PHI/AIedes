@@ -63,7 +63,7 @@ To regenerate figures from a completed experiment after plotting changes, run
 from this directory using the experiment's Python environment:
 
 ```bash
-/home/biazzin/conda-envs/aiedes-env/bin/python -m figures.make_figures --output results --regenerate
+PYTHONPATH=../../src /home/biazzin/conda-envs/aiedes-env/bin/python -m experiments.counter.img_for_paper.make_figures --output experiments/counter/results --regenerate
 ```
 
 This restores the original Counter layouts, colors, labels and twelve-trap
@@ -97,7 +97,7 @@ Training provenance, checkpoints and saved evaluation predictions are preserved.
   predictions and metrics, training-seed variability, and `RESULTS.md`.
 - `deploy/`: five full-data model packages for the later Europe-map work.
 - `export/`: held-out-fold model ensembles and their manifests.
-- `figures/`: dropout/loss ablations, window sensitivity, train/test scatter,
+- `img_for_paper/`: dropout/loss ablations, window sensitivity, train/test scatter,
   Bland–Altman and twelve-trap time series, with notes for updating captions.
 
 Tables average training seeds within each fold before calculating mean ± SE
@@ -105,11 +105,34 @@ across folds. Undefined metrics remain missing. VectorNet results are never
 pooled with AIMSurv. ZINB is evaluated on standardized weekly rates, which may
 be fractional; this is a count-inspired loss comparison.
 
-The Europe map is deferred until the daily European climate grid is available.
-It is not required to run any of the stages above. Figure generation is offline.
+The climate-only Europe projection is generated separately after the scientific
+run, using the local daily climate grid and five full-data models:
+
+```bash
+PYTHONPATH=../../src /home/biazzin/conda-envs/aiedes-env/bin/python -m AIedes.projection.counter_projection
+```
+
+This refits or reuses the selected climate-only configuration (`450f9e361ceb`),
+applies each model's saved training normalization, averages the five predictions,
+and writes daily, weekly and monthly NetCDF files plus
+`weekly_rates_map_climate_only.png` under `results/europe_projection/`. The
+large climate grid and projection outputs are local Git-ignored artifacts.
+The legacy recursive-lag notebook is not used for the main European result.
 The earlier pilot and exploratory diagnostics are preserved locally under
 `additional_results_not_for_commit/`, which is intentionally excluded from version
 control. New scientific results are written to `results/reports/RESULTS.md`.
+
+For the unfiltered autoregressive sensitivity map, use all five outer folds and
+all five training seeds (25 models total):
+
+```bash
+PYTHONPATH=../../src /home/biazzin/conda-envs/aiedes-env/bin/python -m AIedes.projection.counter_autoregressive_projection
+```
+
+Each model recursively feeds back its own predictions at 7 and 14 days. The
+ensemble is averaged only after the 25 independent trajectories are advanced;
+no validation-score filter or suitability/OOD mask is applied. Outputs are
+written under `results/europe_projection_autoregressive_all_folds/`.
 
 ## Checks
 

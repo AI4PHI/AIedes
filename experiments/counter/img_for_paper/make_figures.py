@@ -8,9 +8,9 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from AIedes.utils.counter_experiment import complete, mark_complete, write_json, read_json, digest, ROOT
-from figures.make_ablation import make_ablation
-from figures.make_scatter import make_scatter
-from figures.make_timeseries import make_timeseries
+from .make_ablation import make_ablation
+from .make_scatter import make_scatter
+from .make_timeseries import make_timeseries
 
 
 def make_figures(output, experiment_id, regenerate=False):

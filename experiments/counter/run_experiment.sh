@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd -- "$SCRIPT_DIR/../.." && pwd)"
 PYTHON_BIN="${PYTHON:-/home/biazzin/conda-envs/aiedes-env/bin/python}"
 if [[ ! -x "$PYTHON_BIN" ]]; then
     echo "Python executable missing: $PYTHON_BIN (set PYTHON to your environment's Python)" >&2
@@ -63,7 +64,7 @@ if [[ ! "$WORKERS" =~ ^[1-9][0-9]*$ ]] || (( WORKERS > LAYOUT[1] )); then
     exit 2
 fi
 echo "Logical CPUs: ${LAYOUT[2]}; workers: $WORKERS; one physical core reserved; niceness: +19"
-COMMAND=(nice -n 19 taskset --cpu-list "${LAYOUT[0]}" "$PYTHON_BIN" "$SCRIPT_DIR/run.py"
+COMMAND=(nice -n 19 taskset --cpu-list "${LAYOUT[0]}" env "PYTHONPATH=$REPO_ROOT/src${PYTHONPATH:+:$PYTHONPATH}" "$PYTHON_BIN" -m experiments.counter.run
          --workers "$WORKERS" --output "$OUTPUT" "$@")
 if (( READ_ONLY )); then
     exec "${COMMAND[@]}"

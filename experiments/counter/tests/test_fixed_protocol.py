@@ -1,16 +1,14 @@
 """Scientific integrity checks for the fixed-budget, multi-loss revision."""
 from pathlib import Path
-import sys
 import tempfile
 import unittest
 
 HERE = Path(__file__).resolve().parents[1]
-sys.path[:0] = [str(HERE), str(HERE.parents[1] / 'src')]
 import numpy as np
 import pandas as pd
 import torch
-from protocol import (grid, load_protocol, metadata, with_id, execute_job, make_job,
-                      supplementary_jobs, partitions, summary)
+from AIedes.train.counter_protocol import (grid, load_protocol, metadata, with_id,
+                      execute_job, make_job, supplementary_jobs, partitions, summary)
 from AIedes.data_loader.counter_prepare import synthetic_counter_data
 from AIedes.data_loader.counter_data_loader import (fit_counter_preprocessing, transform_counter_features,
                                                    counter_feature_names)

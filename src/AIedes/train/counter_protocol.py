@@ -25,8 +25,8 @@ from AIedes.utils.counter_losses import FrequencyWeightedLoss, ZINBLoss
 from AIedes.utils.counter_experiment import (FIELDS, complete, digest, identity, mark_complete,
                                            read_json, source_hashes, write_json)
 
-HERE = Path(__file__).resolve().parent
-ROOT = HERE.parents[1]
+ROOT = Path(__file__).resolve().parents[3]
+HERE = ROOT / 'experiments' / 'counter'
 STAGES = ('all', 'prepare', 'paper', 'windows', 'select', 'replicate', 'supplement',
           'deploy', 'evaluate', 'figures')
 
@@ -289,7 +289,7 @@ def supplementary_jobs(output, selected, config, eid):
 
 def sources():
     paths = source_hashes()
-    for p in list(HERE.glob('*.py')) + list((HERE / 'figures').glob('*.py')) + list((HERE / 'tests').glob('*.py')):
+    for p in list(HERE.glob('*.py')) + list((HERE / 'img_for_paper').glob('*.py')) + list((HERE / 'tests').glob('*.py')):
         paths[str(p.relative_to(ROOT))] = digest(p)
     return paths
 
@@ -322,9 +322,9 @@ def validate_external(config):
 
 
 def main():
-    from run import run_jobs
-    from reporting import evaluate_and_report
-    from figures.make_figures import make_figures
+    from AIedes.experiment_runner import run_jobs
+    from AIedes.evaluation.counter_experiment_reporting import evaluate_and_report
+    from experiments.counter.img_for_paper.make_figures import make_figures
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--config', type=Path, default=HERE / 'config.json')
     parser.add_argument('--output', type=Path)

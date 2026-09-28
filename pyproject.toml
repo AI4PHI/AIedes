@@ -27,3 +27,6 @@ dependencies = [
 
 [project.urls]
 Homepage = "https://github.com/YOUR_USERNAME/AIedes"
+
+[tool.setuptools.packages.find]
+where = ["src"]

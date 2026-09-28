@@ -9,8 +9,8 @@ from AIedes.evaluation.counter_eval import compute_metrics_from_arrays as scores
 from AIedes.evaluation.counter_reconstruction import load_model, observed_prediction
 from AIedes.evaluation.counter_reporting import evaluate, bootstrap
 from AIedes.utils.counter_experiment import complete, mark_complete, read_json, write_json
-from protocol import make_job, summary, supplementary_jobs
-from figures.make_tables import table_export
+from AIedes.train.counter_protocol import make_job, summary, supplementary_jobs
+from experiments.counter.img_for_paper.make_tables import table_export
 
 METRICS = ['r2', 'log_r2', 'rmse', 'log_mse', 'accuracy', 'sensitivity', 'specificity', 'slope']
 

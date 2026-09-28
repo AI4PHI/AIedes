@@ -123,21 +123,23 @@ weekly means marked with `(mean)`, lags as `p1zn; p2zn`, e.g.
 90-day sets reuse the existing nine mapping keys; the 30/60-day variants need new keys and
 a window column for the new panel.
 
-Code in `figures/`, run through `run.py --stage figures` after evaluation, with no
-manual notebook execution. `protocol.py` implements training and orchestration;
-`reporting.py` writes the analysis tables through `figures/make_tables.py`.
+Code in `img_for_paper/`, run through `run.py --stage figures` after evaluation,
+with no manual notebook execution. The package protocol implements training and
+orchestration; reporting writes analysis tables through `img_for_paper/make_tables.py`.
 The complete non-map workflow is launched with `./run_experiment.sh`.
 
 For completed results, plotting changes are applied with
-`python -m figures.make_figures --output results --regenerate` from this directory.
+`python -m experiments.counter.img_for_paper.make_figures --output experiments/counter/results --regenerate` from the repository root.
 This separate figure-only command verifies the existing results and inference
 sources, archives previous figures and records the new plotting sources without
 changing the training provenance. The figures preserve the original Counter
 layouts and colors, including dropout columns, the selected WMSLE star, train/test
 scatter panels and the original twelve traps with their cached location basemap.
-Labels identify the revised ensembles; limits expand only as needed. The selected
-prediction model remains daily 90-day temperature, precipitation and dewpoint
-plus both egg-rate lags (`8bec14a3ec4c`, WMSLE).
+Labels identify the revised ensembles; limits expand only as needed. The
+operational map model is the climate-only weekly 90-day temperature, dewpoint
+and precipitation configuration (`450f9e361ceb`, WMSLE), refit on all rows with
+five seeds and averaged for each grid cell. The observed-lag model
+(`8bec14a3ec4c`) remains the main hindcast reference.
 
 | paper item | file | script | status |
 |---|---|---|---|
@@ -145,7 +147,7 @@ plus both egg-rate lags (`8bec14a3ec4c`, WMSLE).
 | Main Tab. 2 | top-five configurations | `make_tables.py` | implemented |
 | Main Fig. 6 | `R2_scatter_plot.pdf` | `make_scatter.py` | implemented |
 | Main Fig. 7 | `most_populated_traps_time_series.pdf` | `make_timeseries.py` | implemented; offline time-series panels |
-| Main Fig. 8 | `weekly_rates_map.png` | `make_map.py` | **blocked, see below** |
+| Main Fig. 8 | `weekly_rates_map_climate_only.png` | `AIedes.projection.counter_projection` | implemented; execute projection pipeline |
 | SI Fig. | `nn_results_by_dropout_3loss.pdf` | `make_ablation.py` | implemented |
 | SI Fig. | `nn_results_by_dropout_3loss_acc.pdf` | `make_ablation.py` | implemented |
 | SI Tab. | best configuration per loss | `make_tables.py` | implemented |
@@ -156,11 +158,19 @@ plus both egg-rate lags (`8bec14a3ec4c`, WMSLE).
 | new Tab. | one-lag versus two-lag WMSLE comparison | `make_tables.py` | implemented; 25 additional fits |
 | SI note | early-stopping sensitivity | `make_tables.py` | implemented |
 
-**Blocker — Main Fig. 8.** Regenerating predictions requires a Europe-wide daily
-climate grid, `data/europe_copernicus_data_2020.nc`, which is missing locally.
-The legacy notebook also opens cached `predictions_2020_weekly_rates.nc` before its
-prediction-generation cell; the replacement must generate new predictions before
-plotting them rather than require that old cache.
+**Main Fig. 8 data status.** The required Europe-wide daily climate grid is now
+available locally as `data/europe_copernicus_data_2020.nc`. It contains the
+2020 ERA5-Land daily mean temperature and dew-point fields plus daily summed
+precipitation on the 0.1° grid used by the sibling data pipeline. The file is
+derived from the Git-ignored artifacts in
+`/home/biazzin/git/Aedes-Albopictus-datasets/data/counter/input_data/climate/`
+and is itself Git-ignored because it is about 340 MB. It must not be committed;
+the acquisition/source path remains documented for reproducibility.
+
+The legacy notebook also opens cached `predictions_2020_weekly_rates.nc` before
+its prediction-generation cell; the replacement must generate new predictions
+with the climate-only five-model ensemble before plotting them rather than
+require that old cache.
 
 **ZIP dependency correction (2026-09-22).** In `figures/legacy/weekly_rates_map.ipynb`,
 code cell 4 (zero-based notebook cell index) reads
@@ -217,7 +227,8 @@ counter/
     PLAN.md  README.md  config.json  run.py  run_experiment.sh
     data/            copied datasets, split manifest, dataset build scripts
     data_audit/      read-only dataset audits
-    figures/         figure scripts; figures/legacy/ holds the original notebooks
+    img_for_paper/   figure scripts and generated publication images
+    figures/legacy/  original notebooks retained for reference
     results/         this experiment
     additional_results_not_for_commit/  local exploratory archive; excluded from commits
     tests/
@@ -225,8 +236,11 @@ counter/
 
 ## Open items
 
-1. **Fig. 8 map**: locate or supply `europe_copernicus_data_2020.nc`. The Copernicus
-   presence/absence ZIP is not required by the Counter map computation.
+1. **Fig. 8 map**: run `python -m AIedes.projection.counter_projection` with the verified local
+   `data/europe_copernicus_data_2020.nc`. The script refits the climate-only
+   five-seed full-data ensemble, writes daily/weekly/monthly NetCDF outputs,
+   and creates the four-month paper map. The Copernicus presence/absence ZIP is
+   not required by the Counter map computation.
 2. Launch the implemented experiment using the commands in `README.md`. The full
    scientific training run has not been started by the implementation checks.
 
