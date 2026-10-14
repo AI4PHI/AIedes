@@ -1,0 +1,14 @@
+{
+  "architecture": "[50,50,50]",
+  "input_set": "temp_tp",
+  "mean_accuracy": 0.9834332488610062,
+  "mean_csi": 0.9540694614615847,
+  "mean_sensitivity": 0.973707522680928,
+  "mean_specificity": 0.9887519005801547,
+  "n_hidden_layers": 3,
+  "n_parameters": 6401,
+  "outer_test_rows": 9145,
+  "outer_train_rows": 36579,
+  "sd_accuracy": 0.004173968037215371,
+  "seed": 42
+}

@@ -1,0 +1,21 @@
+{
+  "batch_size": 4096,
+  "data": "experiments/classifier/paper_results/input/copernicus_classifier_prepared.csv.gz",
+  "ensemble_seeds": [
+    101,
+    102,
+    103,
+    104,
+    105
+  ],
+  "epochs": 500,
+  "jobs": 50,
+  "learning_rate": 0.002,
+  "map_folds": 5,
+  "nuts3_folds": 5,
+  "output_dir": "experiments/classifier/paper_results",
+  "seed": 42,
+  "selection_folds": 5,
+  "stage": "comparisons",
+  "torch_version": "2.6.0"
+}

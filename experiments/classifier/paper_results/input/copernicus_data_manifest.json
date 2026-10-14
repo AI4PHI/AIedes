@@ -1,0 +1,45 @@
+{
+  "source_file": "/home/biazzin/git/AIedes/experiments/classifier/data/ecdc_albopictus_cordex_2020.zip",
+  "source_sha256": "ba533f1e8ead98f06c1ce781515e5a964221d8668098f141e4a00e6bd1b348a3",
+  "source_rows": 79398,
+  "prepared_rows": 45724,
+  "temperature_features": [
+    "temp_Jan_C",
+    "temp_Feb_C",
+    "temp_Mar_C",
+    "temp_Apr_C",
+    "temp_May_C",
+    "temp_Jun_C",
+    "temp_Jul_C",
+    "temp_Aug_C",
+    "temp_Sep_C",
+    "temp_Oct_C",
+    "temp_Nov_C",
+    "temp_Dec_C"
+  ],
+  "precipitation_features": [
+    "precip_Jan_mm",
+    "precip_Feb_mm",
+    "precip_Mar_mm",
+    "precip_Apr_mm",
+    "precip_May_mm",
+    "precip_Jun_mm",
+    "precip_Jul_mm",
+    "precip_Aug_mm",
+    "precip_Sep_mm",
+    "precip_Oct_mm",
+    "precip_Nov_mm",
+    "precip_Dec_mm"
+  ],
+  "target_definition": "presence_numeric == 1 and Suitable == 1",
+  "target_counts": {
+    "0": 29560,
+    "1": 16164
+  },
+  "n_regions": 666,
+  "n_countries": 35,
+  "coordinate_columns": [
+    "latitude",
+    "longitude"
+  ]
+}
