@@ -46,6 +46,19 @@ DEFAULT_OUTPUT = HERE / "results" / "europe_projection"
 DEFAULT_START = "2020-04-01"
 DEFAULT_END = "2020-12-31"
 DEFAULT_MONTHS = (6, 7, 8, 9)
+LOCAL_LAND_SHAPEFILE = (
+    HERE / "img_for_paper" / "assets" / "naturalearth" / "ne_50m_land.shp"
+)
+
+# Approximate shoreline polygon of the Sea of Azov. The climate-grid mask
+# leaves some water cells valid at this resolution, so this explicit mask is
+# applied in addition to the Natural Earth land mask.
+SEA_OF_AZOV = np.array([
+    (35.45, 45.30), (36.00, 45.62), (36.70, 45.72), (37.35, 45.92),
+    (38.05, 46.12), (38.82, 46.38), (39.38, 46.72), (39.43, 47.13),
+    (39.00, 47.37), (38.18, 47.40), (37.52, 47.22), (36.94, 46.97),
+    (36.38, 46.61), (35.92, 46.08),
+])
 
 
 def read_json(path: Path):
@@ -398,19 +411,55 @@ def save_dataset(dataset, path: Path):
     dataset.to_netcdf(path, engine="netcdf4", format="NETCDF4", encoding=encoding)
 
 
-def apply_land_mask(dataset):
-    try:
-        import regionmask
+def sea_of_azov_mask(dataset):
+    from matplotlib.path import Path as Polygon
 
-        # Keep the same Natural Earth land mask and lake exclusions used by
-        # the original weekly-rates map notebook.
-        land = regionmask.defined_regions.natural_earth_v5_0_0.land_50
-        mask_idx = land.mask(dataset.longitude, dataset.latitude)
-        land_mask = xr.DataArray(
-            mask_idx.notnull(),
-            dims=("latitude", "longitude"),
-            coords={"latitude": dataset.latitude, "longitude": dataset.longitude},
-        )
+    longitude, latitude = np.meshgrid(
+        dataset.longitude.to_numpy(), dataset.latitude.to_numpy(),
+    )
+    points = np.column_stack((longitude.ravel(), latitude.ravel()))
+    contained = Polygon(SEA_OF_AZOV).contains_points(points).reshape(longitude.shape)
+    return xr.DataArray(
+        contained,
+        dims=("latitude", "longitude"),
+        coords={"latitude": dataset.latitude, "longitude": dataset.longitude},
+    )
+
+
+def local_land_mask(dataset):
+    import geopandas as gpd
+    from shapely import contains_xy
+
+    land = gpd.read_file(LOCAL_LAND_SHAPEFILE)
+    geometry = land.geometry.union_all()
+    longitude, latitude = np.meshgrid(
+        dataset.longitude.to_numpy(), dataset.latitude.to_numpy(),
+    )
+    contained = contains_xy(geometry, longitude, latitude)
+    return xr.DataArray(
+        contained,
+        dims=("latitude", "longitude"),
+        coords={"latitude": dataset.latitude, "longitude": dataset.longitude},
+    )
+
+
+def apply_land_mask(dataset):
+    azov_mask = sea_of_azov_mask(dataset)
+    try:
+        if LOCAL_LAND_SHAPEFILE.is_file():
+            land_mask = local_land_mask(dataset)
+            mask_name = "local_natural_earth_50m"
+        else:
+            import regionmask
+
+            land = regionmask.defined_regions.natural_earth_v5_0_0.land_50
+            mask_idx = land.mask(dataset.longitude, dataset.latitude)
+            land_mask = xr.DataArray(
+                mask_idx.notnull(),
+                dims=("latitude", "longitude"),
+                coords={"latitude": dataset.latitude, "longitude": dataset.longitude},
+            )
+            mask_name = "natural_earth_v5_0_0_land_50"
         masked = dataset.where(land_mask)
 
         lakes_mask = (
@@ -427,10 +476,10 @@ def apply_land_mask(dataset):
                 & (dataset.longitude <= 37)
             )
         )
-        return masked.where(~lakes_mask), "natural_earth_v5_0_0_land_50_plus_lakes"
+        return masked.where(~lakes_mask & ~azov_mask), f"{mask_name}_plus_lakes_azov"
     except Exception as exc:  # pragma: no cover - depends on local GIS cache
-        print(f"Warning: land mask unavailable ({exc}); plotting the full climate grid", flush=True)
-        return dataset, "none"
+        print(f"Warning: land mask unavailable ({exc}); plotting the climate grid plus Sea of Azov mask", flush=True)
+        return dataset.where(~azov_mask), "climate_grid_plus_sea_of_azov"
 
 
 def plot_monthly_map(dataset, path_png: Path, path_pdf: Path, months=DEFAULT_MONTHS):
