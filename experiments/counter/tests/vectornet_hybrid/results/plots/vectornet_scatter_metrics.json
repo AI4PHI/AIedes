@@ -1,0 +1,31 @@
+{
+  "input": "/home/biazzin/git/AIedes/experiments/counter/tests/vectornet_hybrid/results/vectornet_hybrid_predictions.csv",
+  "observations": 280,
+  "traps": 40,
+  "metrics": {
+    "Before September (linear)": {
+      "n": 162,
+      "r2": 0.0976780844751638,
+      "rmse": 59.159713277942494,
+      "slope": 0.21383389923307172
+    },
+    "Before September (log1p)": {
+      "n": 162,
+      "r2": 0.2939730241294314,
+      "rmse": 1.6039266066543294,
+      "slope": 0.372231933517828
+    },
+    "September onward (linear)": {
+      "n": 118,
+      "r2": -0.0662270722634688,
+      "rmse": 81.21445450269911,
+      "slope": 0.1379488754895138
+    },
+    "September onward (log1p)": {
+      "n": 118,
+      "r2": 0.0024230038029526835,
+      "rmse": 1.973825823602448,
+      "slope": 0.33967920959788206
+    }
+  }
+}

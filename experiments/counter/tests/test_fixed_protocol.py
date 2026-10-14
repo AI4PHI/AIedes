@@ -16,6 +16,7 @@ from AIedes.evaluation.counter_reconstruction import load_model, observed_predic
 from AIedes.train.counter_train import fit_counter_candidate
 from AIedes.utils.counter_experiment import complete, read_json
 from AIedes.utils.counter_losses import ZINBLoss
+from AIedes.projection.counter_autoregressive_projection import validate_packages
 
 
 class FixedProtocolTests(unittest.TestCase):
@@ -123,6 +124,22 @@ class FixedProtocolTests(unittest.TestCase):
         result = summary(records).iloc[0]
         self.assertAlmostEqual(result.test_r2_mean, .75)
         self.assertAlmostEqual(result.test_r2_se, .25)
+
+    def test_autoregressive_projection_rejects_mixed_packages(self):
+        candidate = {
+            'fields': ['t2m_mean', 'd2m_mean', 'tp_sum'], 'weekly': False,
+            'lags': True, 'lag_order': 2, 'window': 90, 'widths': [64, 32],
+            'dropout': .2, 'loss': 'WMSLE', 'learning_rate': .001,
+        }
+        names = [f'climate:{index}' for index in range(270)] + ['p1:value', 'p2:value']
+        package = {
+            'candidate': candidate, 'feature_names': names,
+            'feature_slices': {'p1zn': (270, 271), 'p2zn': (271, 272)},
+        }
+        self.assertEqual(validate_packages([package])['widths'], [64, 32])
+        mixed = dict(package, candidate=dict(candidate, dropout=.0))
+        with self.assertRaises(ValueError):
+            validate_packages([package, mixed])
 
 
 if __name__ == '__main__':

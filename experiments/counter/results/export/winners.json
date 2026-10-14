@@ -1,0 +1,217 @@
+{
+  "1": {
+    "climate_only": {
+      "candidate": {
+        "dropout": 0.0,
+        "fields": [
+          "t2m_mean",
+          "d2m_mean",
+          "tp_sum"
+        ],
+        "id": "450f9e361ceb",
+        "lags": false,
+        "learning_rate": 0.001,
+        "loss": "WMSLE",
+        "weekly": true,
+        "widths": [
+          64,
+          32
+        ],
+        "window": 90
+      },
+      "epochs": 3000
+    },
+    "main": {
+      "candidate": {
+        "dropout": 0.2,
+        "fields": [
+          "t2m_mean",
+          "d2m_mean",
+          "tp_sum"
+        ],
+        "id": "8bec14a3ec4c",
+        "lags": true,
+        "learning_rate": 0.001,
+        "loss": "WMSLE",
+        "weekly": false,
+        "widths": [
+          64
+        ],
+        "window": 90
+      },
+      "epochs": 3000
+    }
+  },
+  "2": {
+    "climate_only": {
+      "candidate": {
+        "dropout": 0.0,
+        "fields": [
+          "t2m_mean",
+          "d2m_mean",
+          "tp_sum"
+        ],
+        "id": "450f9e361ceb",
+        "lags": false,
+        "learning_rate": 0.001,
+        "loss": "WMSLE",
+        "weekly": true,
+        "widths": [
+          64,
+          32
+        ],
+        "window": 90
+      },
+      "epochs": 3000
+    },
+    "main": {
+      "candidate": {
+        "dropout": 0.2,
+        "fields": [
+          "t2m_mean",
+          "d2m_mean",
+          "tp_sum"
+        ],
+        "id": "8bec14a3ec4c",
+        "lags": true,
+        "learning_rate": 0.001,
+        "loss": "WMSLE",
+        "weekly": false,
+        "widths": [
+          64
+        ],
+        "window": 90
+      },
+      "epochs": 3000
+    }
+  },
+  "3": {
+    "climate_only": {
+      "candidate": {
+        "dropout": 0.0,
+        "fields": [
+          "t2m_mean",
+          "d2m_mean",
+          "tp_sum"
+        ],
+        "id": "450f9e361ceb",
+        "lags": false,
+        "learning_rate": 0.001,
+        "loss": "WMSLE",
+        "weekly": true,
+        "widths": [
+          64,
+          32
+        ],
+        "window": 90
+      },
+      "epochs": 3000
+    },
+    "main": {
+      "candidate": {
+        "dropout": 0.2,
+        "fields": [
+          "t2m_mean",
+          "d2m_mean",
+          "tp_sum"
+        ],
+        "id": "8bec14a3ec4c",
+        "lags": true,
+        "learning_rate": 0.001,
+        "loss": "WMSLE",
+        "weekly": false,
+        "widths": [
+          64
+        ],
+        "window": 90
+      },
+      "epochs": 3000
+    }
+  },
+  "4": {
+    "climate_only": {
+      "candidate": {
+        "dropout": 0.0,
+        "fields": [
+          "t2m_mean",
+          "d2m_mean",
+          "tp_sum"
+        ],
+        "id": "450f9e361ceb",
+        "lags": false,
+        "learning_rate": 0.001,
+        "loss": "WMSLE",
+        "weekly": true,
+        "widths": [
+          64,
+          32
+        ],
+        "window": 90
+      },
+      "epochs": 3000
+    },
+    "main": {
+      "candidate": {
+        "dropout": 0.2,
+        "fields": [
+          "t2m_mean",
+          "d2m_mean",
+          "tp_sum"
+        ],
+        "id": "8bec14a3ec4c",
+        "lags": true,
+        "learning_rate": 0.001,
+        "loss": "WMSLE",
+        "weekly": false,
+        "widths": [
+          64
+        ],
+        "window": 90
+      },
+      "epochs": 3000
+    }
+  },
+  "5": {
+    "climate_only": {
+      "candidate": {
+        "dropout": 0.0,
+        "fields": [
+          "t2m_mean",
+          "d2m_mean",
+          "tp_sum"
+        ],
+        "id": "450f9e361ceb",
+        "lags": false,
+        "learning_rate": 0.001,
+        "loss": "WMSLE",
+        "weekly": true,
+        "widths": [
+          64,
+          32
+        ],
+        "window": 90
+      },
+      "epochs": 3000
+    },
+    "main": {
+      "candidate": {
+        "dropout": 0.2,
+        "fields": [
+          "t2m_mean",
+          "d2m_mean",
+          "tp_sum"
+        ],
+        "id": "8bec14a3ec4c",
+        "lags": true,
+        "learning_rate": 0.001,
+        "loss": "WMSLE",
+        "weekly": false,
+        "widths": [
+          64
+        ],
+        "window": 90
+      },
+      "epochs": 3000
+    }
+  }
+}

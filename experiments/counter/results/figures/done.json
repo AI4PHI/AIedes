@@ -1,0 +1,32 @@
+{
+  "artifacts": {
+    "R2_scatter_plot.pdf": "098dc7431cea81a132a3c2f726b750f26a3397860e58be1812c22567bd35e498",
+    "R2_scatter_plot.png": "5f1da6f662a7bb63cae2cbeec9db8e0991552da20b8e5abd316cc30ee0a9660d",
+    "R2_scatter_plot_with_log.pdf": "a4308c0f39412f78bb057cf0f2a30063d629f35959a98890d16be57124e7b96b",
+    "bland_altman_statistics.json": "ff44cf6c8bda7f95dc5f94c66706c666d0da7dd9f4ec95283e2b4dd9f22e7864",
+    "bland_altman_test.pdf": "275bd3248c51d4f1c7afe1917da1b0f136ac8466497660a63e0fab1135303820",
+    "figure_notes.json": "81e716c46dc048ee2c293a5cb1651503558a8b93c3e5362a472e85b5ed29573c",
+    "figure_provenance.json": "d04bb950185dc76a0fd10600aff7ba5cfefc60780799d5384a96f3588f8b589f",
+    "most_populated_traps_time_series.pdf": "62b4f5fe0156f7ab7a71ed50e7fee8281107f39ca34ac8f836af78df8f9e17e1",
+    "most_populated_traps_time_series.png": "97cfb980d2c30c98659b3641116bdbc8ee4693305c65b5eeaf05303bd4282b96",
+    "nn_results_by_dropout.pdf": "6fe1fbd2bbada9d919817c72f046cf048464b54a48e94f7a75c956d8d3d92a56",
+    "nn_results_by_dropout.png": "a3e573e41245c2cf7d71f7818f399138deb32b66749985825416951d9a358273",
+    "nn_results_by_dropout_3loss.pdf": "9d3fa0fa83a36c52cc0358ac406f6763715690f576784a11bafb83b7fe174ce6",
+    "nn_results_by_dropout_3loss.png": "c458bcc72711482d02cb68fc39c97fa54ee243fdf47c731042b901da6a8c1ee3",
+    "nn_results_by_dropout_3loss_acc.pdf": "8f442ccd6684e36abff4801a3886eb9e8085cae604189186aba2ce3fbe939959",
+    "nn_results_by_dropout_3loss_acc.png": "039926d9c5db77d0ab6c6eafa51082422d0d8157df98c79c7dca5d420214a72a",
+    "scatter_training_predictions.csv": "107b43b5032a95ad2a68ab9dd51c59573f85a3375c4c8d27e418de61ffe0898c",
+    "source_snapshot/assets/legacy_trap_basemap-000.png": "240f7dd2c378a1f85367c829c9505cd5943d705e5aeb40c176918129b9c732f7",
+    "source_snapshot/assets/legacy_trap_basemap.json": "5649cbf633df2873fffe543b5d6141d028714f4438ca628185494f42c92c3655",
+    "source_snapshot/make_ablation.py": "e76e6f76fa88ef9f8f63740f904ee6d80f7acab09bb1388b46e8fe4405a007b3",
+    "source_snapshot/make_figures.py": "d186463cf686253baa3e53a66751664d91033bde05e5e5006984812fb71e7765",
+    "source_snapshot/make_scatter.py": "76244f5eca454a00c4b9aba201046832c9880fdf77be85796b43c724263903cf",
+    "source_snapshot/make_tables.py": "7f673d1d7d123f019b39c51997409fd3c60591146d9a99532ac0697ccc644fda",
+    "source_snapshot/make_timeseries.py": "d3f1639325da233fc7aadb508bc760282428fc3e031184b3c2e82d240cadcd12",
+    "timeseries_predictions.csv": "6b31cc2675c3277a12a271756515025a9c016ab25132e87f82c73c0d9aa063be",
+    "timeseries_traps.csv": "85497cc9d5518cdcc8f10cf6c1397f48d3fb0be43fae8b1f3d0e629e9c8e8e36",
+    "window_sensitivity.csv": "c0af435be51b3e93e1de900bd497e27bae314029b9c8769dca5c5c8a83c39a3a",
+    "window_sensitivity.pdf": "444cc810606f56b0337e9871f8cb2e987bf02818d48143d6c0ac0efdc754504f"
+  },
+  "experiment_id": "b8109027c7955b5ce41b5c6ece91baa6fb4ffe640426f059f8f8a9bd488a707c"
+}

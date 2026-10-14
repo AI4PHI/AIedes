@@ -1,0 +1,9 @@
+{
+  "artifacts": {
+    "configuration_summary.csv": "f0678c80dcd44c627cfc7c524613ceb867a2f0f469cd9ca80564a6ea6a5155d0",
+    "grid_runs.csv": "b5490425b319176c5a629a82107b3312e747f93a78cc6b993e59989e44401ff7",
+    "selected.json": "3fb7ba239bc79e7c7c8250d6e06b6d08cb1bf13cdb00aacbdcee75f886765e88",
+    "winners.json": "723bddd141cbaaee62644b9263e4ed51098be95d15e0506365b2ae70bee81589"
+  },
+  "experiment_id": "b8109027c7955b5ce41b5c6ece91baa6fb4ffe640426f059f8f8a9bd488a707c"
+}

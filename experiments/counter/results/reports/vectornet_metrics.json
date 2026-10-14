@@ -1,0 +1,147 @@
+{
+  "first_date": "2021-05-26 00:00:00",
+  "last_date": "2021-11-16 00:00:00",
+  "metrics": {
+    "climate_only": {
+      "FNR": 0.12135922330097088,
+      "FPR": 0.6486486486486487,
+      "TNR": 0.35135135135135137,
+      "TPR": 0.8786407766990292,
+      "absence_baseline": 0.2642857142857143,
+      "accuracy": 0.7392857142857143,
+      "binary_accuracy": 0.7392857142857143,
+      "intercept": 13.678991593668652,
+      "log_intercept": 1.7603263510258542,
+      "log_mse": 4.296422568134483,
+      "log_r2": -0.14304906815333673,
+      "log_slope": 0.1406444263606508,
+      "n": 280,
+      "nonzero_count": 206,
+      "nonzero_intercept": 16.537065694359548,
+      "nonzero_r2": -0.49244511029882654,
+      "nonzero_slope": -0.004874987293385386,
+      "pearson_r2": 0.003471548638656128,
+      "positive_fraction": 0.7357142857142858,
+      "r2": -0.25492516772658047,
+      "rmse": 78.04385887462423,
+      "sensitivity": 0.8786407766990292,
+      "slope": 0.014206817777803908,
+      "specificity": 0.35135135135135137
+    },
+    "main": {
+      "FNR": 0.16990291262135923,
+      "FPR": 0.4594594594594595,
+      "TNR": 0.5405405405405406,
+      "TPR": 0.8300970873786407,
+      "absence_baseline": 0.2642857142857143,
+      "accuracy": 0.7535714285714286,
+      "binary_accuracy": 0.7535714285714286,
+      "intercept": 7.9366127847243995,
+      "log_intercept": 0.8607590992176726,
+      "log_mse": 3.1191227191929736,
+      "log_r2": 0.17016767762266538,
+      "log_slope": 0.407104008839545,
+      "n": 280,
+      "nonzero_count": 206,
+      "nonzero_intercept": 11.01113159785624,
+      "nonzero_r2": -0.20197608558690328,
+      "nonzero_slope": 0.15588996766488383,
+      "pearson_r2": 0.19732697420048556,
+      "positive_fraction": 0.7357142857142858,
+      "r2": -0.004324748848650195,
+      "rmse": 69.81791942992022,
+      "sensitivity": 0.8300970873786407,
+      "slope": 0.17641685626644396,
+      "specificity": 0.5405405405405406
+    }
+  },
+  "mode": "observed-lag hindcast; independent 2021 data; no tuning on VectorNet",
+  "observations": 280,
+  "traps": 40,
+  "uncertainty": {
+    "conditional_on_fitted_predictions": true,
+    "differences_vs_main": {
+      "climate_only": {
+        "accuracy": {
+          "defined_resamples": 1000,
+          "interval": [
+            -0.07868539325842694,
+            0.03915217391304345
+          ],
+          "undefined_resamples": 0
+        },
+        "log_r2": {
+          "defined_resamples": 1000,
+          "interval": [
+            -0.43351559120458033,
+            -0.18898144774165943
+          ],
+          "undefined_resamples": 0
+        },
+        "r2": {
+          "defined_resamples": 1000,
+          "interval": [
+            -0.31631195553246244,
+            -0.152278262606565
+          ],
+          "undefined_resamples": 0
+        }
+      }
+    },
+    "resamples": 1000,
+    "scores": {
+      "climate_only": {
+        "accuracy": {
+          "defined_resamples": 1000,
+          "interval": [
+            0.6509698228733873,
+            0.8179551820728291
+          ],
+          "undefined_resamples": 0
+        },
+        "log_r2": {
+          "defined_resamples": 1000,
+          "interval": [
+            -0.4137106571040393,
+            0.02881756894111814
+          ],
+          "undefined_resamples": 0
+        },
+        "r2": {
+          "defined_resamples": 1000,
+          "interval": [
+            -0.44538420000200357,
+            -0.12049055181346374
+          ],
+          "undefined_resamples": 0
+        }
+      },
+      "main": {
+        "accuracy": {
+          "defined_resamples": 1000,
+          "interval": [
+            0.6738337595069499,
+            0.8162717853506618
+          ],
+          "undefined_resamples": 0
+        },
+        "log_r2": {
+          "defined_resamples": 1000,
+          "interval": [
+            -0.07610132121348676,
+            0.3308920768523472
+          ],
+          "undefined_resamples": 0
+        },
+        "r2": {
+          "defined_resamples": 1000,
+          "interval": [
+            -0.1635878187615688,
+            0.10192117808770285
+          ],
+          "undefined_resamples": 0
+        }
+      }
+    }
+  }
+}

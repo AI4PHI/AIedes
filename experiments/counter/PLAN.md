@@ -148,7 +148,7 @@ observed-lag model (`8bec14a3ec4c`) remains the main hindcast reference.
 | Main Tab. 2 | top-five configurations | `make_tables.py` | implemented |
 | Main Fig. 6 | `R2_scatter_plot.pdf` | `make_scatter.py` | implemented |
 | Main Fig. 7 | `most_populated_traps_time_series.pdf` | `make_timeseries.py` | implemented; offline time-series panels |
-| Main Fig. 8 | `weekly_rates_map_autoregressive_all_folds.png` | `AIedes.projection.counter_autoregressive_projection` | implemented; execute projection pipeline |
+| Main Fig. 8 | `results/europe_projection_autoregressive_64_32/weekly_rates_map_autoregressive_all_folds.png` | `AIedes.projection.counter_autoregressive_projection` | implemented; execute projection pipeline |
 | SI Fig. | `nn_results_by_dropout_3loss.pdf` | `make_ablation.py` | implemented |
 | SI Fig. | `nn_results_by_dropout_3loss_acc.pdf` | `make_ablation.py` | implemented |
 | SI Tab. | best configuration per loss | `make_tables.py` | implemented |

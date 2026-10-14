@@ -1,0 +1,334 @@
+{
+  "source": "https://api.opentopodata.org/v1/srtm90m",
+  "dataset": "srtm90m",
+  "interpolation": "bilinear",
+  "traps": 40,
+  "elevation_m": {
+    "minimum": 89.0,
+    "maximum": 1201.0,
+    "mean": 602.4,
+    "median": 672.5
+  },
+  "traps_by_elevation": [
+    {
+      "id_trap": 2002.0,
+      "latitude": 41.7531,
+      "longitude": 12.9877,
+      "observations": 23,
+      "elevation_m": 212.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2008.0,
+      "latitude": 41.7905495,
+      "longitude": 12.761835000000001,
+      "observations": 1,
+      "elevation_m": 712.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2008.5,
+      "latitude": 41.7906335,
+      "longitude": 12.762205999999999,
+      "observations": 4,
+      "elevation_m": 715.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2008.6666666666667,
+      "latitude": 41.79070333333333,
+      "longitude": 12.762169,
+      "observations": 19,
+      "elevation_m": 715.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2015.0,
+      "latitude": 41.79734966666667,
+      "longitude": 13.224559333333332,
+      "observations": 5,
+      "elevation_m": 650.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2017.5,
+      "latitude": 41.799020999999996,
+      "longitude": 13.22355625,
+      "observations": 15,
+      "elevation_m": 659.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2018.0,
+      "latitude": 41.79995266666666,
+      "longitude": 12.603077666666666,
+      "observations": 9,
+      "elevation_m": 129.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2018.3333333333333,
+      "latitude": 41.79931133333333,
+      "longitude": 13.222706333333333,
+      "observations": 2,
+      "elevation_m": 648.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2018.5,
+      "latitude": 41.80003525,
+      "longitude": 12.60155275,
+      "observations": 10,
+      "elevation_m": 129.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2020.3333333333333,
+      "latitude": 41.801040666666665,
+      "longitude": 12.600320333333334,
+      "observations": 1,
+      "elevation_m": 126.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2020.6666666666667,
+      "latitude": 41.801786,
+      "longitude": 13.223753,
+      "observations": 2,
+      "elevation_m": 686.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2036.0,
+      "latitude": 41.840459,
+      "longitude": 12.893357,
+      "observations": 23,
+      "elevation_m": 559.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2036.5,
+      "latitude": 41.8405685,
+      "longitude": 12.893299500000001,
+      "observations": 1,
+      "elevation_m": 565.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2052.0,
+      "latitude": 41.86250149999999,
+      "longitude": 13.2478035,
+      "observations": 1,
+      "elevation_m": 806.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2052.25,
+      "latitude": 41.862498,
+      "longitude": 13.24739275,
+      "observations": 19,
+      "elevation_m": 806.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2052.6666666666665,
+      "latitude": 41.86260333333333,
+      "longitude": 13.247593,
+      "observations": 2,
+      "elevation_m": 802.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2053.0,
+      "latitude": 41.862631,
+      "longitude": 12.951766500000002,
+      "observations": 3,
+      "elevation_m": 899.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2054.0,
+      "latitude": 41.862934333333335,
+      "longitude": 12.951205333333334,
+      "observations": 21,
+      "elevation_m": 892.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2063.5,
+      "latitude": 41.913215,
+      "longitude": 12.9285935,
+      "observations": 3,
+      "elevation_m": 1196.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2064.0,
+      "latitude": 41.913273000000004,
+      "longitude": 12.928599333333333,
+      "observations": 3,
+      "elevation_m": 1196.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2064.5,
+      "latitude": 41.913365,
+      "longitude": 12.92831,
+      "observations": 2,
+      "elevation_m": 1201.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2180.0,
+      "latitude": 42.167950000000005,
+      "longitude": 12.59075,
+      "observations": 1,
+      "elevation_m": 111.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2181.5,
+      "latitude": 42.168529,
+      "longitude": 12.593903000000001,
+      "observations": 1,
+      "elevation_m": 101.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2182.3333333333335,
+      "latitude": 42.16879866666667,
+      "longitude": 12.593900666666668,
+      "observations": 20,
+      "elevation_m": 100.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2184.5,
+      "latitude": 42.169875000000005,
+      "longitude": 12.5970645,
+      "observations": 1,
+      "elevation_m": 89.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2221.0,
+      "latitude": 42.264302,
+      "longitude": 12.687326,
+      "observations": 2,
+      "elevation_m": 233.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2221.5,
+      "latitude": 42.264362000000006,
+      "longitude": 12.6851505,
+      "observations": 2,
+      "elevation_m": 239.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2222.0,
+      "latitude": 42.26445,
+      "longitude": 12.68545,
+      "observations": 19,
+      "elevation_m": 240.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2246.5,
+      "latitude": 42.408714,
+      "longitude": 12.932275,
+      "observations": 3,
+      "elevation_m": 529.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2247.3333333333335,
+      "latitude": 42.408903,
+      "longitude": 12.931313000000001,
+      "observations": 18,
+      "elevation_m": 510.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2247.6666666666665,
+      "latitude": 42.408899999999996,
+      "longitude": 12.9313,
+      "observations": 1,
+      "elevation_m": 510.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2248.5,
+      "latitude": 42.409257,
+      "longitude": 12.930898500000001,
+      "observations": 1,
+      "elevation_m": 505.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2275.0,
+      "latitude": 42.501495,
+      "longitude": 12.887981,
+      "observations": 2,
+      "elevation_m": 724.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2276.0,
+      "latitude": 42.5017605,
+      "longitude": 12.887616,
+      "observations": 1,
+      "elevation_m": 726.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2276.5,
+      "latitude": 42.501883,
+      "longitude": 12.888311,
+      "observations": 2,
+      "elevation_m": 747.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2276.6666666666665,
+      "latitude": 42.50193066666667,
+      "longitude": 12.887957666666665,
+      "observations": 14,
+      "elevation_m": 741.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2277.5,
+      "latitude": 42.50215,
+      "longitude": 12.88795,
+      "observations": 4,
+      "elevation_m": 750.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2294.0,
+      "latitude": 42.5619525,
+      "longitude": 12.9635105,
+      "observations": 1,
+      "elevation_m": 980.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2295.6666666666665,
+      "latitude": 42.562416666666664,
+      "longitude": 12.963746333333333,
+      "observations": 17,
+      "elevation_m": 979.0,
+      "elevation_dataset": "srtm90m"
+    },
+    {
+      "id_trap": 2296.0,
+      "latitude": 42.5625,
+      "longitude": 12.9642,
+      "observations": 1,
+      "elevation_m": 979.0,
+      "elevation_dataset": "srtm90m"
+    }
+  ]
+}

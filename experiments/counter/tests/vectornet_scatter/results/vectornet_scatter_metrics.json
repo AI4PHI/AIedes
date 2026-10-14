@@ -1,0 +1,32 @@
+{
+  "input": "/home/biazzin/git/AIedes/experiments/counter/results/reports/vectornet_predictions.csv",
+  "observations": 280,
+  "traps": 40,
+  "metrics": {
+    "Before September (linear)": {
+      "n": 162,
+      "r2": 0.07234637007476319,
+      "rmse": 59.98438794326433,
+      "slope": 0.22371984514472912
+    },
+    "Before September (log1p)": {
+      "n": 162,
+      "r2": 0.36017616225046845,
+      "rmse": 1.5268769975903675,
+      "slope": 0.4555904424436233
+    },
+    "September onward (linear)": {
+      "n": 118,
+      "r2": -0.07125782426736182,
+      "rmse": 81.40582507838089,
+      "slope": 0.13772316238947163
+    },
+    "September onward (log1p)": {
+      "n": 118,
+      "r2": -0.07558288396670965,
+      "rmse": 2.0495454564682904,
+      "slope": 0.3311121880043541
+    }
+  },
+  "uncertainty": "\u00b11 standard deviation across the 25 observed-lag fold/seed predictions"
+}

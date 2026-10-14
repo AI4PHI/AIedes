@@ -1,0 +1,88 @@
+{
+  "climate_alignment": "Consistent cache overlaps and legacy map convention; original extraction source unavailable",
+  "deployment_choice": "deferred",
+  "experiment_id": "b8109027c7955b5ce41b5c6ece91baa6fb4ffe640426f059f8f8a9bd488a707c",
+  "outer_ensembles": {
+    "1": {
+      "climate_only": [
+        "outer1/450f9e361ceb_seed1.pt",
+        "outer1/450f9e361ceb_seed2.pt",
+        "outer1/450f9e361ceb_seed3.pt",
+        "outer1/450f9e361ceb_seed4.pt",
+        "outer1/450f9e361ceb_seed5.pt"
+      ],
+      "main": [
+        "outer1/8bec14a3ec4c_seed1.pt",
+        "outer1/8bec14a3ec4c_seed2.pt",
+        "outer1/8bec14a3ec4c_seed3.pt",
+        "outer1/8bec14a3ec4c_seed4.pt",
+        "outer1/8bec14a3ec4c_seed5.pt"
+      ]
+    },
+    "2": {
+      "climate_only": [
+        "outer2/450f9e361ceb_seed1.pt",
+        "outer2/450f9e361ceb_seed2.pt",
+        "outer2/450f9e361ceb_seed3.pt",
+        "outer2/450f9e361ceb_seed4.pt",
+        "outer2/450f9e361ceb_seed5.pt"
+      ],
+      "main": [
+        "outer2/8bec14a3ec4c_seed1.pt",
+        "outer2/8bec14a3ec4c_seed2.pt",
+        "outer2/8bec14a3ec4c_seed3.pt",
+        "outer2/8bec14a3ec4c_seed4.pt",
+        "outer2/8bec14a3ec4c_seed5.pt"
+      ]
+    },
+    "3": {
+      "climate_only": [
+        "outer3/450f9e361ceb_seed1.pt",
+        "outer3/450f9e361ceb_seed2.pt",
+        "outer3/450f9e361ceb_seed3.pt",
+        "outer3/450f9e361ceb_seed4.pt",
+        "outer3/450f9e361ceb_seed5.pt"
+      ],
+      "main": [
+        "outer3/8bec14a3ec4c_seed1.pt",
+        "outer3/8bec14a3ec4c_seed2.pt",
+        "outer3/8bec14a3ec4c_seed3.pt",
+        "outer3/8bec14a3ec4c_seed4.pt",
+        "outer3/8bec14a3ec4c_seed5.pt"
+      ]
+    },
+    "4": {
+      "climate_only": [
+        "outer4/450f9e361ceb_seed1.pt",
+        "outer4/450f9e361ceb_seed2.pt",
+        "outer4/450f9e361ceb_seed3.pt",
+        "outer4/450f9e361ceb_seed4.pt",
+        "outer4/450f9e361ceb_seed5.pt"
+      ],
+      "main": [
+        "outer4/8bec14a3ec4c_seed1.pt",
+        "outer4/8bec14a3ec4c_seed2.pt",
+        "outer4/8bec14a3ec4c_seed3.pt",
+        "outer4/8bec14a3ec4c_seed4.pt",
+        "outer4/8bec14a3ec4c_seed5.pt"
+      ]
+    },
+    "5": {
+      "climate_only": [
+        "outer5/450f9e361ceb_seed1.pt",
+        "outer5/450f9e361ceb_seed2.pt",
+        "outer5/450f9e361ceb_seed3.pt",
+        "outer5/450f9e361ceb_seed4.pt",
+        "outer5/450f9e361ceb_seed5.pt"
+      ],
+      "main": [
+        "outer5/8bec14a3ec4c_seed1.pt",
+        "outer5/8bec14a3ec4c_seed2.pt",
+        "outer5/8bec14a3ec4c_seed3.pt",
+        "outer5/8bec14a3ec4c_seed4.pt",
+        "outer5/8bec14a3ec4c_seed5.pt"
+      ]
+    }
+  },
+  "warning": "Never score existing observations using models that trained or selected on their trap."
+}

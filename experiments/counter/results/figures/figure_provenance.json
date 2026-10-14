@@ -1,0 +1,37 @@
+{
+  "experiment_id": "b8109027c7955b5ce41b5c6ece91baa6fb4ffe640426f059f8f8a9bd488a707c",
+  "generated_at_utc": "2026-09-23T06:18:34.650596+00:00",
+  "plotting_sources": {
+    "assets/legacy_trap_basemap-000.png": "240f7dd2c378a1f85367c829c9505cd5943d705e5aeb40c176918129b9c732f7",
+    "assets/legacy_trap_basemap.json": "5649cbf633df2873fffe543b5d6141d028714f4438ca628185494f42c92c3655",
+    "make_ablation.py": "e76e6f76fa88ef9f8f63740f904ee6d80f7acab09bb1388b46e8fe4405a007b3",
+    "make_figures.py": "d186463cf686253baa3e53a66751664d91033bde05e5e5006984812fb71e7765",
+    "make_scatter.py": "76244f5eca454a00c4b9aba201046832c9880fdf77be85796b43c724263903cf",
+    "make_tables.py": "7f673d1d7d123f019b39c51997409fd3c60591146d9a99532ac0697ccc644fda",
+    "make_timeseries.py": "d3f1639325da233fc7aadb508bc760282428fc3e031184b3c2e82d240cadcd12"
+  },
+  "selected_model": {
+    "dropout": 0.2,
+    "fields": [
+      "t2m_mean",
+      "d2m_mean",
+      "tp_sum"
+    ],
+    "id": "8bec14a3ec4c",
+    "lags": true,
+    "learning_rate": 0.001,
+    "loss": "WMSLE",
+    "weekly": false,
+    "widths": [
+      64
+    ],
+    "window": 90
+  },
+  "training_provenance": "Original experiment.json, checkpoints and source_snapshot retained unchanged.",
+  "verified_stage_manifests": {
+    "data_audit": "a94f3f1a45f003f4bdfbaacb62f26e7f6006816b569185d7d061f584792e3a82",
+    "evaluation": "f440ed2f34150b1bbac19c90fb503e8758d8513e745b86b3184d88ba875f503f",
+    "reports": "2fdb6c1d531920354d5a3888bd2de450a14b39d7842adf61062c96aff730ea4c",
+    "selection": "544597f1d26f2f8d5d4395c81740a269476649e2a09af4b932b1908e37bbfc0a"
+  }
+}

@@ -44,8 +44,8 @@ def make_figures(output, experiment_id, regenerate=False):
         write_json(staging / 'figure_notes.json', {
             'selected_model': selected,
             'ablation': 'Original dropout columns, architecture colors, input order and selected-model star. Grid mean +/- SE across five folds; no performance filtering. Original axis limits expanded only when needed.',
-            'R2_scatter_plot.pdf': 'Original train/test layout. Each training point averages the 20 models trained on that observation (four folds x five seeds). Each test point averages five held-out seed models. Test predictions recomputed from selected checkpoints and verified against saved predictions.',
-            'R2_scatter_plot_with_log.pdf': 'Original four panels: train/test raw, then train/test log1p.',
+            'R2_scatter_plot.pdf': 'Held-out-trap ensemble predictions on raw and log1p scales. Each point is the mean of five seed models trained without its trap; fitted regression and equality lines follow the original scatter-plot design.',
+            'R2_scatter_plot_with_log.pdf': 'Compatibility copy of the two-panel held-out-trap raw/log1p scatter.',
             'most_populated_traps_time_series.pdf': 'Original nine AIMSurv and three VectorNet traps, 6x2 layout and cached original location basemap. AIMSurv uses held-out seed ensembles; VectorNet uses the 25 selected fold/seed models. As in the original, ISO weeks are aligned to a shared June-December axis, with centered three-week smoothing; AIMSurv observations are from 2020 and VectorNet from 2021. Original y limits expanded when needed to show every point.',
             'window_sensitivity.pdf': 'Architecture/dropout averages within each fold, then mean and fold SE; WMSLE only.',
             'bland_altman_test.pdf': 'Original single raw-scale panel. Descriptive mean difference +/- 1.96 population SD, matching the original notebook; no significance claim.',

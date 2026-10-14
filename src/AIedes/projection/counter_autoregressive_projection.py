@@ -21,7 +21,6 @@ import xarray as xr
 ROOT = Path(__file__).resolve().parents[3]
 HERE = ROOT / "experiments" / "counter"
 
-from AIedes.evaluation.counter_reconstruction import load_model  # noqa: E402
 from AIedes.models.counter_models import (  # noqa: E402
     counter_candidate_model,
     predict_counter_rates,
@@ -33,22 +32,19 @@ from AIedes.projection.counter_projection import (
     DEFAULT_MONTHS,
     DEFAULT_START,
     plot_monthly_map,
-    read_json,
     save_dataset,
     valid_projection_mask,
     validate_grid,
 )
 
 
-MODEL_ID = "8bec14a3ec4c"
-DEFAULT_RESULTS = HERE / "results"
-DEFAULT_OUTPUT = HERE / "results" / "europe_projection_autoregressive_all_folds"
+MODEL_ID = "autoregressive_64_32"
+DEFAULT_JOBS_ROOT = HERE / "results" / "autoregressive_jobs"
+DEFAULT_OUTPUT = HERE / "results" / "europe_projection_autoregressive_64_32"
 
 
-def load_projection_model(path: Path, jobs_root: Path | None = None):
-    """Load either legacy deployment packages or new AR job packages."""
-    if jobs_root is None:
-        return load_model(path)
+def load_projection_model(path: Path):
+    """Load one value-only [64,32] autoregressive job package."""
     package = torch.load(path, map_location="cpu", weights_only=False)
     model = counter_candidate_model(package["candidate"], len(package["feature_names"]))
     model.load_state_dict(package["state_dict"])
@@ -56,59 +52,51 @@ def load_projection_model(path: Path, jobs_root: Path | None = None):
     return model, package
 
 
-def all_fold_model_paths(results: Path, jobs_root: Path | None = None,
-                         architecture: str = "64_32") -> list[Path]:
-    """Resolve all 5 folds x 5 seeds, without metric-based filtering."""
+def all_fold_model_paths(jobs_root: Path, architecture: str = "64_32") -> list[Path]:
+    """Resolve the canonical 5-fold x 5-seed [64,32] ensemble."""
     paths = []
     for fold in range(1, 6):
         for seed in range(1, 6):
-            if jobs_root is None:
-                path = (results / "final_models" / f"outer{fold}"
-                        / f"{MODEL_ID}_seed{seed}" / "model.pt")
-            else:
-                path = (jobs_root / f"{architecture}_seed{seed}_fold{fold}"
-                        / f"fold{fold}" / "model.pt")
+            path = (jobs_root / f"{architecture}_seed{seed}_fold{fold}"
+                    / f"fold{fold}" / "model.pt")
             if not path.is_file():
                 raise FileNotFoundError(path)
             paths.append(path)
     return paths
 
 
-def validate_packages(packages: list[dict], results: Path,
-                      jobs_root: Path | None = None,
-                      architecture: str = "64_32") -> dict:
-    if jobs_root is not None:
-        expected_widths = [int(value) for value in architecture.split("_")]
-        reference = packages[0]["candidate"]
-        if reference.get("widths") != expected_widths:
-            raise ValueError(f"Unexpected autoregressive architecture: {reference}")
-        for package in packages:
-            candidate = package["candidate"]
-            if (candidate.get("window") != 90 or candidate.get("weekly")
-                    or not candidate.get("lags")
-                    or candidate.get("lag_order", 2) != 2):
-                raise ValueError(f"Unsupported autoregressive candidate: {candidate}")
-            if set(package.get("feature_slices", {})) != {"p1zn", "p2zn"}:
-                raise ValueError("Expected value-only p1/p2 autoregressive features")
-        return reference
-    selected_path = results / "selection" / "selected.json"
-    selected = read_json(selected_path)["main"]
-    if selected["id"] != MODEL_ID:
-        raise ValueError(f"Expected selected main model {MODEL_ID}, found {selected['id']}")
+def validate_packages(packages: list[dict], architecture: str = "64_32") -> dict:
+    """Validate the canonical value-only [64,32] autoregressive ensemble."""
+    if not packages:
+        raise ValueError("At least one autoregressive package is required")
+    expected_widths = [int(value) for value in architecture.split("_")]
+    if expected_widths != [64, 32]:
+        raise ValueError("The canonical autoregressive projection requires architecture 64_32")
+    selected = packages[0]["candidate"]
+    reference_names = packages[0].get("feature_names")
+    reference_slices = packages[0].get("feature_slices")
+    if selected.get("widths") != expected_widths:
+        raise ValueError(f"Unexpected autoregressive architecture: {selected}")
     for package in packages:
         candidate = package["candidate"]
         if candidate != selected:
-            raise ValueError(f"Unexpected lagged candidate: {candidate}")
+            raise ValueError("Autoregressive packages do not share identical candidate metadata")
         if (
             candidate.get("window") != 90
             or candidate.get("weekly")
             or not candidate.get("lags")
             or candidate.get("lag_order", 2) != 2
-            or candidate.get("widths") != [64]
+            or candidate.get("widths") != expected_widths
         ):
             raise ValueError(f"Unsupported autoregressive candidate: {candidate}")
-        if package.get("autonomous_lag_days")[:2] != [7, 14]:
-            raise ValueError("Expected autonomous lags of 7 and 14 days")
+        if package.get("feature_names") != reference_names:
+            raise ValueError("Autoregressive packages do not share identical feature names")
+        if package.get("feature_slices") != reference_slices:
+            raise ValueError("Autoregressive packages do not share identical feature slices")
+        if len(package.get("feature_names", [])) != 272:
+            raise ValueError("Expected 272 value-only autoregressive features")
+        if reference_slices != {"p1zn": (270, 271), "p2zn": (271, 272)}:
+            raise ValueError("Expected value-only p1/p2 autoregressive features")
     return selected
 
 
@@ -210,19 +198,24 @@ def raw_climate_window(ds, index: int, valid_mask: np.ndarray) -> np.ndarray:
     return raw
 
 
-def verify_batched_forward(models, packages, parameters, climate_mean, climate_std):
+def verify_batched_forward(models, packages, parameters, climate_mean, climate_std,
+                           lag_mean, lag_std):
     """Check the vectorized implementation against ordinary model inference."""
     rng = np.random.default_rng(42)
     raw = rng.normal(size=(8, 270)).astype(np.float32)
     count = len(packages)
-    features = np.empty((count, len(raw), 274), dtype=np.float32)
+    feature_width = len(packages[0]["feature_names"])
+    if feature_width != 272:
+        raise ValueError(f"Expected 272 value-only autoregressive features, got {feature_width}")
+    features = np.empty((count, len(raw), feature_width), dtype=np.float32)
     for model_index in range(count):
         for field_index in range(3):
             left, right = field_index * 90, (field_index + 1) * 90
             features[model_index, :, left:right] = (
                 raw[:, left:right] - climate_mean[model_index, field_index]
             ) / climate_std[model_index, field_index]
-        features[model_index, :, 270:] = 0.0
+        features[model_index, :, 270] = -lag_mean[model_index, 0] / lag_std[model_index, 0]
+        features[model_index, :, 271] = -lag_mean[model_index, 1] / lag_std[model_index, 1]
     actual = batched_forward(parameters, features)
     for model_index, model in enumerate(models):
         expected = predict_counter_rates(model, features[model_index])
@@ -250,8 +243,9 @@ def predict_recursive_grid(
     climate_mean, climate_std, lag_mean, lag_std = normalization_arrays(packages)
     feature_width = len(packages[0]["feature_names"])
     parameters = stacked_parameters(packages)
-    if feature_width == 274:
-        verify_batched_forward(models, packages, parameters, climate_mean, climate_std)
+    verify_batched_forward(
+        models, packages, parameters, climate_mean, climate_std, lag_mean, lag_std,
+    )
 
     daily_mean = np.full((len(dates), nlat, nlon), np.nan, dtype=np.float32)
     daily_sd = np.full_like(daily_mean, np.nan)
@@ -275,17 +269,17 @@ def predict_recursive_grid(
                     - climate_mean[:, None, field_index, None]
                 ) / climate_std[:, None, field_index, None]
 
-            features[:, :, 270:] = 0.0
+            # The canonical value-only autoregressive models are initialized
+            # with a raw egg-laying rate of zero before each recursive lag
+            # becomes available. Apply each model's training-fold scaling.
+            features[:, :, 270] = -lag_mean[:, 0, None] / lag_std[:, 0, None]
+            features[:, :, 271] = -lag_mean[:, 1, None] / lag_std[:, 1, None]
             if date_position >= 7:
                 lag = history[:, (date_position - 7) % 14, left:right]
                 features[:, :, 270] = (lag - lag_mean[:, 0, None]) / lag_std[:, 0, None]
             if date_position >= 14:
                 lag = history[:, (date_position - 14) % 14, left:right]
-                if feature_width == 274:
-                    features[:, :, 272] = (lag - lag_mean[:, 1, None]) / lag_std[:, 1, None]
-                    features[:, :, 273] = 1.0
-                else:
-                    features[:, :, 271] = (lag - lag_mean[:, 1, None]) / lag_std[:, 1, None]
+                features[:, :, 271] = (lag - lag_mean[:, 1, None]) / lag_std[:, 1, None]
 
             predictions = batched_forward(parameters, features)
             if not np.isfinite(predictions).all() or (predictions < 0).any():
@@ -329,7 +323,7 @@ def predict_recursive_grid(
             "ensemble_members": str(member_count),
             "ensemble_composition": "5 trap-blocked folds x 5 training seeds; no score filtering",
             "recursive_lag_days": "7,14",
-            "startup": "missing lag values and availability flags for first 7/14 days",
+            "startup": "raw zero egg-laying rate until each 7/14-day recursive lag becomes available",
             "prediction_semantics": "daily endpoints for a 90-day daily-climate recursive model",
         },
     )
@@ -358,7 +352,6 @@ def _spatial_worker(payload):
     (
         climate_path,
         model_paths,
-        results_path,
         jobs_root,
         architecture,
         start,
@@ -369,11 +362,10 @@ def _spatial_worker(payload):
         latitude_stop,
     ) = payload
     torch.set_num_threads(int(threads))
-    jobs_root_path = Path(jobs_root) if jobs_root else None
-    loaded = [load_projection_model(Path(path), jobs_root_path) for path in model_paths]
+    loaded = [load_projection_model(Path(path)) for path in model_paths]
     models = [item[0] for item in loaded]
     packages = [item[1] for item in loaded]
-    validate_packages(packages, Path(results_path), jobs_root_path, architecture)
+    validate_packages(packages, architecture)
     with xr.open_dataset(climate_path) as source:
         climate = (
             source.sortby("time")
@@ -386,9 +378,8 @@ def _spatial_worker(payload):
 
 
 def run(args):
-    results = args.results.resolve()
     output = args.output.resolve()
-    jobs_root = args.jobs_root.resolve() if args.jobs_root else None
+    jobs_root = args.jobs_root.resolve()
     output.mkdir(parents=True, exist_ok=True)
     daily_path = output / "predictions_2020_autoregressive_all_folds_daily.nc"
     weekly_path = output / "predictions_2020_autoregressive_all_folds_weekly.nc"
@@ -404,11 +395,11 @@ def run(args):
         plot_monthly_map(daily, map_png, map_pdf, months=tuple(args.months))
         return output
 
-    model_paths = all_fold_model_paths(results, jobs_root, args.architecture)
+    model_paths = all_fold_model_paths(jobs_root, args.architecture)
     # Candidate metadata are identical across the required artifacts; workers
     # perform the complete package validation before inference.
-    _, reference_package = load_projection_model(model_paths[0], jobs_root)
-    candidate = validate_packages([reference_package], results, jobs_root, args.architecture)
+    _, reference_package = load_projection_model(model_paths[0])
+    candidate = validate_packages([reference_package], args.architecture)
 
     start, end = pd.Timestamp(args.start), pd.Timestamp(args.end)
     if end < start:
@@ -425,10 +416,10 @@ def run(args):
     spatial_workers = min(max(1, int(args.spatial_workers)), latitude_count)
     if spatial_workers == 1:
         torch.set_num_threads(max(1, int(args.threads)))
-        loaded = [load_projection_model(path, jobs_root) for path in model_paths]
+        loaded = [load_projection_model(path) for path in model_paths]
         models = [item[0] for item in loaded]
         packages = [item[1] for item in loaded]
-        validate_packages(packages, results, jobs_root, args.architecture)
+        validate_packages(packages, args.architecture)
         with xr.open_dataset(climate_path) as source:
             climate = source.sortby("time").load()
         print(
@@ -445,8 +436,7 @@ def run(args):
             (
                 str(climate_path),
                 [str(path) for path in model_paths],
-                str(results),
-                str(jobs_root) if jobs_root else "",
+                str(jobs_root),
                 args.architecture,
                 str(start.date()),
                 str(end.date()),
@@ -479,8 +469,8 @@ def run(args):
         plot_monthly_map(daily, map_png, map_pdf, months=tuple(args.months))
 
     metadata = {
-        "model_id": MODEL_ID if jobs_root is None else f"autoregressive_{args.architecture}",
-        "model_source": str(jobs_root) if jobs_root is not None else "final_models",
+        "model_id": MODEL_ID,
+        "model_source": str(jobs_root),
         "candidate": candidate,
         "model_mode": "autoregressive_all_outer_folds_and_seeds",
         "models": [str(path) for path in model_paths],
@@ -490,7 +480,7 @@ def run(args):
         "start": str(start.date()),
         "end": str(end.date()),
         "recursive_lag_days": [7, 14],
-        "startup": "missing flags until each recursive lag becomes available",
+        "startup": "raw zero egg-laying rate until each recursive lag becomes available",
         "distribution": distribution_summary(daily),
         "outputs": [str(daily_path), str(weekly_path), str(monthly_path)],
         "map_outputs": [str(map_png), str(map_pdf)] if not args.no_plot else [],
@@ -503,14 +493,13 @@ def run(args):
 
 def parse_args():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--results", type=Path, default=DEFAULT_RESULTS)
     parser.add_argument(
-        "--jobs-root", type=Path, default=None,
-        help="Use completed fold/seed autoregressive job outputs instead of final_models.",
+        "--jobs-root", type=Path, default=DEFAULT_JOBS_ROOT,
+        help="Completed fold/seed [64,32] autoregressive job outputs.",
     )
     parser.add_argument(
         "--architecture", default="64_32",
-        help="Underscore-separated hidden widths when --jobs-root is used.",
+        help="Canonical autoregressive architecture; only 64_32 is supported.",
     )
     parser.add_argument("--climate", type=Path, default=DEFAULT_CLIMATE)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)

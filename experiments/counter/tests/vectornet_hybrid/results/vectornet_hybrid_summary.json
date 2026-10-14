@@ -1,0 +1,13 @@
+{
+  "observations": 280,
+  "traps": 40,
+  "observed_lag_model": 212,
+  "climate_only_fallback": 68,
+  "fallback_rule": "use observed-lag prediction if prev1_rates or prev2_rates is available; otherwise use climate-only prediction",
+  "previous_values": {
+    "prev1": 172,
+    "prev2": 160,
+    "both": 120,
+    "neither": 68
+  }
+}

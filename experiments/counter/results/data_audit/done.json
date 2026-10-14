@@ -1,0 +1,12 @@
+{
+  "artifacts": {
+    "balance.csv": "a43735e02b9f385ed50911d14a0caed2c29ac69146fb951c05a0f8e7a9b49eb7",
+    "manifest.json": "7c9d8b91e0dc90ae05c126575cac661b0118f9b9d77c41c66901153ca96565ab",
+    "missing_climate_days.csv": "22111f66a4c44e7dc230ed13706e438be0d9bec64435bebacf4f61cde277b939",
+    "observations.pkl": "46d353110029ae09c87c108c64d41e16f932860de83d4f838ae9ad4b606b2605",
+    "rows.csv": "7ea3a64f68b919be3d6f60810fc0d53108d0dcc960daa9b66dd2f2e3bd08ce47",
+    "traps.csv": "54267b942f1478bc27f0499f841fe3069442bf05abf19db84d792b423534a0a7",
+    "weather.pkl": "76095cb3bf0bd594f9610e39e42b79553f3f69ab5eb86f49e7f35585a6704aca"
+  },
+  "experiment_id": "b8109027c7955b5ce41b5c6ece91baa6fb4ffe640426f059f8f8a9bd488a707c"
+}

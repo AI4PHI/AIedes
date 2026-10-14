@@ -42,6 +42,11 @@
     padding: 0;
   }
 
+  @page {
+    size: 260mm 145mm;
+    margin: 0;
+  }
+
   /* ── outer panel ─────────────────────────────────────────── */
   .panel {
     max-width: 1200px;
@@ -66,7 +71,7 @@
   /* panel letter */
   .subfig-letter {
     font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 11.5px;
+    font-size: 14px;
     font-weight: 600;
     color: var(--ink-mid);
     letter-spacing: .02em;
@@ -95,7 +100,7 @@
   }
 
   .stage-title {
-    font-size: 9px;
+    font-size: 13px;
     font-weight: 600;
     letter-spacing: .09em;
     text-transform: uppercase;
@@ -129,7 +134,7 @@
     gap: 4px;
   }
   .col-head {
-    font-size: 9px;
+    font-size: 12px;
     font-weight: 600;
     letter-spacing: .07em;
     text-transform: uppercase;
@@ -144,7 +149,7 @@
     border-radius: 3px;
     padding: 3px 5px;
     background: var(--white);
-    font-size: 9px;
+    font-size: 12px;
     line-height: 1.3;
     color: var(--ink);
     text-align: center;
@@ -152,16 +157,22 @@
   .card .sym {
     display: block;
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 8px;
+    font-size: 11px;
     color: var(--ink-light);
     margin-top: 1px;
+  }
+  .card .inline-sym {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-light);
+    white-space: nowrap;
   }
   .card.train {
     border-style: dashed;
   }
   .train-tag {
     display: block;
-    font-size: 8px;
+    font-size: 10.5px;
     font-weight: 600;
     letter-spacing: .07em;
     text-transform: uppercase;
@@ -193,7 +204,7 @@
     height: 100%;
   }
   .proc-list {
-    font-size: 8.5px;
+    font-size: 11.5px;
     color: var(--ink-light);
     text-align: center;
     line-height: 1.55;
@@ -215,16 +226,24 @@
   }
   .out-label {
     font-family: 'Source Serif 4', serif;
-    font-size: 10.5px;
+    font-size: 14px;
     font-weight: 600;
     color: var(--ink);
     line-height: 1.25;
   }
   .out-range {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 8.5px;
+    font-size: 11px;
     color: var(--ink-light);
     margin-top: 3px;
+  }
+
+  .network-note {
+    margin-top: -2px;
+    font-size: 10.5px;
+    line-height: 1.35;
+    color: var(--ink-light);
+    text-align: center;
   }
 
   /* ── legend ──────────────────────────────────────────────── */
@@ -237,7 +256,7 @@
     flex-wrap: wrap;
   }
   .legend-title {
-    font-size: 9px;
+    font-size: 11.5px;
     font-weight: 600;
     letter-spacing: .09em;
     text-transform: uppercase;
@@ -248,7 +267,7 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    font-size: 9px;
+    font-size: 11px;
     color: var(--ink-light);
   }
   .leg-swatch {
@@ -301,12 +320,12 @@
             <div class="input-col">
               <div class="col-head">Climate</div>
               <div class="card">
-                Decadal monthly<br>avg. temperature
-                <span class="sym">AT<sub>12m</sub></span>
+                Decadal monthly mean<br>temperature
+                <span class="sym">T<sub>12m</sub></span>
               </div>
               <div class="card">
-                Decadal monthly<br>total precipitation
-                <span class="sym">MP<sub>12m</sub></span>
+                Decadal monthly mean<br>precipitation flux
+                <span class="sym">P<sub>12m</sub></span>
               </div>
             </div>
           </div>
@@ -331,9 +350,10 @@
               <ellipse cx="22" cy="17.5" rx="16" ry="5.5" fill="#c0d6ee" stroke="#6e99d0" stroke-width="1.3"/>
             </svg>
             <div class="proc-list">
-              Grid projection (12.5 km)<br>
-              Presence masking<br>
-              Feature normalisation
+              Climate-based label mask<br>
+              Scaling within training set<br>
+              Random 80/20 split<br>
+              NUTS3 sensitivity analysis
             </div>
           </div>
         </div>
@@ -346,7 +366,7 @@
 
       <!-- NEURAL NETWORK -->
       <div class="stage" style="flex:1.3; min-width:0; overflow:hidden;">
-        <div class="stage-title">Neural network</div>
+        <div class="stage-title">AIedes neural network</div>
         <div class="stage-body" style="align-items:center;">
           <!-- NN SVG: input(2) → hidden(3) → hidden(5) → output(1) -->
           <svg width="100%" height="120" viewBox="-10 -8 220 158" preserveAspectRatio="xMidYMid meet">
@@ -372,10 +392,9 @@
             <!-- Out x=182: 1 node y=72 -->
 
             <!-- Layer labels -->
-            <text x="18"  y="7" font-family="IBM Plex Mono" font-size="11" fill="#8b91a8" text-anchor="middle">Input</text>
-            <text x="75"  y="7" font-family="IBM Plex Mono" font-size="11" fill="#8b91a8" text-anchor="middle">Hidden 1</text>
-            <text x="138" y="7" font-family="IBM Plex Mono" font-size="11" fill="#8b91a8" text-anchor="middle">Hidden 2</text>
-            <text x="182" y="7" font-family="IBM Plex Mono" font-size="11" fill="#8b91a8" text-anchor="middle">Out</text>
+            <text x="18"  y="7" font-family="IBM Plex Mono" font-size="15" fill="#6e758d" text-anchor="middle">Features</text>
+            <text x="106" y="7" font-family="IBM Plex Mono" font-size="15" fill="#6e758d" text-anchor="middle">Hidden layers</text>
+            <text x="182" y="7" font-family="IBM Plex Mono" font-size="15" fill="#6e758d" text-anchor="middle">Output</text>
 
             <!-- node size = 8 -->
 
@@ -406,9 +425,9 @@
             </g>
 
             <!-- L1 nodes (2) -->
-            <g filter="url(#fgCL)">
-              <circle cx="18" cy="65"  r="8" fill="url(#gCL)" stroke="#0d3d6e" stroke-width="1.1"/>
-              <circle cx="18" cy="105"  r="8" fill="url(#gCL)" stroke="#0d3d6e" stroke-width="1.1"/>
+            <g>
+              <circle cx="18" cy="65"  r="8" fill="#f7f6f3" stroke="#5a607a" stroke-width="1.3"/>
+              <circle cx="18" cy="105"  r="8" fill="#f7f6f3" stroke="#5a607a" stroke-width="1.3"/>
             </g>
             <!-- L2 nodes (3) -->
             <g filter="url(#fgCL)">
@@ -442,7 +461,7 @@
         <div class="stage-body">
           <div class="out-inner">
             <div class="out-box">
-              <div class="out-label">Suitability<br>index</div>
+              <div class="out-label">Probability of<br>presence</div>
               <div class="out-range">σ ∈ [0, 1]</div>
             </div>
           </div>
@@ -474,24 +493,21 @@
                 Weekly egg-laying<br>rate at collection<br>date
               </div>
               <div class="card">
-                Previous two<br>weekly egg-laying<br>rates
-                <span class="sym">ER<sub>2w</sub> (if avail.)</span>
+                Previous weekly egg-laying<br>rates and availability
+                <span class="sym">E<sub>W</sub>, I<sub>W</sub></span>
               </div>
             </div>
             <!-- climate -->
             <div class="input-col">
               <div class="col-head">Climate</div>
               <div class="card">
-                90-day daily avg.<br>temperature
-                <span class="sym">AT<sub>90d</sub></span>
+                Air temperature <span class="inline-sym">(T<sub>W</sub>)</span>
               </div>
               <div class="card">
-                90-day daily avg.<br>dew point
-                <span class="sym">DP<sub>90d</sub></span>
+                Dew-point temperature <span class="inline-sym">(D<sub>W</sub>)</span>
               </div>
               <div class="card">
-                90-day daily total<br>precipitation
-                <span class="sym">TP<sub>90d</sub></span>
+                Total precipitation <span class="inline-sym">(P<sub>W</sub>)</span>
               </div>
             </div>
           </div>
@@ -515,9 +531,9 @@
               <ellipse cx="22" cy="17.5" rx="16" ry="5.5" fill="#b0ddd9" stroke="#5ab8ad" stroke-width="1.3"/>
             </svg>
             <div class="proc-list">
-              90-day rolling extraction<br>
-              Lag feature construction<br>
-              Feature normalisation
+              Input-variable scaling<br>
+              and normalization<br>
+              Trap-disjoint train--test split
             </div>
           </div>
         </div>
@@ -530,7 +546,7 @@
 
       <!-- NEURAL NETWORK -->
       <div class="stage" style="flex:1.3; min-width:0; overflow:hidden;">
-        <div class="stage-title">Neural network</div>
+        <div class="stage-title">AIedes neural network</div>
         <div class="stage-body" style="align-items:center;">
           <!-- NN SVG: input(2) → hidden(3) → hidden(5) → output(1) -->
           <svg width="100%" height="120" viewBox="-10 -8 220 158" preserveAspectRatio="xMidYMid meet">
@@ -546,10 +562,9 @@
             </defs>
 
             <!-- Layer labels -->
-            <text x="18"  y="7" font-family="IBM Plex Mono" font-size="11" fill="#8b91a8" text-anchor="middle">Input</text>
-            <text x="75"  y="7" font-family="IBM Plex Mono" font-size="11" fill="#8b91a8" text-anchor="middle">Hidden 1</text>
-            <text x="138" y="7" font-family="IBM Plex Mono" font-size="11" fill="#8b91a8" text-anchor="middle">Hidden 2</text>
-            <text x="182" y="7" font-family="IBM Plex Mono" font-size="11" fill="#8b91a8" text-anchor="middle">Out</text>
+            <text x="18"  y="7" font-family="IBM Plex Mono" font-size="15" fill="#6e758d" text-anchor="middle">Features</text>
+            <text x="106" y="7" font-family="IBM Plex Mono" font-size="15" fill="#6e758d" text-anchor="middle">Hidden layers</text>
+            <text x="182" y="7" font-family="IBM Plex Mono" font-size="15" fill="#6e758d" text-anchor="middle">Output</text>
 
             <!-- edges L1→L2 -->
             <g stroke="#8fd4cb" stroke-width="0.85" opacity="0.75">
@@ -577,9 +592,9 @@
             </g>
 
             <!-- L1 nodes (2) -->
-            <g filter="url(#fgCO)">
-              <circle cx="18" cy="65"  r="8" fill="url(#gCO)" stroke="#0d4d45" stroke-width="1.1"/>
-              <circle cx="18" cy="105"  r="8" fill="url(#gCO)" stroke="#0d4d45" stroke-width="1.1"/>
+            <g>
+              <circle cx="18" cy="65"  r="8" fill="#f7f6f3" stroke="#5a607a" stroke-width="1.3"/>
+              <circle cx="18" cy="105"  r="8" fill="#f7f6f3" stroke="#5a607a" stroke-width="1.3"/>
             </g>
             <!-- L2 nodes (3) -->
             <g filter="url(#fgCO)">
@@ -633,17 +648,17 @@
 
     <div class="legend-item">
       <div class="leg-swatch solid-cl"></div>
-      Covariate (train / test / inference)
+      Covariate (training / evaluation / inference)
     </div>
 
     <div class="legend-item">
       <div class="leg-swatch dash-cl"></div>
-      Label (train / test only) — <em>AIedes</em>-Classifier
+      Outcome (training / evaluation only) — <em>AIedes</em>-Classifier
     </div>
 
     <div class="legend-item">
       <div class="leg-swatch dash-co"></div>
-      Label (train / test only) — <em>AIedes</em>-Counter
+      Outcome (training / evaluation only) — <em>AIedes</em>-Counter
     </div>
 
     <div class="legend-item">

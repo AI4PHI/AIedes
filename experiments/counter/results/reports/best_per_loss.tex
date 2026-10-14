@@ -1,0 +1,9 @@
+\begin{tabular}{lrlrrrlll}
+\toprule
+loss & window & input\_variables & num\_layers & hidden\_dim & dropout & R² & Log R² & Accuracy \\
+\midrule
+WMSE & 90 & t2m\_mean\_znorm(mean); tp\_sum\_znorm(mean); p1zn; p2zn & 2 & 64 & 0.2000 & 0.564 ± 0.034 & 0.503 ± 0.019 & 0.884 ± 0.002 \\
+WMSLE & 90 & t2m\_mean\_znorm; d2m\_mean\_znorm; tp\_sum\_znorm; p1zn; p2zn & 2 & 64 & 0.2000 & 0.553 ± 0.023 & 0.670 ± 0.013 & 0.923 ± 0.004 \\
+ZINB & 90 & t2m\_mean\_znorm(mean); tp\_sum\_znorm(mean); p1zn; p2zn & 3 & 32 & 0.2000 & 0.527 ± 0.023 & 0.611 ± 0.013 & 0.905 ± 0.003 \\
+\bottomrule
+\end{tabular}

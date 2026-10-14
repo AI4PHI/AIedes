@@ -121,7 +121,9 @@ def make_autoregressive_map(input_path: Path = DEFAULT_INPUT,
     if "weekly_rate" not in daily:
         raise ValueError("Projection must contain a 'weekly_rate' variable")
 
-    monthly = daily.resample(time="1ME").mean()
+    # The committed reproducibility package keeps the compact monthly grid;
+    # accept both it and the full daily projection used during generation.
+    monthly = daily if len(daily.time) <= 12 else daily.resample(time="1ME").mean()
     selected = monthly.where(monthly.time.dt.month.isin(MONTHS), drop=True)
     if selected.sizes.get("time") != len(MONTHS):
         raise ValueError("Expected exactly the June--September monthly panels")

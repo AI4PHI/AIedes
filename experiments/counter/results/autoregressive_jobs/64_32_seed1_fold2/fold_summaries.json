@@ -1,0 +1,57 @@
+[
+  {
+    "best_epoch_by_rollout_loss": 2917,
+    "candidate": {
+      "dropout": 0.2,
+      "fields": [
+        "t2m_mean",
+        "d2m_mean",
+        "tp_sum"
+      ],
+      "lag_order": 2,
+      "lags": true,
+      "learning_rate": 0.001,
+      "loss": "WMSLE",
+      "weekly": false,
+      "widths": [
+        64,
+        32
+      ],
+      "window": 90
+    },
+    "epochs": 3000,
+    "fold": 2,
+    "metrics": {
+      "FNR": 0.05825242718446602,
+      "FPR": 0.08292682926829269,
+      "TNR": 0.9170731707317074,
+      "TPR": 0.941747572815534,
+      "absence_baseline": 0.7992202729044834,
+      "accuracy": 0.9220272904483431,
+      "binary_accuracy": 0.9220272904483431,
+      "intercept": 2.4544691240489014,
+      "log_intercept": 0.19701408645004082,
+      "log_mse": 0.5553965455332341,
+      "log_r2": 0.6898987990737069,
+      "log_slope": 0.8126619902711243,
+      "n": 1026.0,
+      "nonzero_count": 206.0,
+      "nonzero_intercept": 10.888574921180638,
+      "nonzero_r2": 0.4722811146642041,
+      "nonzero_slope": 0.45832558552309577,
+      "pearson_r2": 0.5914734972738845,
+      "positive_fraction": 0.20077972709551656,
+      "r2": 0.5757652272443815,
+      "rmse": 26.218941456575134,
+      "sensitivity": 0.941747572815534,
+      "slope": 0.5052932601959609,
+      "specificity": 0.9170731707317074
+    },
+    "mode": "value_only_recursive_zero_start",
+    "n_test": 1026,
+    "n_train": 4103,
+    "seconds": 6837.167273698957,
+    "seed": 1,
+    "threads": 1
+  }
+]

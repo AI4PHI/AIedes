@@ -1,0 +1,76 @@
+{
+  "observations": 280,
+  "traps": 40,
+  "date_first": "2021-05-26",
+  "date_last": "2021-11-16",
+  "lag_availability": {
+    "prev1": 172,
+    "prev2": 160,
+    "both": 120,
+    "exactly_one": 92,
+    "neither": 68
+  },
+  "trap_length": {
+    "mean": 7.0,
+    "median": 2.5,
+    "minimum": 1,
+    "maximum": 23,
+    "at_least_16": 9,
+    "frequency": {
+      "1": 12,
+      "2": 8,
+      "3": 4,
+      "4": 2,
+      "5": 1,
+      "9": 1,
+      "10": 1,
+      "14": 1,
+      "15": 1,
+      "17": 1,
+      "18": 1,
+      "19": 3,
+      "20": 1,
+      "21": 1,
+      "23": 2
+    }
+  },
+  "periods": {
+    "before_september": {
+      "observations": 162,
+      "traps": 37
+    },
+    "september_onward": {
+      "observations": 118,
+      "traps": 23
+    }
+  },
+  "models": 25,
+  "model_paths": [
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed1_fold1/fold1/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed2_fold1/fold1/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed3_fold1/fold1/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed4_fold1/fold1/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed5_fold1/fold1/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed1_fold2/fold2/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed2_fold2/fold2/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed3_fold2/fold2/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed4_fold2/fold2/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed5_fold2/fold2/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed1_fold3/fold3/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed2_fold3/fold3/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed3_fold3/fold3/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed4_fold3/fold3/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed5_fold3/fold3/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed1_fold4/fold4/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed2_fold4/fold4/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed3_fold4/fold4/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed4_fold4/fold4/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed5_fold4/fold4/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed1_fold5/fold5/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed2_fold5/fold5/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed3_fold5/fold5/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed4_fold5/fold5/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed5_fold5/fold5/model.pt"
+  ],
+  "mode": "zero-start recursive autoregressive ensemble"
+}

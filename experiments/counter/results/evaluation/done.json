@@ -1,0 +1,11 @@
+{
+  "artifacts": {
+    "daily_trajectories.csv": "68d26cb0a41bf3dc286b1a09a28a3a15d446472e80a00d9a08444bb17e5b5ad9",
+    "main_predictions.csv": "fa29ebd376ad1366a2046d83bb957b5ffa36c2c5c1552324e7f47ee3b15e49aa",
+    "metrics_by_outer.json": "92a41da8e7f9967508d2b6607b56aa2b5feb21ebb27f828309add8ad6894e84a",
+    "pooled_metrics.json": "e5b15ff8d7612259369cf07bdf483344c5b06af30864d3aa23f6c7bbf608019c",
+    "reconstruction_predictions.csv": "2b17a293cb94a9515934b93e5ee4943084673128a622cd3926f089b81acd8372",
+    "split_variability.csv": "476fe2be414594380bc33a03fde1eb6c7d067dbd9cf59cb3ec5a703d99162a3a"
+  },
+  "experiment_id": "b8109027c7955b5ce41b5c6ece91baa6fb4ffe640426f059f8f8a9bd488a707c"
+}

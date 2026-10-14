@@ -1,0 +1,31 @@
+{
+  "input": "/home/biazzin/git/AIedes/experiments/counter/tests/vectornet_autoregressive/results/vectornet_autoregressive_predictions.csv",
+  "observations": 280,
+  "traps": 40,
+  "metrics": {
+    "Before September (linear)": {
+      "n": 162,
+      "r2": -0.16704863390156155,
+      "rmse": 67.28058902961081,
+      "slope": 0.05946605797560079
+    },
+    "Before September (log1p)": {
+      "n": 162,
+      "r2": 0.19987016675045877,
+      "rmse": 1.7074739085917505,
+      "slope": 0.23433210228623413
+    },
+    "September onward (linear)": {
+      "n": 118,
+      "r2": -0.30319571966373937,
+      "rmse": 89.78696699883521,
+      "slope": 0.028288012749098125
+    },
+    "September onward (log1p)": {
+      "n": 118,
+      "r2": -0.3978037757797612,
+      "rmse": 2.336461979286446,
+      "slope": 0.22901677981031301
+    }
+  }
+}

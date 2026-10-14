@@ -1,0 +1,80 @@
+{
+  "candidate": {
+    "dropout": 0.2,
+    "fields": [
+      "t2m_mean",
+      "d2m_mean",
+      "tp_sum"
+    ],
+    "lag_order": 2,
+    "lags": true,
+    "learning_rate": 0.001,
+    "loss": "WMSLE",
+    "weekly": false,
+    "widths": [
+      64,
+      32
+    ],
+    "window": 90
+  },
+  "climate_path": "/home/biazzin/git/AIedes/experiments/counter/data/europe_copernicus_data_2020.nc",
+  "distribution": {
+    "count": 35418350,
+    "ensemble_sd_mean": 1.4688271739482224,
+    "ensemble_sd_p95": 7.990437030792236,
+    "max": 562.9392700195312,
+    "mean": 1.6012562967297368,
+    "median": 3.1594781710977096e-23,
+    "min": 0.0,
+    "p95": 7.196321964263916,
+    "p99": 35.36176586151103
+  },
+  "end": "2020-12-31",
+  "map_outputs": [
+    "/home/biazzin/git/AIedes/experiments/counter/results/europe_projection_autoregressive_64_32/weekly_rates_map_autoregressive_all_folds.png",
+    "/home/biazzin/git/AIedes/experiments/counter/results/europe_projection_autoregressive_64_32/weekly_rates_map_autoregressive_all_folds.pdf"
+  ],
+  "model_count": 25,
+  "model_id": "autoregressive_64_32",
+  "model_mode": "autoregressive_all_outer_folds_and_seeds",
+  "model_source": "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs",
+  "models": [
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed1_fold1/fold1/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed2_fold1/fold1/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed3_fold1/fold1/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed4_fold1/fold1/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed5_fold1/fold1/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed1_fold2/fold2/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed2_fold2/fold2/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed3_fold2/fold2/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed4_fold2/fold2/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed5_fold2/fold2/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed1_fold3/fold3/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed2_fold3/fold3/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed3_fold3/fold3/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed4_fold3/fold3/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed5_fold3/fold3/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed1_fold4/fold4/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed2_fold4/fold4/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed3_fold4/fold4/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed4_fold4/fold4/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed5_fold4/fold4/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed1_fold5/fold5/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed2_fold5/fold5/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed3_fold5/fold5/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed4_fold5/fold5/model.pt",
+    "/home/biazzin/git/AIedes/experiments/counter/results/autoregressive_jobs/64_32_seed5_fold5/fold5/model.pt"
+  ],
+  "outputs": [
+    "/home/biazzin/git/AIedes/experiments/counter/results/europe_projection_autoregressive_64_32/predictions_2020_autoregressive_all_folds_daily.nc",
+    "/home/biazzin/git/AIedes/experiments/counter/results/europe_projection_autoregressive_64_32/predictions_2020_autoregressive_all_folds_weekly.nc",
+    "/home/biazzin/git/AIedes/experiments/counter/results/europe_projection_autoregressive_64_32/predictions_2020_autoregressive_all_folds_monthly.nc"
+  ],
+  "recursive_lag_days": [
+    7,
+    14
+  ],
+  "selection_filter": null,
+  "start": "2020-04-01",
+  "startup": "raw zero egg-laying rate until each recursive lag becomes available"
+}

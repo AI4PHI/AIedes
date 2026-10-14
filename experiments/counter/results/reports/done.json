@@ -1,0 +1,28 @@
+{
+  "artifacts": {
+    "RESULTS.md": "a5a128e930cd3af34766f572e27e098987f5c616d488c97a861780e4da78b25e",
+    "all_runs.csv": "1a5113d432fc60d29838de7dddf670cc0bbbc11ca1ee8c17543f01049c028979",
+    "best_per_loss.csv": "b418992c7a5fbec2693439821a2173e0d9d5d63b7d57d9929d7939e01ca686f9",
+    "best_per_loss.tex": "63c269f99a3bb4fa9440294edad6f654b19804581140e3dd96b14af81fe6909b",
+    "early_stopping_runs.csv": "10399bd23520e4b0d0fdddf26b7bdd436c144a075b6f926ca2c9f9dd1a48866f",
+    "early_stopping_summary.csv": "cba43e4670e095c883a4822f2f03bf580ca0f042144d8dd506df6fa3010e8afd",
+    "early_stopping_summary.tex": "5e76c388664707f1ff758609d83bdaeb8bd152cf7b4d4bf11656be8ff3b15492",
+    "lag_order_paired_differences.csv": "05335119bdb3b9d551439916c3ff0278032ac4879835c290aefc8756610b663b",
+    "lag_order_paired_differences.tex": "ac4c5cc562f2c4d462a772e349c714dcfc5a13b0eb1c53e78daf2abd58f99bfb",
+    "lag_order_sensitivity.csv": "fc3f08c7da95241623ed197aefa15b1dbcfbdbe3979a36c38e0d633a14063383",
+    "lag_order_sensitivity.tex": "c6d5823496c06dcf58070682acf1126b5543e854e50c5eafe1fb58d1bfa5516e",
+    "performance_cohorts.csv": "ce6f988c585e89c60f952b9163344ec9cf14fa367c5160b210af44e5021a998b",
+    "performance_cohorts.tex": "4de7dea708de82e7029540a9289aa3cfc93e446c1404230bd91c2f951351f053",
+    "recursive_coverage.json": "0cfa418cd268f84fb65a9f0a4d81070ae0c364cbbd3da81cd889188d4ff16466",
+    "reported_runs.csv": "b5eba381f06e9ce3e244c1aa3a7920ffed69b484acef2dc3d55ab03bb38306cc",
+    "selected_configurations.csv": "dc033da148c4e1d4f255c3cf8f6ac4862c567613b9e0c9752e22552ba4000eb2",
+    "selected_configurations.tex": "12edb4bdcc5f56d1f291a2c4c8daf8d9d4dcd39c62d911512b4724ecb686708e",
+    "supplementary_runs.csv": "263e155acfca67763de5a02c5608edc47833905d56d516ab39f39d1ad4ace520",
+    "top_five_wmsle.csv": "c7a17ed51f5381a261ffc8e3a6b10078e4cd20ea4a83a11319b1dd30843ffd86",
+    "top_five_wmsle.tex": "803ad73a6bb8c91f12d6ec282faf38d10e31e53e8213dbbe8388573e0c809823",
+    "training_seed_variability.csv": "60c3ae69e633509924c53f8063382c422323ca457501ca46a9f6c5c1776856ae",
+    "vectornet_metrics.json": "46f8891c9d093a12d9b797b4807e17eb6ff6aa079f63d1d139f311e5ab44bbcb",
+    "vectornet_predictions.csv": "8572237b284b88dd85f98544fcfde21ad3d0294fb588db669ab05e0adcd75dc4"
+  },
+  "experiment_id": "b8109027c7955b5ce41b5c6ece91baa6fb4ffe640426f059f8f8a9bd488a707c"
+}

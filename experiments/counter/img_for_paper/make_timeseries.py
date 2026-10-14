@@ -12,7 +12,7 @@ def make_timeseries(output, destination=None):
     config = read_json(output / 'experiment.json')['config']
     frames = []
     for dataset, data_key, prediction_file, prediction_col, ids in [
-        ('AIMSurv', 'weekly_data', 'evaluation/main_predictions.csv', 'prediction', [363,362,279,448,456,376,221,1244,1260]),
+        ('AIMSurv', 'weekly_data', 'evaluation/main_predictions.csv', 'prediction', [360,361,363,1238,1244,448,449,372,373]),
         ('VectorNet', 'external_data', 'reports/vectornet_predictions.csv', 'main', [2002,2036,2054]),
     ]:
         raw = pd.read_pickle(config[data_key]).reset_index(drop=True)
@@ -33,12 +33,16 @@ def make_timeseries(output, destination=None):
         joined['dataset'] = dataset
         if dataset == 'VectorNet':
             joined['country'] = 'Italy'
+            ensemble_columns = [column for column in joined if column.startswith('main_fold')]
+        else:
+            ensemble_columns = [column for column in joined if column.startswith('prediction_seed')]
+        joined['prediction_sd'] = joined[ensemble_columns].std(axis=1, ddof=0)
         joined['split'] = 'test'
         joined = joined.rename(columns={'decimalLatitude':'lat','decimalLongitude':'lon', 'target':'target_data', prediction_col:'predictions'})
         joined['end_date'] = pd.to_datetime(joined.end_date)
         frames.append(joined)
     data_egg_most_populatet = pd.concat(frames, ignore_index=True)
-    data_egg_most_populatet[['dataset','id_trap','country','end_date','target_data','predictions','lat','lon']].to_csv(destination / 'timeseries_predictions.csv', index=False)
+    data_egg_most_populatet[['dataset','id_trap','country','end_date','target_data','predictions','prediction_sd','lat','lon']].to_csv(destination / 'timeseries_predictions.csv', index=False)
     locations = data_egg_most_populatet.groupby(['dataset','id_trap'], sort=True).first().reset_index()
     locations[['dataset','id_trap','country','lat','lon']].to_csv(destination / 'timeseries_traps.csv', index=False)
     gdf_most_populatet_grouped_mercator = gpd.GeoDataFrame(locations, geometry=gpd.points_from_xy(locations.lon, locations.lat), crs=4326).to_crs(3857)
@@ -58,14 +62,14 @@ def make_timeseries(output, destination=None):
 
     curve_styles = {
         "actual": {
-            "color": "#1f77b4",   # matplotlib blue
+            "color": "#333333",
             "linestyle": "-",
             "linewidth": 1.8,
             "fill": False,         # fill below the line
             "fill_alpha": 0.2
         },
         "predicted": {
-            "color": "#ff7f0e",   # matplotlib orange
+            "color": "#999999",
             "linestyle": "--",
             "linewidth": 2.2,
             "fill": False
@@ -77,14 +81,20 @@ def make_timeseries(output, destination=None):
         "default": {"marker": "o", "markersize": 4}
     }
 
+    color_map = {}
+
     def get_country_abbreviation(country_name):
         try:
-            # Get the official alpha_2 country code
-            return country_name
-            #return pycountry.countries.lookup(country_name).alpha_2
+            return pycountry.countries.lookup(country_name).alpha_2
         except LookupError:
-            # Fallback to the first two letters if the country is not found
             return country_name[:2]
+
+    def get_color(country, dataset):
+        key = (get_country_abbreviation(country), dataset[:3])
+        if key not in color_map:
+            colors = plt.rcParams['axes.prop_cycle'].by_key()['color']
+            color_map[key] = colors[len(color_map) % len(colors)]
+        return color_map[key]
 
     def series_to_fake_2020(df, col, window=3):
         wk = (df["end_date"].dt.isocalendar().week.astype(int)
@@ -130,6 +140,7 @@ def make_timeseries(output, destination=None):
     def plot_trap(ax, df, trap_id, y_max):
         targ, all_targ, split_targ = series_to_fake_2020(df, "target_data", window=3)
         pred, all_pred, split_pred = series_to_fake_2020(df, "predictions", window=3)
+        _, pred_sd, _ = series_to_fake_2020(df, "prediction_sd", window=3)
 
         # --- Actual curve ---
         s = curve_styles["actual"]
@@ -159,6 +170,12 @@ def make_timeseries(output, destination=None):
                          color=s["color"], linestyle=s["linestyle"],
                          lw=s["linewidth"], label="Predicted (moving avg)", zorder=3)
 
+        # One standard deviation across the relevant ensemble members.
+        ax.errorbar(all_pred.index, all_pred.values, yerr=pred_sd.values,
+                    fmt='none', ecolor=s["color"], elinewidth=.7,
+                    capsize=1.4, alpha=.38, zorder=4,
+                    label=r'Prediction $\pm$ 1 SD')
+
         # Plot predicted points with default markers
         plot_points_by_split(ax, all_pred.index, all_pred.values, split_pred.values,
                             s["color"], alpha=0.6, zorder=5)
@@ -171,7 +188,7 @@ def make_timeseries(output, destination=None):
         # cosmetics
         ax.set_xlim(START, END)
         # Preserve original scale unless revised weekly points would be clipped.
-        maximum = max(float(all_targ.max()), float(all_pred.max()))
+        maximum = max(float(all_targ.max()), float((all_pred + pred_sd).max()))
         if maximum > y_max:
             y_max = np.ceil(maximum * 1.05 / 20) * 20
         ax.set_ylim(-0.1*y_max, y_max)
@@ -180,7 +197,8 @@ def make_timeseries(output, destination=None):
         ax.spines['bottom'].set_linewidth(1.2)
         ax.patch.set_alpha(0.0)  # transparent subplot background
 
-        # inline label (right-center) - use standard black color
+        # Inline labels retain the country/dataset colour scheme of the
+        # preceding notebook version; data and trends remain neutral grey.
         country = (df["country"].iloc[0].capitalize() if "country" in df.columns and len(df) else "Unk")
         dataset = (df["dataset"].iloc[0] if "dataset" in df.columns and len(df) else "?")
 
@@ -188,7 +206,7 @@ def make_timeseries(output, destination=None):
                 transform=ax.transAxes,
                 ha='right', va='center',
                 fontsize=9, fontweight='bold',
-                color='black')  # Use standard black color
+                color=get_color(country, dataset))
 
         # minimal y axis
         mini_y_axis(ax)
@@ -219,9 +237,10 @@ def make_timeseries(output, destination=None):
     # PLOT TIMESERIES ON LEFT PANEL
     # draw
     mult = -0.10
-    for ax, tid in zip(axes[0:3, 0], aim_ids[:3]):
+    # Retain readable headroom for the two Albania series with isolated high values.
+    for ax, tid, y_max in zip(axes[0:3, 0], aim_ids[:3], [900, 500, 800]):
         df = data_egg_most_populatet.loc[data_egg_most_populatet["id_trap"]==tid]
-        plot_trap(ax, df, tid, y_max=500)
+        plot_trap(ax, df, tid, y_max=y_max)
     for ax, tid in zip(axes[3:-1, 0], vec_ids):
         df = data_egg_most_populatet.loc[data_egg_most_populatet["id_trap"]==tid]
         plot_trap(ax, df, tid, y_max=400)
@@ -277,9 +296,12 @@ def make_timeseries(output, destination=None):
     ax_map.set_xlim(basemap['extent'][:2]); ax_map.set_ylim(basemap['extent'][2:])
     ax_map.text(.005,.005,basemap['attribution'],transform=ax_map.transAxes,fontsize=8,va='bottom',zorder=10)
 
-    # PLOT POINTS using standard blue color
+    gdf['color'] = [get_color(country, dataset)
+                    for country, dataset in zip(gdf['country'], gdf['dataset'])]
+
+    # Dataset/country labels and locations share their colour assignment.
     gdf.plot(ax=ax_map,
-             color='#238b45',              # Standard matplotlib blue
+             color=gdf['color'],
              markersize=50, alpha=0.9,
              edgecolor="black", linewidth=0.5,
              legend=False)
@@ -297,9 +319,9 @@ def make_timeseries(output, destination=None):
     handles, labels = axes[0,0].get_legend_handles_labels()
 
     # Add marker legend entries for actual and predicted points
-    actual_marker = Line2D([0], [0], marker='o', color='w', markerfacecolor='#1f77b4',
+    actual_marker = Line2D([0], [0], marker='o', color='w', markerfacecolor=curve_styles['actual']['color'],
                           markersize=4, alpha=0.6, linestyle='', label='Actual (weekly)')
-    predicted_marker = Line2D([0], [0], marker='o', color='w', markerfacecolor='#ff7f0e',
+    predicted_marker = Line2D([0], [0], marker='o', color='w', markerfacecolor=curve_styles['predicted']['color'],
                              markersize=4, alpha=0.6, linestyle='', label='Predicted (weekly)')
 
     # Combine all handles and labels

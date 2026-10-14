@@ -1,0 +1,56 @@
+{
+  "input": "/home/biazzin/git/AIedes/experiments/counter/results/reports/vectornet_predictions.csv",
+  "models_averaged": 25,
+  "selection": "six traps with the largest number of VectorNet observations",
+  "uncertainty_definition": "standard deviation across 25 observed-lag fold/seed predictions",
+  "traps": [
+    {
+      "id_trap": 2002.0,
+      "observations": 23,
+      "first_date": "2021-05-26",
+      "last_date": "2021-11-16",
+      "r2": -0.3613908027176753,
+      "rmse": 64.36534947977349
+    },
+    {
+      "id_trap": 2036.0,
+      "observations": 23,
+      "first_date": "2021-06-01",
+      "last_date": "2021-11-16",
+      "r2": -0.21295096210205555,
+      "rmse": 64.87891086616183
+    },
+    {
+      "id_trap": 2054.0,
+      "observations": 21,
+      "first_date": "2021-06-01",
+      "last_date": "2021-11-09",
+      "r2": -1.4291187294340788,
+      "rmse": 17.6537674327717
+    },
+    {
+      "id_trap": 2182.333333333333,
+      "observations": 20,
+      "first_date": "2021-06-07",
+      "last_date": "2021-11-15",
+      "r2": -0.8231541179527428,
+      "rmse": 146.9731705171691
+    },
+    {
+      "id_trap": 2052.25,
+      "observations": 19,
+      "first_date": "2021-06-01",
+      "last_date": "2021-11-09",
+      "r2": -1.1342952103643307,
+      "rmse": 5.0216436389476105
+    },
+    {
+      "id_trap": 2008.6666666666667,
+      "observations": 19,
+      "first_date": "2021-06-16",
+      "last_date": "2021-11-16",
+      "r2": -0.4642314865593522,
+      "rmse": 38.02539442265932
+    }
+  ]
+}

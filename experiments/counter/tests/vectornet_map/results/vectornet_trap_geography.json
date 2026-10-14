@@ -1,0 +1,303 @@
+{
+  "traps": 40,
+  "observations": 280,
+  "latitude_range": [
+    41.7531,
+    42.5625
+  ],
+  "longitude_range": [
+    12.59075,
+    13.2478035
+  ],
+  "centroid": [
+    42.093941514583335,
+    12.892048993749999
+  ],
+  "distance_from_rome_km": {
+    "minimum": 14.216804379433283,
+    "maximum": 82.8511046193897,
+    "mean": 49.57721933132173
+  },
+  "locations": [
+    {
+      "id_trap": 2002.0,
+      "latitude": 41.7531,
+      "longitude": 12.9877,
+      "observations": 23,
+      "distance_from_rome_km": 43.97941884405979
+    },
+    {
+      "id_trap": 2008.0,
+      "latitude": 41.7905495,
+      "longitude": 12.761835000000001,
+      "observations": 1,
+      "distance_from_rome_km": 25.28254306285926
+    },
+    {
+      "id_trap": 2008.5,
+      "latitude": 41.7906335,
+      "longitude": 12.762205999999999,
+      "observations": 4,
+      "distance_from_rome_km": 25.3046547832049
+    },
+    {
+      "id_trap": 2008.6666666666667,
+      "latitude": 41.79070333333333,
+      "longitude": 12.762169,
+      "observations": 19,
+      "distance_from_rome_km": 25.298150893671814
+    },
+    {
+      "id_trap": 2015.0,
+      "latitude": 41.79734966666667,
+      "longitude": 13.224559333333332,
+      "observations": 5,
+      "distance_from_rome_km": 61.441258641969014
+    },
+    {
+      "id_trap": 2017.5,
+      "latitude": 41.799020999999996,
+      "longitude": 13.22355625,
+      "observations": 15,
+      "distance_from_rome_km": 61.32369034099541
+    },
+    {
+      "id_trap": 2018.0,
+      "latitude": 41.79995266666666,
+      "longitude": 12.603077666666666,
+      "observations": 9,
+      "distance_from_rome_km": 14.451813022255934
+    },
+    {
+      "id_trap": 2018.3333333333333,
+      "latitude": 41.79931133333333,
+      "longitude": 13.222706333333333,
+      "observations": 2,
+      "distance_from_rome_km": 61.24834616004442
+    },
+    {
+      "id_trap": 2018.5,
+      "latitude": 41.80003525,
+      "longitude": 12.60155275,
+      "observations": 10,
+      "distance_from_rome_km": 14.36763138111556
+    },
+    {
+      "id_trap": 2020.3333333333333,
+      "latitude": 41.801040666666665,
+      "longitude": 12.600320333333334,
+      "observations": 1,
+      "distance_from_rome_km": 14.216804379433283
+    },
+    {
+      "id_trap": 2020.6666666666667,
+      "latitude": 41.801786,
+      "longitude": 13.223753,
+      "observations": 2,
+      "distance_from_rome_km": 61.281320174667776
+    },
+    {
+      "id_trap": 2036.0,
+      "latitude": 41.840459,
+      "longitude": 12.893357,
+      "observations": 23,
+      "distance_from_rome_km": 33.591212678532585
+    },
+    {
+      "id_trap": 2036.5,
+      "latitude": 41.8405685,
+      "longitude": 12.893299500000001,
+      "observations": 1,
+      "distance_from_rome_km": 33.584015748998695
+    },
+    {
+      "id_trap": 2052.0,
+      "latitude": 41.86250149999999,
+      "longitude": 13.2478035,
+      "observations": 1,
+      "distance_from_rome_km": 62.3667852156625
+    },
+    {
+      "id_trap": 2052.25,
+      "latitude": 41.862498,
+      "longitude": 13.24739275,
+      "observations": 19,
+      "distance_from_rome_km": 62.3328987396462
+    },
+    {
+      "id_trap": 2052.6666666666665,
+      "latitude": 41.86260333333333,
+      "longitude": 13.247593,
+      "observations": 2,
+      "distance_from_rome_km": 62.348541768347566
+    },
+    {
+      "id_trap": 2053.0,
+      "latitude": 41.862631,
+      "longitude": 12.951766500000002,
+      "observations": 3,
+      "distance_from_rome_km": 37.961640821606984
+    },
+    {
+      "id_trap": 2054.0,
+      "latitude": 41.862934333333335,
+      "longitude": 12.951205333333334,
+      "observations": 21,
+      "distance_from_rome_km": 37.91145995368478
+    },
+    {
+      "id_trap": 2063.5,
+      "latitude": 41.913215,
+      "longitude": 12.9285935,
+      "observations": 3,
+      "distance_from_rome_km": 35.7841403015887
+    },
+    {
+      "id_trap": 2064.0,
+      "latitude": 41.913273000000004,
+      "longitude": 12.928599333333333,
+      "observations": 3,
+      "distance_from_rome_km": 35.7848158331323
+    },
+    {
+      "id_trap": 2064.5,
+      "latitude": 41.913365,
+      "longitude": 12.92831,
+      "observations": 2,
+      "distance_from_rome_km": 35.76119417902869
+    },
+    {
+      "id_trap": 2180.0,
+      "latitude": 42.167950000000005,
+      "longitude": 12.59075,
+      "observations": 1,
+      "distance_from_rome_km": 30.495649836017844
+    },
+    {
+      "id_trap": 2181.5,
+      "latitude": 42.168529,
+      "longitude": 12.593903000000001,
+      "observations": 1,
+      "distance_from_rome_km": 30.625325159996688
+    },
+    {
+      "id_trap": 2182.3333333333335,
+      "latitude": 42.16879866666667,
+      "longitude": 12.593900666666668,
+      "observations": 20,
+      "distance_from_rome_km": 30.654201520495043
+    },
+    {
+      "id_trap": 2184.5,
+      "latitude": 42.169875000000005,
+      "longitude": 12.5970645,
+      "observations": 1,
+      "distance_from_rome_km": 30.839088582890017
+    },
+    {
+      "id_trap": 2221.0,
+      "latitude": 42.264302,
+      "longitude": 12.687326,
+      "observations": 2,
+      "distance_from_rome_km": 43.174876240569105
+    },
+    {
+      "id_trap": 2221.5,
+      "latitude": 42.264362000000006,
+      "longitude": 12.6851505,
+      "observations": 2,
+      "distance_from_rome_km": 43.11590036644118
+    },
+    {
+      "id_trap": 2222.0,
+      "latitude": 42.26445,
+      "longitude": 12.68545,
+      "observations": 19,
+      "distance_from_rome_km": 43.13395439707637
+    },
+    {
+      "id_trap": 2246.5,
+      "latitude": 42.408714,
+      "longitude": 12.932275,
+      "observations": 3,
+      "distance_from_rome_km": 66.74990287289629
+    },
+    {
+      "id_trap": 2247.3333333333335,
+      "latitude": 42.408903,
+      "longitude": 12.931313000000001,
+      "observations": 18,
+      "distance_from_rome_km": 66.7249478351103
+    },
+    {
+      "id_trap": 2247.6666666666665,
+      "latitude": 42.408899999999996,
+      "longitude": 12.9313,
+      "observations": 1,
+      "distance_from_rome_km": 66.7240912072652
+    },
+    {
+      "id_trap": 2248.5,
+      "latitude": 42.409257,
+      "longitude": 12.930898500000001,
+      "observations": 1,
+      "distance_from_rome_km": 66.73975401146993
+    },
+    {
+      "id_trap": 2275.0,
+      "latitude": 42.501495,
+      "longitude": 12.887981,
+      "observations": 2,
+      "distance_from_rome_km": 73.97400686453716
+    },
+    {
+      "id_trap": 2276.0,
+      "latitude": 42.5017605,
+      "longitude": 12.887616,
+      "observations": 1,
+      "distance_from_rome_km": 73.98744713266623
+    },
+    {
+      "id_trap": 2276.5,
+      "latitude": 42.501883,
+      "longitude": 12.888311,
+      "observations": 2,
+      "distance_from_rome_km": 74.02464198443731
+    },
+    {
+      "id_trap": 2276.6666666666665,
+      "latitude": 42.50193066666667,
+      "longitude": 12.887957666666665,
+      "observations": 14,
+      "distance_from_rome_km": 74.01672001355698
+    },
+    {
+      "id_trap": 2277.5,
+      "latitude": 42.50215,
+      "longitude": 12.88795,
+      "observations": 4,
+      "distance_from_rome_km": 74.03837274671217
+    },
+    {
+      "id_trap": 2294.0,
+      "latitude": 42.5619525,
+      "longitude": 12.9635105,
+      "observations": 1,
+      "distance_from_rome_km": 82.77089598490733
+    },
+    {
+      "id_trap": 2295.6666666666665,
+      "latitude": 42.562416666666664,
+      "longitude": 12.963746333333333,
+      "observations": 17,
+      "distance_from_rome_km": 82.82555495192784
+    },
+    {
+      "id_trap": 2296.0,
+      "latitude": 42.5625,
+      "longitude": 12.9642,
+      "observations": 1,
+      "distance_from_rome_km": 82.8511046193897
+    }
+  ]
+}
