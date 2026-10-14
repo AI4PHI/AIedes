@@ -1,0 +1,364 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{ecdc2024b}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=dcd0823e4eb7ad2527265d9398ab105a}{%
+           family={{European Centre for Disease Prevention and Control and European Food Safety Authority}},
+           familyi={E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {ECDC}%
+      }
+      \list{location}{1}{%
+        {Stockholm}%
+      }
+      \strng{namehash}{dcd0823e4eb7ad2527265d9398ab105a}
+      \strng{fullhash}{dcd0823e4eb7ad2527265d9398ab105a}
+      \strng{fullhashraw}{dcd0823e4eb7ad2527265d9398ab105a}
+      \strng{bibnamehash}{dcd0823e4eb7ad2527265d9398ab105a}
+      \strng{authorbibnamehash}{dcd0823e4eb7ad2527265d9398ab105a}
+      \strng{authornamehash}{dcd0823e4eb7ad2527265d9398ab105a}
+      \strng{authorfullhash}{dcd0823e4eb7ad2527265d9398ab105a}
+      \strng{authorfullhashraw}{dcd0823e4eb7ad2527265d9398ab105a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{\textit{Aedes albopictus} - current known distribution: June 2025}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://ecdc.europa.eu/en/disease-vectors/surveillance-and-disease-data/mosquito-maps
+      \endverb
+      \verb{url}
+      \verb https://ecdc.europa.eu/en/disease-vectors/surveillance-and-disease-data/mosquito-maps
+      \endverb
+    \endentry
+    \entry{Wint2023}{article}{}{}
+      \name{author}{21}{}{%
+        {{hash=bbf65bff05d23994db45efd17ef6002f}{%
+           family={Wint},
+           familyi={W\bibinitperiod},
+           given={G.\bibnamedelimi R.\bibnamedelimi W.},
+           giveni={G\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=e41b0ad69a42203087781b55e51e8f32}{%
+           family={Balenghien},
+           familyi={B\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=c8fde9f0a363c8a947cef2d7e58572dd}{%
+           family={Berriatua},
+           familyi={B\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod}}}%
+        {{hash=cd7603021643d4a56701f8c32e68cd99}{%
+           family={Braks},
+           familyi={B\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=66c7f9372b35ec8b3c5801b0a032de35}{%
+           family={Marsboom},
+           familyi={M\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=51d20bc72fc40a2c4451f4cea2d52257}{%
+           family={Medlock},
+           familyi={M\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=94573916b0056ecedfdc655d1e04fe5e}{%
+           family={Schaffner},
+           familyi={S\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+        {{hash=83c98899831961794fe4bf10aef35c11}{%
+           family={Van\bibnamedelima Bortel},
+           familyi={V\bibinitperiod\bibinitdelim B\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod}}}%
+        {{hash=50c336634b0217e08092f3974af34c9d}{%
+           family={Alexander},
+           familyi={A\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+        {{hash=f5c99cddb29096bdc6c158b8e489a490}{%
+           family={Alten},
+           familyi={A\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=dc1301074d8a34e4647e60b2bbbe6469}{%
+           family={Czwienczek},
+           familyi={C\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod}}}%
+        {{hash=d100a6e7f7e4ac88b4968985cee86ba0}{%
+           family={Dhollander},
+           familyi={D\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=14107787bae1525cba27faef1e58fd2e}{%
+           family={Ducheyne},
+           familyi={D\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod}}}%
+        {{hash=1cf76c9a7d1a387b02717ecb93afc754}{%
+           family={Gossner},
+           familyi={G\bibinitperiod},
+           given={C.\bibnamedelimi M.},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=c7ff26d8f56534bcd93b941659cae18f}{%
+           family={Hansford},
+           familyi={H\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=29006c97a2d283949bf31f93f601cfef}{%
+           family={Hendrickx},
+           familyi={H\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=103cedbfe92bc3a7d18aaccc55f3d76c}{%
+           family={Honrubia},
+           familyi={H\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+        {{hash=b61eb50b04dc2ab667f577257a96f501}{%
+           family={Matheussen},
+           familyi={M\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=65eef6fc3fe9657df8033e5b92db062d}{%
+           family={Mihalca},
+           familyi={M\bibinitperiod},
+           given={A.\bibnamedelimi D.},
+           giveni={A\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=8eb3445b2a3eb38c4f1b768f291e1eb5}{%
+           family={Petric},
+           familyi={P\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=1c042d085be21c3bae978f983690c7cf}{%
+           family={Briet},
+           familyi={B\bibinitperiod},
+           given={O.},
+           giveni={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{583f64e4a8da86732e07c514d840f36f}
+      \strng{fullhash}{cfe97792a8f4ca62292dfdba6d5040d6}
+      \strng{fullhashraw}{cfe97792a8f4ca62292dfdba6d5040d6}
+      \strng{bibnamehash}{583f64e4a8da86732e07c514d840f36f}
+      \strng{authorbibnamehash}{583f64e4a8da86732e07c514d840f36f}
+      \strng{authornamehash}{583f64e4a8da86732e07c514d840f36f}
+      \strng{authorfullhash}{cfe97792a8f4ca62292dfdba6d5040d6}
+      \strng{authorfullhashraw}{cfe97792a8f4ca62292dfdba6d5040d6}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Euro surveillance: bulletin Européen sur les maladies transmissibles = European communicable disease bulletin}
+      \field{number}{26}
+      \field{title}{VectorNet: collaborative mapping of arthropod disease vectors in Europe and surrounding areas since 2010}
+      \field{volume}{28}
+      \field{year}{2023}
+      \field{pages}{2200666}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.2807/1560-7917.ES.2023.28.26.2200666
+      \endverb
+    \endentry
+    \entry{biazzo2026_datasets}{unpublished}{}{}
+      \name{author}{5}{}{%
+        {{hash=f0712893307f0826e7952d8f6a92fc97}{%
+           family={Biazzo},
+           familyi={B\bibinitperiod},
+           given={Indaco},
+           giveni={I\bibinitperiod}}}%
+        {{hash=bd91a87a497c2d7e14293ebb1dc5eba6}{%
+           family={Consoli},
+           familyi={C\bibinitperiod},
+           given={Sergio},
+           giveni={S\bibinitperiod}}}%
+        {{hash=69bcae0bedd3d918567c7b03839f96f7}{%
+           family={Orfei},
+           familyi={O\bibinitperiod},
+           given={Lia},
+           giveni={L\bibinitperiod}}}%
+        {{hash=42ba2ee8d0a0abb6756ea9818fdf43af}{%
+           family={Schuh},
+           familyi={S\bibinitperiod},
+           given={Lea},
+           giveni={L\bibinitperiod}}}%
+        {{hash=1301f3a518100cb1f0e0dc3fd7a27b16}{%
+           family={Markov},
+           familyi={M\bibinitperiod},
+           given={Peter\bibnamedelima V.},
+           giveni={P\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+      }
+      \strng{namehash}{623c7494c8fdc3b9a318ec95d6b5e2ac}
+      \strng{fullhash}{5a44b635597f678d6a486dba5371da40}
+      \strng{fullhashraw}{5a44b635597f678d6a486dba5371da40}
+      \strng{bibnamehash}{623c7494c8fdc3b9a318ec95d6b5e2ac}
+      \strng{authorbibnamehash}{623c7494c8fdc3b9a318ec95d6b5e2ac}
+      \strng{authornamehash}{623c7494c8fdc3b9a318ec95d6b5e2ac}
+      \strng{authorfullhash}{5a44b635597f678d6a486dba5371da40}
+      \strng{authorfullhashraw}{5a44b635597f678d6a486dba5371da40}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Submitted to \textit{Scientific Data}}
+      \field{title}{Harmonised climate and {\textit{Aedes albopictus}} arboviral vector mosquito surveillance datasets for the {European} continent}
+      \field{year}{2026}
+    \endentry
+    \entry{zardini2024}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{10}{}{%
+        {{hash=bb80b86b6f82e0d2e582e284abc37e84}{%
+           family={Zardini},
+           familyi={Z\bibinitperiod},
+           given={Agnese},
+           giveni={A\bibinitperiod}}}%
+        {{hash=ceca8033139c23bc0e158fc0b1c4bdab}{%
+           family={Menegale},
+           familyi={M\bibinitperiod},
+           given={Francesco},
+           giveni={F\bibinitperiod}}}%
+        {{hash=8e620f5a58b7fd3986e0043b65054389}{%
+           family={Gobbi},
+           familyi={G\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod}}}%
+        {{hash=52adcb674d3c23465fbb9dc79ff7234a}{%
+           family={Manica},
+           familyi={M\bibinitperiod},
+           given={Mattia},
+           giveni={M\bibinitperiod}}}%
+        {{hash=e2c43dfb3caad4f1853b6b31badc3a5e}{%
+           family={Guzzetta},
+           familyi={G\bibinitperiod},
+           given={Giorgio},
+           giveni={G\bibinitperiod}}}%
+        {{hash=30ec47cd45dfb23f421c6b65962803d9}{%
+           family={d'Andrea},
+           familyi={d\bibinitperiod},
+           given={Valeria},
+           giveni={V\bibinitperiod}}}%
+        {{hash=631709a831d9e2ad2e3509bdc55f6ee9}{%
+           family={Marziano},
+           familyi={M\bibinitperiod},
+           given={Valentina},
+           giveni={V\bibinitperiod}}}%
+        {{hash=60dad8d25edd821bffa7f6dc87d5c0bc}{%
+           family={Trentini},
+           familyi={T\bibinitperiod},
+           given={Filippo},
+           giveni={F\bibinitperiod}}}%
+        {{hash=8c4c09ec7eb12ac35f7cc0666074f858}{%
+           family={Montarsi},
+           familyi={M\bibinitperiod},
+           given={Fabrizio},
+           giveni={F\bibinitperiod}}}%
+        {{hash=ed34d92102eaf0abe43cb43c6c193dfd}{%
+           family={Caputo},
+           familyi={C\bibinitperiod},
+           given={Beniamino},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{2c2e93825ae20b99aa4db098c27a400c}
+      \strng{fullhash}{27f96b4d31ca136439125f8073cd5be6}
+      \strng{fullhashraw}{27f96b4d31ca136439125f8073cd5be6}
+      \strng{bibnamehash}{2c2e93825ae20b99aa4db098c27a400c}
+      \strng{authorbibnamehash}{2c2e93825ae20b99aa4db098c27a400c}
+      \strng{authornamehash}{2c2e93825ae20b99aa4db098c27a400c}
+      \strng{authorfullhash}{27f96b4d31ca136439125f8073cd5be6}
+      \strng{authorfullhashraw}{27f96b4d31ca136439125f8073cd5be6}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Lancet Planetary Health}
+      \field{number}{1}
+      \field{title}{Estimating the potential risk of transmission of arboviruses in the Americas and Europe: a modelling study}
+      \field{volume}{8}
+      \field{year}{2024}
+      \field{pages}{e30\bibrangedash e40}
+      \range{pages}{-1}
+    \endentry
+    \entry{ecdc2024a}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=c5942b19577d824973140e35ac44b854}{%
+           family={{ECDC}},
+           familyi={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{c5942b19577d824973140e35ac44b854}
+      \strng{fullhash}{c5942b19577d824973140e35ac44b854}
+      \strng{fullhashraw}{c5942b19577d824973140e35ac44b854}
+      \strng{bibnamehash}{c5942b19577d824973140e35ac44b854}
+      \strng{authorbibnamehash}{c5942b19577d824973140e35ac44b854}
+      \strng{authornamehash}{c5942b19577d824973140e35ac44b854}
+      \strng{authorfullhash}{c5942b19577d824973140e35ac44b854}
+      \strng{authorfullhashraw}{c5942b19577d824973140e35ac44b854}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Available at: \url{https://www.ecdc.europa.eu/en/disease-vectors/facts/mosquito-factsheets/aedes-albopictus} (Accessed: 2025-03-11)}
+      \field{title}{Aedes albopictus Factsheet}
+      \field{year}{2024}
+    \endentry
+    \entry{worldclim_2023}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=e7abb639e5cbd86a84aad24c68efbdb6}{%
+           family={WorldClim},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{e7abb639e5cbd86a84aad24c68efbdb6}
+      \strng{fullhash}{e7abb639e5cbd86a84aad24c68efbdb6}
+      \strng{fullhashraw}{e7abb639e5cbd86a84aad24c68efbdb6}
+      \strng{bibnamehash}{e7abb639e5cbd86a84aad24c68efbdb6}
+      \strng{authorbibnamehash}{e7abb639e5cbd86a84aad24c68efbdb6}
+      \strng{authornamehash}{e7abb639e5cbd86a84aad24c68efbdb6}
+      \strng{authorfullhash}{e7abb639e5cbd86a84aad24c68efbdb6}
+      \strng{authorfullhashraw}{e7abb639e5cbd86a84aad24c68efbdb6}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{WorldClim: Global Climate Data}
+      \field{urlday}{5}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://worldclim.org/data/index.html
+      \endverb
+      \verb{url}
+      \verb https://worldclim.org/data/index.html
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

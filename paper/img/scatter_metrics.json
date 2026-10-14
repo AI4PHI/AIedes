@@ -1,0 +1,9 @@
+{
+  "heldout_log_r2": 0.6796379173112566,
+  "heldout_r2": 0.5657132441491273,
+  "heldout_rmse": 26.11621448437009,
+  "observations": 5129,
+  "training_log_r2": 0.85017704162781,
+  "training_r2": 0.7122907947734942,
+  "traps": 387
+}

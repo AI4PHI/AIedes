@@ -1,0 +1,359 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{Wilkerson2020}
+R.~C. Wilkerson, Y.-M. Linton, D.~Strickman, Mosquitoes of the World, Johns
+  Hopkins University Press, Baltimore, MD, USA, 2020.
+
+\bibitem{kraemer2019}
+M.~U. Kraemer, R.~C. Reiner~Jr, O.~J. Brady, J.~P. Messina, M.~Gilbert, D.~M.
+  Pigott, D.~Yi, K.~Johnson, L.~Earl, L.~B. Marczak, et~al., Past and future
+  spread of the arbovirus vectors \textit{Aedes aegypti} and \textit{Aedes
+  albopictus}, Nature Microbiology 4~(5) (2019) 854--863.
+
+\bibitem{ryan2019}
+S.~J. Ryan, C.~J. Carlson, E.~A. Mordecai, L.~R. Johnson,
+  \href{https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0007213}{Global
+  expansion and redistribution of aedes-borne virus transmission risk with
+  climate change}, PLoS Neglected Tropical Diseases 13~(3) (2019) e0007213.
+\newblock \href {https://doi.org/10.1371/journal.pntd.0007213}
+  {\path{doi:10.1371/journal.pntd.0007213}}.
+\newline\urlprefix\url{https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0007213}
+
+\bibitem{ecdc2024b}
+{European Centre for Disease Prevention and Control and European Food Safety
+  Authority},
+  \href{https://ecdc.europa.eu/en/disease-vectors/surveillance-and-disease-data/mosquito-maps}{\textit{Aedes
+  albopictus} - current known distribution: June 2025} (2025).
+\newline\urlprefix\url{https://ecdc.europa.eu/en/disease-vectors/surveillance-and-disease-data/mosquito-maps}
+
+\bibitem{hawley1988}
+W.~A. Hawley, The biology of \textit{Aedes albopictus}, Journal of the American
+  Mosquito Control Association 4~(2) (1988) 1--39.
+
+\bibitem{kraemer2015}
+M.~U. Kraemer, M.~E. Sinka, K.~A. Duda, A.~Q. Mylne, F.~M. Shearer, C.~M.
+  Barker, C.~G. Moore, R.~G. Carvalho, G.~E. Coelho, W.~Van~Bortel, et~al., The
+  global distribution of the arbovirus vectors aedes aegypti and ae.
+  albopictus, elife 4 (2015) e08347.
+
+\bibitem{Rezza2007}
+G.~Rezza, L.~Nicoletti, R.~Angelini, R.~Romi, A.~C. Finarelli, M.~Panning,
+  A.~Cassone, Infection with chikungunya virus in italy: an outbreak in a
+  temperate region, Lancet 370~(9602) (2007) 1840--1846.
+
+\bibitem{Cattaneo2023}
+P.~e.~a. Cattaneo, Transmission of autochthonous aedes-borne arboviruses and
+  related public health challenges in europe 2007–2023: a systematic review
+  and secondary analysis, The Lancet Regional Health – Europe 51 (2023)
+  101231.
+\newblock \href {https://doi.org/10.1016/j.lanepe.2025.101231}
+  {\path{doi:10.1016/j.lanepe.2025.101231}}.
+
+\bibitem{guzzetta2016}
+G.~Guzzetta, F.~Montarsi, F.~A. Baldacchino, M.~Metz, G.~Capelli, A.~Rizzoli,
+  A.~Pugliese, R.~Ros{\`a}, P.~Poletti, S.~Merler, Potential risk of dengue and
+  chikungunya outbreaks in northern italy based on a population model of aedes
+  albopictus (diptera: Culicidae), PLoS Neglected Tropical Diseases 10~(6)
+  (2016) e0004762.
+\newblock \href {https://doi.org/10.1371/journal.pntd.0004762}
+  {\path{doi:10.1371/journal.pntd.0004762}}.
+
+\bibitem{Kioutsioukis2019}
+I.~Kioutsioukis, N.~I. Stilianakis, Assessment of west nile virus transmission
+  risk from a weather-dependent epidemiological model and a global sensitivity
+  analysis framework, Acta Tropica 193 (2019) 129--141.
+\newblock \href {https://doi.org/10.1016/j.actatropica.2019.03.003}
+  {\path{doi:10.1016/j.actatropica.2019.03.003}}.
+
+\bibitem{li2019}
+R.~Li, L.~Xu, O.~N. Bj{\o}rnstad, K.~Liu, T.~Song, A.~Chen, B.~Xu, Q.~Liu,
+  N.~C. Stenseth, Climate-driven variation in mosquito density predicts the
+  spatiotemporal dynamics of dengue, Proceedings of the National Academy of
+  Sciences 116~(9) (2019) 3624--3629.
+
+\bibitem{tran2020}
+A.~Tran, M.~Mangeas, M.~Demarchi, E.~Roux, P.~Degenne, M.~Haramboure,
+  G.~Le~Goff, D.~Damiens, L.-C. Gouagna, V.~Herbreteau, et~al., Complementarity
+  of empirical and process-based approaches to modelling mosquito population
+  dynamics with aedes albopictus as an example—application to the development
+  of an operational mapping tool of vector populations, PloS one 15~(1) (2020)
+  e0227407.
+
+\bibitem{angelou2021}
+A.~Angelou, I.~Kioutsioukis, N.~I. Stilianakis,
+  \href{https://www.sciencedirect.com/science/article/pii/S2352771421001208}{A
+  climate-dependent spatial epidemiological model for the transmission risk of
+  west nile virus at local scale}, One Health 13 (2021) 100330.
+\newblock \href {https://doi.org/https://doi.org/10.1016/j.onehlt.2021.100330}
+  {\path{doi:https://doi.org/10.1016/j.onehlt.2021.100330}}.
+\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S2352771421001208}
+
+\bibitem{dare2022}
+D.~Da~Re, W.~Van~Bortel, F.~Reuss, et~al.,
+  \href{https://parasitesandvectors.biomedcentral.com/articles/10.1186/s13071-022-05414-4}{dynamaedes:
+  a unified modelling framework for invasive \textit{Aedes} mosquitoes},
+  Parasites \& Vectors 15 (2022) 414.
+\newblock \href {https://doi.org/10.1186/s13071-022-05414-4}
+  {\path{doi:10.1186/s13071-022-05414-4}}.
+\newline\urlprefix\url{https://parasitesandvectors.biomedcentral.com/articles/10.1186/s13071-022-05414-4}
+
+\bibitem{davis2024}
+E.~L. Davis, L.~J. Reimer, L.~Pellis, H.~M. Lyons, An analytically tractable,
+  age-structured model of the impact of vector control on mosquito-transmitted
+  infections, PLoS Computational Biology 20~(1) (2024) e1011440.
+
+\bibitem{Barman2025}
+S.~Barman, J.~C. Semenza, P.~Singh, H.~Sjödin, J.~Rocklöv, J.~Wallin, A
+  climate and population dependent diffusion model forecasts the spread of
+  aedes albopictus mosquitoes in europe, Communications Earth \& Environment
+  6~(1) (2025) 276.
+\newblock \href {https://doi.org/https://doi.org/10.1038/s43247-025-02199-z}
+  {\path{doi:https://doi.org/10.1038/s43247-025-02199-z}}.
+
+\bibitem{Stilianakis2016}
+N.~Stilianakis, V.~Syrris, T.~Petroliagkis, P.~Pärt, S.~Gewehr,
+  S.~Kalaitzopoulou, S.~Mourelatos, A.~Baka, D.~Pervanidou, J.~Vontas,
+  C.~Hadjichristodoulou, Identification of climatic factors affecting the
+  epidemiology of human west nile virus infections in northern greece, PLoS ONE
+  11 (09 2016).
+\newblock \href {https://doi.org/10.1371/journal.pone.0161510}
+  {\path{doi:10.1371/journal.pone.0161510}}.
+
+\bibitem{zardini2024}
+A.~Zardini, F.~Menegale, A.~Gobbi, M.~Manica, G.~Guzzetta, V.~d'Andrea,
+  V.~Marziano, F.~Trentini, F.~Montarsi, B.~Caputo, et~al., Estimating the
+  potential risk of transmission of arboviruses in the americas and europe: a
+  modelling study, The Lancet Planetary Health 8~(1) (2024) e30--e40.
+
+\bibitem{Yang2021}
+B.~Yang, B.~A. Borgert, B.~W. Alto, C.~K. Boohene, J.~Brew, K.~Deutsch, J.~T.
+  DeValerio, R.~R. Dinglasan, D.~Dixon, J.~M. Faella, S.~L. Fisher-Grainger,
+  G.~E. Glass, R.~Hayes, D.~F. Hoel, A.~Horton, A.~Janusauskaite, B.~Kellner,
+  M.~U.~G. Kraemer, K.~J. Lucas, J.~Medina, D.~A.~T. Cummings, Modelling
+  distributions of aedes aegypti and aedes albopictus using climate, host
+  density and interspecies competition, PLoS neglected tropical diseases 15~(3)
+  (2021) e0009063.
+\newblock \href {https://doi.org/10.1371/journal.pntd.0009063}
+  {\path{doi:10.1371/journal.pntd.0009063}}.
+
+\bibitem{Lim2023}
+A.~Y. Lim, Y.~Jafari, J.~M. Caldwell, H.~E. Clapham, K.~A.~M. Gaythorpe,
+  L.~Hussain-Alkhateeb, M.~A. Johansson, M.~U.~G. Kraemer, R.~J. Maude, C.~P.
+  McCormack, J.~P. Messina, E.~A. Mordecai, I.~B. Rabe, R.~C. Reiner, S.~J.
+  Ryan, H.~Salje, J.~C. Semenza, D.~P. Rojas, O.~J. Brady, A systematic review
+  of the data, methods and environmental covariates used to map aedes-borne
+  arbovirus transmission risk, BMC infectious diseases 23~(1) (2023) 708.
+\newblock \href {https://doi.org/10.1186/s12879-023-08717-8}
+  {\path{doi:10.1186/s12879-023-08717-8}}.
+
+\bibitem{Barker2022}
+J.~R. Barker, H.~J. MacIsaac,
+  \href{https://doi.org/10.1016/j.ecolmodel.2022.110073}{Species distribution
+  models applied to mosquitoes: Use, quality assessment, and recommendations
+  for best practice}, Ecological Modelling 472 (2022) 110073.
+\newblock \href {https://doi.org/10.1016/j.ecolmodel.2022.110073}
+  {\path{doi:10.1016/j.ecolmodel.2022.110073}}.
+\newline\urlprefix\url{https://doi.org/10.1016/j.ecolmodel.2022.110073}
+
+\bibitem{Lippi2023}
+C.~A. Lippi, S.~J. Mundis, R.~Sippy, et~al., Trends in mosquito species
+  distribution modeling: insights for vector surveillance and disease control,
+  Parasites and Vectors 16 (2023) 302.
+\newblock \href {https://doi.org/10.1186/s13071-023-05912-z}
+  {\path{doi:10.1186/s13071-023-05912-z}}.
+
+\bibitem{Georgiades2023}
+P.~Georgiades, Y.~Proestos, J.~Lelieveld, K.~Erguler, Machine learning modeling
+  of aedes albopictus habitat suitability in the 21st century, Insects 14~(5)
+  (2023) 447.
+\newblock \href {https://doi.org/10.3390/insects14050447}
+  {\path{doi:10.3390/insects14050447}}.
+
+\bibitem{Taheri2025}
+S.~Taheri, M.~A. Gonz\'alez, M.~J. Ruiz-L\'opez, R.~Soriguer, J.~Figuerola,
+  Patterns of west nile virus vector co-occurrence and spatial overlap with
+  human cases across europe, One Health 20 (2025) 101041.
+\newblock \href {https://doi.org/https://doi.org/10.1016/j.onehlt.2025.101041}
+  {\path{doi:https://doi.org/10.1016/j.onehlt.2025.101041}}.
+
+\bibitem{dare2025}
+D.~Da~Re, G.~Marini, C.~Bonannella, F.~Laurini, M.~Manica, N.~Anicic,
+  A.~Albieri, P.~Angelini, D.~Arnoldi, F.~Bertola, B.~Caputo, C.~De~Liberato,
+  A.~Della~Torre, E.~Flacio, A.~Franceschini, F.~Gradoni, P.~Kadriaj,
+  V.~Lencioni, I.~Del~Lesto, F.~Russa, R.~Rosà, Modelling the seasonal
+  dynamics of \textit{Aedes albopictus} populations using a spatio-temporal
+  stacked machine learning model, Scientific Reports 15~(1) (2025) 3750.
+\newblock \href {https://doi.org/10.1038/s41598-025-87554-y}
+  {\path{doi:10.1038/s41598-025-87554-y}}.
+
+\bibitem{kraemer2025}
+M.~U.~G. Kraemer, J.~L.~H. Tsui, S.~Y. Chang, et~al.,
+  \href{https://www.nature.com/articles/s41586-024-08564-w}{Artificial
+  intelligence for modelling infectious disease epidemics}, Nature 638 (2025)
+  623--635.
+\newblock \href {https://doi.org/10.1038/s41586-024-08564-w}
+  {\path{doi:10.1038/s41586-024-08564-w}}.
+\newline\urlprefix\url{https://www.nature.com/articles/s41586-024-08564-w}
+
+\bibitem{Yuan2020}
+Q.~Yuan, H.~Shen, T.~Li, Z.~Li, S.~Li, Y.~Jiang, H.~Xu, W.~Tan, Q.~Yang,
+  J.~Wang, J.~Gao, L.~Zhang, Deep learning in environmental remote sensing:
+  Achievements and challenges, Remote Sensing of Environment 241 (2020) 111716.
+\newblock \href {https://doi.org/10.1016/j.rse.2020.111716}
+  {\path{doi:10.1016/j.rse.2020.111716}}.
+
+\bibitem{Mordecai2019}
+E.~A. Mordecai, J.~M. Caldwell, M.~K. Grossman, C.~A. Lippi, L.~R. Johnson,
+  M.~Neira, J.~R. Rohr, S.~J. Ryan, V.~Savage, M.~S. Shocket, R.~Sippy, A.~M.
+  Stewart~Ibarra, M.~B. Thomas, O.~Villena, Thermal biology of mosquito-borne
+  disease, Ecology Letters 22~(10) (2019) 1690--1708.
+\newblock \href {https://doi.org/10.1111/ele.13335}
+  {\path{doi:10.1111/ele.13335}}.
+
+\bibitem{beckjohnson2013}
+L.~M. Beck-Johnson, W.~A. Nelson, K.~P. Paaijmans, A.~F. Read, M.~B. Thomas,
+  O.~N. Bjørnstad, The effect of temperature on \textit{Anopheles} mosquito
+  population dynamics and the potential for malaria transmission, PLoS One
+  8~(11) (2013) e79276.
+\newblock \href {https://doi.org/10.1371/journal.pone.0079276}
+  {\path{doi:10.1371/journal.pone.0079276}}.
+
+\bibitem{kinney2024rapid}
+A.~C. Kinney, R.~Barrera, J.~Lega, Rapid and accurate mosquito abundance
+  forecasting with aedes-ai neural networks, arXiv preprint arXiv:2408.16152
+  (2024).
+
+\bibitem{zhang2024integrating}
+M.~Zhang, X.~Wang, S.~Tang, Integrating dynamic models and neural networks to
+  discover the mechanism of meteorological factors on aedes population, PLOS
+  Computational Biology 20~(9) (2024) e1012499.
+
+\bibitem{Wint2023}
+G.~R.~W. Wint, T.~Balenghien, E.~Berriatua, M.~Braks, C.~Marsboom, J.~Medlock,
+  F.~Schaffner, W.~Van~Bortel, N.~Alexander, B.~Alten, E.~Czwienczek,
+  S.~Dhollander, E.~Ducheyne, C.~M. Gossner, K.~Hansford, G.~Hendrickx,
+  H.~Honrubia, T.~Matheussen, A.~D. Mihalca, D.~Petric, O.~Briet, Vectornet:
+  collaborative mapping of arthropod disease vectors in europe and surrounding
+  areas since 2010, Euro surveillance: bulletin Europ{\'e}en sur les maladies
+  transmissibles = European communicable disease bulletin 28~(26) (2023)
+  2200666.
+\newblock \href {https://doi.org/10.2807/1560-7917.ES.2023.28.26.2200666}
+  {\path{doi:10.2807/1560-7917.ES.2023.28.26.2200666}}.
+
+\bibitem{biazzo2026_datasets}
+I.~Biazzo, S.~Consoli, L.~Orfei, L.~Schuh, P.~V. Markov, Harmonised climate and
+  {\textit{aedes albopictus}} arboviral vector mosquito surveillance datasets
+  for the {European} continent, submitted to \textit{Scientific Data} (2026).
+
+\bibitem{Manica2017}
+M.~Manica, R.~Rosà, A.~Della~Torre, B.~Caputo, From eggs to bites: do ovitrap
+  data provide reliable estimates of aedes albopictus biting females?, PeerJ 5
+  (2017) e2998.
+\newblock \href {https://doi.org/10.7717/peerj.2998}
+  {\path{doi:10.7717/peerj.2998}}.
+
+\bibitem{Steindorf2025}
+V.~Steindorf, K.~B., H.~M., N.~Stollenwerk, A.~Cevidanes, J.~F. Barandika,
+  P.~Vazquez, A.~L. García-Pérez, M.~Aguiar, Forecasting invasive mosquito
+  abundance in the basque country, spain using machine learning techniques,
+  Parasites \& Vectors 18~(1) (2025) 109.
+\newblock \href {https://doi.org/10.1186/s13071-025-06733-y}
+  {\path{doi:10.1186/s13071-025-06733-y}}.
+
+\bibitem{miranda2022aimsurv}
+M.~{\'A}. Miranda, C.~Barcel{\'o}, D.~Arnoldi, X.~Augsten, K.~Bakran-Lebl,
+  G.~Balatsos, M.~Bengoa, P.~Bindler, K.~Bor{\v{s}}ov{\'a}, M.~Bourquia,
+  D.~Bravo-Barriga, V.~{\v{C}}abanov{\'a}, B.~Caputo, M.~Christou, S.~Delacour,
+  R.~Eritja, O.~Fassi-Fihri, M.~Ferraguti, E.~Flacio, E.~Frontera, et~al.,
+  \href{https://doi.org/10.46471/gigabyte.57}{Aimsurv: First pan-european
+  harmonized surveillance of aedes invasive mosquito species of relevance for
+  human vector-borne diseases}, GigaByte (Hong Kong, China) (2022).
+\newblock \href {https://doi.org/10.46471/gigabyte.57}
+  {\path{doi:10.46471/gigabyte.57}}.
+\newline\urlprefix\url{https://doi.org/10.46471/gigabyte.57}
+
+\bibitem{VectorNet2025}
+{VectorNet, European Centre for Disease Prevention and Control, European Food
+  Safety Authority}, \href{https://doi.org/10.15468/f3k8r9}{Vectornet} (2025).
+\newline\urlprefix\url{https://doi.org/10.15468/f3k8r9}
+
+\bibitem{Romiti2022}
+F.~Romiti, R.~Casini, A.~Magliano, A.~Ermenegildi, C.~De~Liberato, Aedes
+  albopictus abundance and phenology along an altitudinal gradient in lazio
+  region (central italy), Parasites \& Vectors 15~(1) (2022) 92.
+\newblock \href {https://doi.org/https://doi.org/10.1186/s13071-022-05215-9}
+  {\path{doi:https://doi.org/10.1186/s13071-022-05215-9}}.
+
+\bibitem{copernicus_2025}
+{European Commission}, \href{https://www.copernicus.eu/en}{Copernicus:
+  {Europe's} eyes on {Earth}}, the European Union's Earth observation programme
+  (2025).
+\newline\urlprefix\url{https://www.copernicus.eu/en}
+
+\bibitem{vanVuuren2011}
+D.~P. van Vuuren, J.~Edmonds, M.~Kainuma, et~al., The representative
+  concentration pathways: an overview, Climatic Change 109 (2011) 5.
+\newblock \href {https://doi.org/10.1007/s10584-011-0148-z}
+  {\path{doi:10.1007/s10584-011-0148-z}}.
+
+\bibitem{worldclim_2023}
+WorldClim, \href{https://worldclim.org/data/index.html}{Worldclim: Global
+  climate data} (2025).
+\newline\urlprefix\url{https://worldclim.org/data/index.html}
+
+\bibitem{ERA5land2019}
+J.~Muñoz~Sabater, {ERA5-Land} hourly data from 1950 to present (2019).
+\newblock \href {https://doi.org/10.24381/cds.e2161bac}
+  {\path{doi:10.24381/cds.e2161bac}}.
+
+\bibitem{CDC}
+C.~for Disease~Control, Prevention,
+  \href{https://www.cdc.gov/mosquitoes/pdfs/aedeslifecycle-p.pdf}{{Aedes
+  Mosquito Lifecycle}} (2025).
+\newline\urlprefix\url{https://www.cdc.gov/mosquitoes/pdfs/aedeslifecycle-p.pdf}
+
+\bibitem{paszke2019pytorch}
+A.~Paszke, S.~Gross, F.~Massa, A.~Lerer, J.~Bradbury, G.~Chanan, T.~Killeen,
+  Z.~Lin, N.~Gimelshein, L.~Antiga, A.~Desmaison, A.~Kopf, E.~Yang, Z.~DeVito,
+  M.~Raison, A.~Tejani, S.~Chilamkurthy, B.~Steiner, L.~Fang, J.~Bai,
+  S.~Chintala, Pytorch: An imperative style, high-performance deep learning
+  library, in: Advances in Neural Information Processing Systems, Vol.~32,
+  2019.
+
+\bibitem{github2024aiedes}
+Authors, Aiedes: Neural network models for predicting mosquito presence and
+  abundance, \url{https://github.com/AI4PHI/AIedes} (2026).
+
+\bibitem{bishop2006pattern}
+C.~M. Bishop, Pattern Recognition and Machine Learning, Springer, 2006.
+
+\bibitem{kingma2014adam}
+D.~P. Kingma, J.~Ba, \href{https://arxiv.org/abs/1412.6980}{Adam: A method for
+  stochastic optimization}, arXiv preprint arXiv:1412.6980 (2014).
+\newline\urlprefix\url{https://arxiv.org/abs/1412.6980}
+
+\bibitem{srivastava2014dropout}
+N.~Srivastava, G.~Hinton, A.~Krizhevsky, I.~Sutskever, R.~Salakhutdinov,
+  Dropout: A simple way to prevent neural networks from overfitting, Journal of
+  Machine Learning Research 15~(56) (2014) 1929--1958.
+
+\bibitem{ecdc2024a}
+{ECDC}, Aedes albopictus factsheet, available at:
+  \url{https://www.ecdc.europa.eu/en/disease-vectors/facts/mosquito-factsheets/aedes-albopictus}
+  (Accessed: 2025-03-11) (2024).
+
+\bibitem{biazzo2026_datasets_doi}
+I.~Biazzo, L.~Orfei, L.~Schuh, S.~Consoli, N.~I. Stilianakis, P.~V. Markov,
+  \href{http://data.europa.eu/89h/e4e68952-a02f-460d-8f85-eb630742741d}{Harmonised
+  climate and aedes albopictus arboviral vector mosquito surveillance datasets
+  for the european continent}, dataset (2026).
+\newblock \href {https://doi.org/10.2905/e4e68952-a02f-460d-8f85-eb630742741d}
+  {\path{doi:10.2905/e4e68952-a02f-460d-8f85-eb630742741d}}.
+\newline\urlprefix\url{http://data.europa.eu/89h/e4e68952-a02f-460d-8f85-eb630742741d}
+
+\end{thebibliography}

@@ -1,0 +1,40 @@
+{
+  "rows": 5129,
+  "traps": 387,
+  "countries": 13,
+  "zeros": 4100,
+  "positives": 1029,
+  "all_zero_traps": 290,
+  "positive_traps": 97,
+  "target_quantiles": {
+    "0.0": 0.0,
+    "0.5": 0.0,
+    "0.8": 0.8300000000000409,
+    "0.9": 18.0,
+    "0.95": 51.0,
+    "0.99": 213.0,
+    "1.0": 661.5
+  },
+  "positive_quantiles": {
+    "0.25": 6.0,
+    "0.5": 18.0,
+    "0.75": 51.0,
+    "0.9": 123.20000000000005,
+    "0.95": 213.0,
+    "1.0": 661.5
+  },
+  "start": "2020-01-03 00:00:00",
+  "end": "2020-12-30 00:00:00",
+  "missing_lag1": 680,
+  "missing_lag2": 1091,
+  "sha256": "7b55357d50deb7ddb63017a6adcd937a65b826c55582e36f24517a0ef8e41811",
+  "bin_edges": [
+    0,
+    6,
+    18,
+    51,
+    200
+  ],
+  "representative_seed": 42,
+  "note": "Diagnostic target bins use full-dataset quartiles for positive rates, rounded as shown; not a frozen production protocol."
+}

@@ -1,0 +1,50 @@
+{
+  "n": 5129,
+  "n_train": 4103,
+  "n_test": 1026,
+  "variables": [
+    "t2m_mean_znorm",
+    "d2m_mean_znorm",
+    "tp_sum_znorm",
+    "p1zn",
+    "p2zn"
+  ],
+  "split_seed": 14,
+  "stratification_bins": [
+    1
+  ],
+  "models": {
+    "archived": {
+      "path": "experiments/counter/data/modelpositive_ff_lossFrequencyWeightedMSLE_hid64_lay2_do0.2_lr1e-03_bs64_sd14_t2m_mean_znorm+d2m_mean_znorm+tp_sum_znorm+p1zn+p2zn.pth",
+      "architecture": "PositiveFeedForwardAbundanceModel(\n  (model): Sequential(\n    (0): Linear(in_features=274, out_features=64, bias=True)\n    (1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n    (2): ReLU()\n    (3): Dropout(p=0.2, inplace=False)\n  )\n  (fc): Linear(in_features=64, out_features=1, bias=True)\n)",
+      "metrics": {
+        "train": {
+          "r2": 0.697840938471222,
+          "rmse": 22.72147560119629,
+          "binary_accuracy": 0.9522300755544724
+        },
+        "test": {
+          "r2": 0.6314907217608693,
+          "rmse": 19.360212326049805,
+          "binary_accuracy": 0.919103313840156
+        }
+      }
+    },
+    "rerun_seed14": {
+      "path": "experiments/counter/results/WMSLE/drop0.2_layer2_hidden64_varst2m_mean_znorm_d2m_mean_znorm_tp_sum_znorm_p1zn_p2zn_seed14/modelpositive_ff_lossFrequencyWeightedMSLE_hid64_lay2_do0.2_lr1e-03_bs64_sd14_t2m_mean_znorm+d2m_mean_znorm+tp_sum_znorm+p1zn+p2zn.pth",
+      "architecture": "PositiveFeedForwardAbundanceModel(\n  (model): Sequential(\n    (0): Linear(in_features=274, out_features=64, bias=True)\n    (1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n    (2): ReLU()\n    (3): Dropout(p=0.2, inplace=False)\n  )\n  (fc): Linear(in_features=64, out_features=1, bias=True)\n)",
+      "metrics": {
+        "train": {
+          "r2": 0.6922555083831556,
+          "rmse": 22.930517196655273,
+          "binary_accuracy": 0.9541798683889837
+        },
+        "test": {
+          "r2": 0.6219346786667279,
+          "rmse": 19.60962677001953,
+          "binary_accuracy": 0.9181286549707602
+        }
+      }
+    }
+  }
+}

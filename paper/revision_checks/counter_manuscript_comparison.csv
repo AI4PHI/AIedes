@@ -1,0 +1,30 @@
+reference,loss,input_variables,dropout,num_layers,hidden_dim,metric,original_mean,original_sem,rerun_mean,rerun_sem,delta,rerun_rank
+main_row1,WMSLE,t2m_mean_znorm; d2m_mean_znorm; tp_sum_znorm; p1zn; p2zn,0.2,2,64,test_r2,0.627,0.006,0.6266906654308724,0.01050420065709607,-0.00030933456912762836,1.0
+main_row1,WMSLE,t2m_mean_znorm; d2m_mean_znorm; tp_sum_znorm; p1zn; p2zn,0.2,2,64,test_loss,0.59,0.02,0.5858556017389193,0.03327188844165614,-0.004144398261080706,1.0
+main_row1,WMSLE,t2m_mean_znorm; d2m_mean_znorm; tp_sum_znorm; p1zn; p2zn,0.2,2,64,test_binary_accuracy,0.92,0.002,0.9185185185185185,0.0009038614518027023,-0.001481481481481528,1.0
+main_row1,WMSLE,t2m_mean_znorm; d2m_mean_znorm; tp_sum_znorm; p1zn; p2zn,0.2,2,64,test_rmse,22.6,1.3,23.33134765625,1.7873296384155009,0.7313476562499979,1.0
+main_row2,WMSLE,t2m_mean_znorm; d2m_mean_znorm; tp_sum_znorm; p1zn; p2zn,0.0,2,64,test_r2,0.626,0.014,0.6180856856619771,0.01752047558777856,-0.00791431433802292,3.0
+main_row2,WMSLE,t2m_mean_znorm; d2m_mean_znorm; tp_sum_znorm; p1zn; p2zn,0.0,2,64,test_loss,0.63,0.04,0.7038003451683965,0.06046690417015338,0.07380034516839651,3.0
+main_row2,WMSLE,t2m_mean_znorm; d2m_mean_znorm; tp_sum_znorm; p1zn; p2zn,0.0,2,64,test_binary_accuracy,0.919,0.001,0.9208576998050683,0.001040650901757438,0.0018576998050682247,3.0
+main_row2,WMSLE,t2m_mean_znorm; d2m_mean_znorm; tp_sum_znorm; p1zn; p2zn,0.0,2,64,test_rmse,23.4,1.9,22.930719757080077,1.818702869749348,-0.4692802429199219,3.0
+main_row3,WMSLE,t2m_mean_znorm; d2m_mean_znorm; tp_sum_znorm; p1zn; p2zn,0.4,2,64,test_r2,0.619,0.005,0.6167543655106198,0.009633918898792403,-0.0022456344893801994,4.0
+main_row3,WMSLE,t2m_mean_znorm; d2m_mean_znorm; tp_sum_znorm; p1zn; p2zn,0.4,2,64,test_loss,0.59,0.04,0.554086642449393,0.030233854870191076,-0.035913357550606984,4.0
+main_row3,WMSLE,t2m_mean_znorm; d2m_mean_znorm; tp_sum_znorm; p1zn; p2zn,0.4,2,64,test_binary_accuracy,0.92,0.001,0.9187134502923977,0.0014972993660562655,-0.0012865497076023358,4.0
+main_row3,WMSLE,t2m_mean_znorm; d2m_mean_znorm; tp_sum_znorm; p1zn; p2zn,0.4,2,64,test_rmse,22.9,1.3,23.625024032592773,1.7468547431055945,0.7250240325927741,4.0
+main_row4,WMSLE,t2m_mean_znorm; tp_sum_znorm; p1zn; p2zn,0.2,2,64,test_r2,0.617,0.008,0.6130833783285274,0.005115160131856908,-0.003916621671472553,7.0
+main_row4,WMSLE,t2m_mean_znorm; tp_sum_znorm; p1zn; p2zn,0.2,2,64,test_loss,0.6,0.04,0.5761417795630062,0.027084669556968918,-0.023858220436993816,7.0
+main_row4,WMSLE,t2m_mean_znorm; tp_sum_znorm; p1zn; p2zn,0.2,2,64,test_binary_accuracy,0.921,0.002,0.9181286549707602,0.001823419779129587,-0.0028713450292398024,7.0
+main_row4,WMSLE,t2m_mean_znorm; tp_sum_znorm; p1zn; p2zn,0.2,2,64,test_rmse,22.9,1.4,23.560239410400392,1.6287921390068136,0.6602394104003935,7.0
+main_row5,WMSLE,t2m_mean_znorm; tp_sum_znorm; p1zn; p2zn,0.4,2,64,test_r2,0.616,0.01,0.6103003792743545,0.004908218988385097,-0.005699620725645449,9.0
+main_row5,WMSLE,t2m_mean_znorm; tp_sum_znorm; p1zn; p2zn,0.4,2,64,test_loss,0.57,0.03,0.5518774480504148,0.01831632871908962,-0.01812255194958512,9.0
+main_row5,WMSLE,t2m_mean_znorm; tp_sum_znorm; p1zn; p2zn,0.4,2,64,test_binary_accuracy,0.922,0.001,0.9224171539961012,0.002933707006489763,0.00041715399610120496,9.0
+main_row5,WMSLE,t2m_mean_znorm; tp_sum_znorm; p1zn; p2zn,0.4,2,64,test_rmse,22.9,1.2,23.827449798583984,1.7217103983899962,0.9274497985839858,9.0
+SI_WMSE,WMSE,t2m_mean_znorm(mean); tp_sum_znorm(mean); p1zn; p2zn,0.0,2,64,test_r2,0.643,0.005,0.6309413111125506,0.006602661222272339,-0.012058688887449431,5.0
+SI_WMSE,WMSE,t2m_mean_znorm(mean); tp_sum_znorm(mean); p1zn; p2zn,0.0,2,64,test_binary_accuracy,0.87,0.005,0.8695906432748538,0.004093567251462003,-0.0004093567251461927,5.0
+SI_WMSE,WMSE,t2m_mean_znorm(mean); tp_sum_znorm(mean); p1zn; p2zn,0.0,2,64,test_rmse,22.8,1.5,24.028712844848634,1.2055392567868461,1.2287128448486335,5.0
+SI_WMSLE,WMSLE,t2m_mean_znorm; d2m_mean_znorm; tp_sum_znorm; p1zn; p2zn,0.2,2,64,test_r2,0.629,0.005,0.6266906654308724,0.01050420065709607,-0.00230933456912763,1.0
+SI_WMSLE,WMSLE,t2m_mean_znorm; d2m_mean_znorm; tp_sum_znorm; p1zn; p2zn,0.2,2,64,test_binary_accuracy,0.919,0.002,0.9185185185185185,0.0009038614518027023,-0.00048148148148152714,1.0
+SI_WMSLE,WMSLE,t2m_mean_znorm; d2m_mean_znorm; tp_sum_znorm; p1zn; p2zn,0.2,2,64,test_rmse,22.6,1.2,23.33134765625,1.7873296384155009,0.7313476562499979,1.0
+SI_ZINB,ZINB,t2m_mean_znorm; tp_sum_znorm; p1zn; p2zn,0.4,3,64,test_r2,0.621,0.014,0.6190008620754984,0.011102889382498699,-0.0019991379245015706,3.0
+SI_ZINB,ZINB,t2m_mean_znorm; tp_sum_znorm; p1zn; p2zn,0.4,3,64,test_binary_accuracy,0.918,0.002,0.9148148148148149,0.0011366377962661381,-0.00318518518518518,3.0
+SI_ZINB,ZINB,t2m_mean_znorm; tp_sum_znorm; p1zn; p2zn,0.4,3,64,test_rmse,23.2,1.3,24.316731643676757,1.825638625850739,1.1167316436767578,3.0
