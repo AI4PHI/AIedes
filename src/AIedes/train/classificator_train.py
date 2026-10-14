@@ -7,7 +7,7 @@ import time
 from datetime import timedelta
 import tqdm
 
-def build_model(input_size, learning_rate, hidden_layers=None, bias=True, label_tensor=None, device=None):
+def build_model(input_size, learning_rate, hidden_layers=None, bias=True, label_tensor=None, device=None, verbose=True):
     """
     Build the AIedesClassificator model, loss function, and optimizer.
 
@@ -43,7 +43,8 @@ def build_model(input_size, learning_rate, hidden_layers=None, bias=True, label_
     
     # Count the number of trainable parameters
     total_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
-    print(f'Total number of trainable parameters: {total_params}')
+    if verbose:
+        print(f'Total number of trainable parameters: {total_params}')
     
     return model, criterion, optimizer
 
@@ -151,10 +152,11 @@ def train_model(
     test_loader,
     num_epochs,
     device=None,
-    metrics_dict=None
+    metrics_dict=None,
+    show_progress=True,
 ):
     """
-    Train the model and log train/val/test loss each epoch, with progress bars.
+    Train the model and log training and validation loss each epoch.
 
     Args:
         model:             The model to train.
@@ -180,9 +182,10 @@ def train_model(
         metrics_dict.setdefault('test_losses', [])
 
     total_start = time.time()
-    epoch_pbar = tqdm.tqdm(range(1, num_epochs + 1),
-                           desc="Epoch",
-                           position=0)
+    epoch_pbar = (
+        tqdm.tqdm(range(1, num_epochs + 1), desc="Epoch", position=0)
+        if show_progress else range(1, num_epochs + 1)
+    )
 
     for epoch in epoch_pbar:
         # ── TRAIN PHASE ─────────────────────────────────────────
@@ -205,49 +208,52 @@ def train_model(
             metrics_dict['train_losses'].append(epoch_train_loss)
 
         # ── VALIDATION PHASE ────────────────────────────────────
-        model.eval()
-        val_sum = 0.0
-        with torch.no_grad():
-            for X_val, y_val in val_loader:
-                X_val = X_val.to(device)
-                y_val = y_val.to(device)
-                val_preds = model(X_val).squeeze(1)
-                val_loss = criterion(val_preds, y_val)
-                val_sum += val_loss.item() * X_val.size(0)
-
-        epoch_val_loss = val_sum / len(val_loader.dataset)
-        if metrics_dict is not None:
-            metrics_dict['val_losses'].append(epoch_val_loss)
-
-        # ── TEST PHASE ──────────────────────────────────────────
-        test_sum = 0.0
-        with torch.no_grad():
-            for X_test, y_test in test_loader:
-                X_test = X_test.to(device)
-                y_test = y_test.to(device)
-                test_preds = model(X_test).squeeze(1)
-                test_loss = criterion(test_preds, y_test)
-                test_sum += test_loss.item() * X_test.size(0)
-
-        epoch_test_loss = test_sum / len(test_loader.dataset)
-        if metrics_dict is not None:
-            metrics_dict['test_losses'].append(epoch_test_loss)
+        epoch_val_loss = None
+        if val_loader is not None:
+            model.eval()
+            val_sum = 0.0
+            with torch.no_grad():
+                for X_val, y_val in val_loader:
+                    X_val = X_val.to(device)
+                    y_val = y_val.to(device)
+                    val_preds = model(X_val).squeeze(1)
+                    val_loss = criterion(val_preds, y_val)
+                    val_sum += val_loss.item() * X_val.size(0)
+            epoch_val_loss = val_sum / len(val_loader.dataset)
+            if metrics_dict is not None:
+                metrics_dict['val_losses'].append(epoch_val_loss)
 
         # ── UPDATE PROGRESS BAR ─────────────────────────────────
         elapsed = time.time() - total_start
         avg_time_per_epoch = elapsed / epoch
         eta = avg_time_per_epoch * (num_epochs - epoch)
 
-        epoch_pbar.set_postfix({
+        progress = {
             "train": f"{epoch_train_loss:.4f}",
-            "val":   f"{epoch_val_loss:.4f}",
-            "test":  f"{epoch_test_loss:.4f}",
             "elapsed": str(timedelta(seconds=int(elapsed))),
             "ETA":     str(timedelta(seconds=int(eta))),
-        })
+        }
+        if epoch_val_loss is not None:
+            progress["val"] = f"{epoch_val_loss:.4f}"
+        if test_loader is not None:
+            test_sum = 0.0
+            with torch.no_grad():
+                for X_test, y_test in test_loader:
+                    X_test = X_test.to(device)
+                    y_test = y_test.to(device)
+                    test_preds = model(X_test).squeeze(1)
+                    test_loss = criterion(test_preds, y_test)
+                    test_sum += test_loss.item() * X_test.size(0)
+            epoch_test_loss = test_sum / len(test_loader.dataset)
+            if metrics_dict is not None:
+                metrics_dict['test_losses'].append(epoch_test_loss)
+            progress["test"] = f"{epoch_test_loss:.4f}"
+        if show_progress:
+            epoch_pbar.set_postfix(progress)
 
     total_time = time.time() - total_start
-    print(f"Training completed in {timedelta(seconds=int(total_time))}")
+    if show_progress:
+        print(f"Training completed in {timedelta(seconds=int(total_time))}")
     return model
 
 

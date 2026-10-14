@@ -4,6 +4,69 @@ import numpy as np
 import torch
 from torch.utils.data import Dataset, DataLoader
 
+
+def fit_standardizer(X_train):
+    """Fit feature-wise scaling parameters using training observations only."""
+    X_train = np.asarray(X_train, dtype=np.float32)
+    mean = X_train.mean(axis=0)
+    std = X_train.std(axis=0)
+    std[std == 0] = 1.0
+    return {"mean": mean, "std": std}
+
+
+def apply_standardizer(X, scaler):
+    """Apply scaling parameters returned by :func:`fit_standardizer`."""
+    X = np.asarray(X, dtype=np.float32)
+    return (X - scaler["mean"]) / scaler["std"]
+
+
+def get_data_loaders_from_indices(
+    X,
+    y,
+    train_idx,
+    val_idx=None,
+    test_idx=None,
+    batch_size=1024,
+    num_workers=0,
+    shuffle_train=True,
+):
+    """Create classifier loaders for explicitly supplied row-index partitions.
+
+    The scaler is fitted exclusively on ``train_idx`` and is returned with the
+    loaders so that it can be saved and reused for prediction maps.  This is an
+    additive helper: the legacy ``get_data_loaders`` API remains available.
+    """
+    X = np.asarray(X, dtype=np.float32)
+    y = np.asarray(y, dtype=np.float32)
+    train_idx = np.asarray(train_idx, dtype=int)
+    if train_idx.size == 0:
+        raise ValueError("The training partition is empty.")
+    scaler = fit_standardizer(X[train_idx])
+
+    def make_loader(indices, shuffle=False):
+        if indices is None:
+            return None
+        indices = np.asarray(indices, dtype=int)
+        if indices.size == 0:
+            raise ValueError("A requested data partition is empty.")
+        dataset = MosquitoDataset(
+            torch.tensor(apply_standardizer(X[indices], scaler), dtype=torch.float32),
+            y[indices],
+        )
+        return DataLoader(
+            dataset,
+            batch_size=batch_size,
+            shuffle=shuffle,
+            num_workers=num_workers,
+        )
+
+    return (
+        make_loader(train_idx, shuffle=shuffle_train),
+        make_loader(val_idx),
+        make_loader(test_idx),
+        scaler,
+    )
+
 def normalize_temperature_df(df, mean_temp=9.3578, std_temp=8.02477):
     """
     Normalize the temperature columns in the DataFrame using mean and standard deviation.

@@ -1,5 +1,41 @@
 import torch
 
+
+def predict_probabilities(model, data_loader, device=None):
+    """Return true labels and sigmoid probabilities in loader order."""
+    model.eval()
+    labels_all = []
+    probabilities_all = []
+    with torch.no_grad():
+        for inputs, labels in data_loader:
+            inputs = inputs.to(device)
+            logits = model(inputs).squeeze(1)
+            probabilities_all.append(torch.sigmoid(logits).cpu())
+            labels_all.append(labels.cpu())
+    return torch.cat(labels_all).numpy(), torch.cat(probabilities_all).numpy()
+
+
+def classification_metrics(labels, probabilities, threshold=0.5):
+    """Calculate transparent cell-level binary-classification metrics."""
+    labels = torch.as_tensor(labels).to(torch.int64)
+    predicted = (torch.as_tensor(probabilities) >= threshold).to(torch.int64)
+    tp = int(((predicted == 1) & (labels == 1)).sum())
+    tn = int(((predicted == 0) & (labels == 0)).sum())
+    fp = int(((predicted == 1) & (labels == 0)).sum())
+    fn = int(((predicted == 0) & (labels == 1)).sum())
+    total = tp + tn + fp + fn
+    return {
+        "n": total,
+        "tp": tp,
+        "tn": tn,
+        "fp": fp,
+        "fn": fn,
+        "accuracy": (tp + tn) / total if total else 0.0,
+        "sensitivity": tp / (tp + fn) if tp + fn else 0.0,
+        "specificity": tn / (tn + fp) if tn + fp else 0.0,
+        "csi": tp / (tp + fp + fn) if tp + fp + fn else 0.0,
+    }
+
 def evaluate_model(model, test_loader, device=None):
     """
     Evaluate the model on a test dataset.

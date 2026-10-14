@@ -25,3 +25,22 @@ experiments/**/results/**/*.pkl
 experiments/**/results/**/*.pth
 experiments/**/results/**/*_loss.png
 experiments/**/results/**/job.log
+
+# Reproducible classifier pipeline: retain compact paper-facing tables, but not
+# regenerated inputs, fitted weights, resumable fit checkpoints, or backups.
+experiments/classifier/paper_results/input/*.csv.gz
+experiments/classifier/paper_results/models/
+experiments/classifier/paper_results/checkpoints/
+experiments/classifier/paper_results/*.partial.csv
+experiments/classifier/paper_results_backup_*/
+
+# LaTeX build intermediates (source, bibliography, figures, and final PDFs are
+# handled separately from these temporary files).
+paper/*.aux
+paper/*.bcf
+paper/*.blg
+paper/*.log
+paper/*.out
+paper/*.run.xml
+paper/*.spl
+paper/*.xdv

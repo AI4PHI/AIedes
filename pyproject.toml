@@ -18,6 +18,9 @@ dependencies = [
   "jupyter",
   "cartopy",
   "seaborn",
+  "matplotlib",
+  "scikit-learn",
+  "torch",
   "xarray",
   "rasterio",
   "netCDF4",  # netcdf4 package on pip is written like this

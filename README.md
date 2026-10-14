@@ -19,7 +19,7 @@ cd AIedes
 
 ```bash
 conda env create -f environment.yml
-conda activate aiedes
+conda activate aiedes-env
 ```
 
 ### 2.1. Install PyTorch
@@ -59,7 +59,7 @@ pip install -e .
 Two datasets are required to run the AIedes experiments:
 
 #### Required Datasets:
-1. **ECDC Albopictus 2023 Cordex 2020** (`.pkl` format)
+1. **ECDC Albopictus 2023 Cordex 2020** (compressed CSV archive)
    - **Purpose**: Classifier experiments (presence/absence prediction)
    - **Location**: Place in `experiments/classifier/data/`
 
@@ -76,7 +76,7 @@ These datasets are officially published and available from:
 ```
 experiments/
 ├── classifier/data/
-│   └── ECDC_Albopictus_2023_Cordex_2020.pkl  # For presence/absence experiments
+│   └── ecdc_albopictus_cordex_2020.zip  # For presence/absence experiments
 └── counter/data/
     └── AIMSurv_Albopictus_2020_ERA5_Land.pkl  # For abundance experiments
 ```
@@ -92,9 +92,8 @@ AIedes provides two main experiment types: **Classifier** (presence/absence pred
 Before running full experiments, test your installation:
 
 ```bash
-# Test classifier pipeline
-cd experiments/classifier
-python run_exp.py --num_epochs 10 --input_variables temp_tp
+# Test classifier pipeline components
+python -m unittest tests/test_classifier_revision.py
 
 # Test counter pipeline
 cd ../counter
@@ -103,39 +102,14 @@ cd ../counter
 
 #### 🎯 **Classifier Experiments** (Presence/Absence Prediction)
 
-**Basic Usage:**
+The revised paper workflow, its validation design, commands, and output files
+are documented in
+[`experiments/classifier/README.md`](experiments/classifier/README.md).
+
+**Complete paper analysis:**
 ```bash
-cd experiments/classifier
-
-# Single experiment with default parameters
-python run_exp.py --input_variables temp_tp --num_epochs 500
-
-# Custom architecture and features
-python run_exp.py \
-    --input_variables temp \
-    --layers "[64, 32]" \
-    --num_epochs 1000 \
-    --lr 0.001 \
-    --batch_size 512 \
-    --use_nuts3_split True
+AIEDES_JOBS=32 experiments/classifier/run_all_paper_results.sh
 ```
-
-**Grid Search Options:**
-```bash
-# Temperature-only experiments across architectures
-./run_exp_temp.sh
-
-# Temperature + precipitation experiments
-./run_exp_temp_tp.sh
-```
-
-**Key Parameters:**
-- `--input_variables`: `"temp"`, `"tp"`, or `"temp_tp"` (climate features)
-- `--layers`: Network architecture, e.g., `"[20,20]"`, `"[64,32,16]"`
-- `--use_nuts3_split`: `True` for geographic cross-validation, `False` for random splits
-- `--num_epochs`: Training epochs (default: 500)
-- `--lr`: Learning rate (default: 0.002)
-- `--batch_size`: Batch size (default: 1024)
 
 #### 📊 **Counter Experiments** (Abundance Estimation)
 
