@@ -250,6 +250,11 @@ I.~Biazzo, S.~Consoli, L.~Orfei, L.~Schuh, P.~V. Markov, Harmonised climate and
   {\textit{aedes albopictus}} arboviral vector mosquito surveillance datasets
   for the {European} continent, submitted to \textit{Scientific Data} (2026).
 
+\bibitem{ecdc2024a}
+{ECDC}, Aedes albopictus factsheet, available at:
+  \url{https://www.ecdc.europa.eu/en/disease-vectors/facts/mosquito-factsheets/aedes-albopictus}
+  (Accessed: 2025-03-11) (2024).
+
 \bibitem{Manica2017}
 M.~Manica, R.~Rosà, A.~Della~Torre, B.~Caputo, From eggs to bites: do ovitrap
   data provide reliable estimates of aedes albopictus biting females?, PeerJ 5
@@ -341,11 +346,6 @@ D.~P. Kingma, J.~Ba, \href{https://arxiv.org/abs/1412.6980}{Adam: A method for
 N.~Srivastava, G.~Hinton, A.~Krizhevsky, I.~Sutskever, R.~Salakhutdinov,
   Dropout: A simple way to prevent neural networks from overfitting, Journal of
   Machine Learning Research 15~(56) (2014) 1929--1958.
-
-\bibitem{ecdc2024a}
-{ECDC}, Aedes albopictus factsheet, available at:
-  \url{https://www.ecdc.europa.eu/en/disease-vectors/facts/mosquito-factsheets/aedes-albopictus}
-  (Accessed: 2025-03-11) (2024).
 
 \bibitem{biazzo2026_datasets_doi}
 I.~Biazzo, L.~Orfei, L.~Schuh, S.~Consoli, N.~I. Stilianakis, P.~V. Markov,

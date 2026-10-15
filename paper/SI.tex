@@ -58,7 +58,7 @@ As introduced in the Data and Methods section, under the subsection \textit{Aede
 
 Such spatial downscaling may introduce artefacts, particularly spurious presences in climatically unsuitable areas, due to the coarse administrative boundaries relative to environmental gradients. To mitigate these effects, following an approach similar to \cite{zardini2024}, we applied a climate suitability mask to filter out implausible conditions.
 
-Specifically, any grid cell classified as ``present'' after downscaling was reassigned to ``absent'' if local climate conditions fell outside ecological thresholds established in \cite{ecdc2024a}. The mask combined two independent suitability functions:
+Specifically, any grid cell classified as ``present'' after downscaling was reassigned to ``absent'' if local climate conditions fell outside the ecological thresholds reported in the ECDC guidelines \cite{ecdc2024a}, which define a more conservative climatic envelope than the one used by \cite{zardini2024}. The mask combined two independent suitability functions:
 \begin{itemize}
     \item precipitation suitability, requiring annual precipitation greater than or equal to $200~\text{mm}\,\text{yr}^{-1}$;
     \item temperature suitability, requiring both a mean temperature of the coldest month greater than or equal to $-3^{\circ}\text{C}$ to ensure egg overwintering, and an annual mean temperature greater than or equal to $10^{\circ}\text{C}$ to support development.
@@ -125,16 +125,14 @@ Figure~\ref{fig:map_comparison_SI} compares our predicted distribution of \emph{
 
 \section{Evaluation of Abundance Predictions}
 
-In the Results section of the main text, we reported the performance of the \texttt{AIedes}-counter in predicting mosquito abundance, specifically the weekly laying-egg rates. In the corresponding scatter plots shown in the main text, the model appears to slightly underpredict the observed values, particularly at higher egg counts. To determine whether this apparent deviation reflects a systematic bias or falls within the expected range of natural variability, we performed a Bland--Altman analysis on the test set (Fig.~\ref{fig:bland_altman}).
+In the Results section of the main text, we reported the performance of the \texttt{AIedes}-counter in predicting mosquito abundance, specifically the weekly egg-laying rates. In the corresponding scatter plots shown in the main text, the model appears to slightly underpredict the observed values, particularly at higher egg counts. To determine whether this apparent deviation reflects a systematic bias or falls within the expected range of natural variability, we performed a Bland--Altman analysis on the held-out-trap predictions (Fig.~\ref{fig:bland_altman}).
 
-The Bland--Altman plot compares the differences between predicted and observed egg counts against their mean values, thus enabling a direct evaluation of agreement beyond simple correlation metrics. The mean difference between predictions and observations was close to zero ($-0.79$), indicating the absence of systematic bias. The 95\% limits of agreement ($\pm1.96$ SD) ranged from approximately $-39$ to $+37$, capturing the natural variability inherent in oviposition data.  
-
-Overall, the analysis confirms that the \texttt{AIedes}-counter provides unbiased abundance predictions across the full dynamic range of observations. The observed dispersion reflects stochastic fluctuations in egg counts rather than structural model errors, supporting the robustness of our abundance predictions even in the presence of occasional over- or underestimation at extreme values.
+The Bland--Altman plot compares the differences between predicted and observed egg counts against their mean values, thus enabling a direct evaluation of agreement beyond simple correlation metrics. The mean difference between predictions and observations was close to zero ($-2.11$), indicating little overall mean bias. The 95\% limits of agreement ($\pm1.96$ SD) ranged from approximately $-53$ to $+49$, capturing the natural variability inherent in oviposition data.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.65\linewidth]{img/bland_altman_test.pdf}
-    \caption{Bland--Altman plot comparing predicted and observed egg counts in the test set. The mean difference ($-0.79$) indicates the absence of systematic bias, while the 95\% limits of agreement (dashed lines) reflect variability consistent with the stochasticity of oviposition data.}
+    \caption{Bland--Altman plot comparing predicted and observed egg counts for traps excluded from the corresponding training sets. The mean difference ($-2.11$) indicates little overall mean bias, while the 95\% limits of agreement (dashed lines) reflect variability consistent with the stochasticity of oviposition data.}
     \label{fig:bland_altman}
 \end{figure}
 
